@@ -146,10 +146,12 @@ document.querySelectorAll("[data-current-year]").forEach((node) => {
 // Register Service Worker
 if ("serviceWorker" in navigator && (window.location.protocol === "https:" || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
   window.addEventListener("load", () => {
-    const swPath = new URL("/service-worker.js", window.location.origin).pathname;
-    navigator.serviceWorker.register(swPath).catch(() => {
-      // In subdirectories or standalone preview, fallback to relative
-      navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+    // Resolve the worker from this shared module so it remains correct on
+    // GitHub Pages project paths and on root-domain deployments.
+    const workerUrl = new URL("../../service-worker.js", import.meta.url);
+    const scopeUrl = new URL("../../", import.meta.url);
+    navigator.serviceWorker.register(workerUrl.href, { scope: scopeUrl.pathname }).catch((error) => {
+      console.error("Weather Today service worker registration failed:", error);
     });
   });
 }
