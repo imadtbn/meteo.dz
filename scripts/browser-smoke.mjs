@@ -138,7 +138,7 @@ try {
   // PWA manifest and service-worker lifecycle checks.
   const pwaPage = await context.newPage();
   const pwaErrors = [];
-  pwaPage.on("pageerror", error => pwaErrors.push(error.message));
+  pwaPage.on("pageerror", error => pwaErrors.push(error.stack || error.message));
   await pwaPage.goto(BASE, { waitUntil: "domcontentloaded" });
   await pwaPage.waitForFunction(() => "serviceWorker" in navigator, { timeout: 10000 });
   await pwaPage.waitForFunction(async () => {
