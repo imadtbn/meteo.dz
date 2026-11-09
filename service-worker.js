@@ -4,7 +4,7 @@
  * Offline cache is a fallback, never the preferred source while online.
  */
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v6";
+const CACHE_NAME = CACHE_PREFIX + "v7";
 
 const STATIC_ASSETS = [
   "./",
@@ -75,7 +75,7 @@ self.addEventListener("fetch", (event) => {
 
     try {
       // Revalidate with the server instead of trusting the browser HTTP cache.
-      const networkResponse = await fetch(new Request(request, { cache: "no-cache" }));
+      const networkResponse = await fetch(new Request(request, { cache: "no-store" }));
 
       if (networkResponse && networkResponse.status === 200 &&
           networkResponse.type === "basic" &&
