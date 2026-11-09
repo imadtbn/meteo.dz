@@ -8,7 +8,11 @@ document.querySelectorAll("#primary-navigation a[data-i18n]").forEach(link=>{
   const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("viewBox","0 0 24 24");svg.setAttribute("class","nav-icon");svg.setAttribute("aria-hidden","true");svg.setAttribute("fill","none");svg.setAttribute("stroke","currentColor");svg.setAttribute("stroke-width","1.8");svg.setAttribute("stroke-linecap","round");svg.setAttribute("stroke-linejoin","round");
   const shape=document.createElementNS("http://www.w3.org/2000/svg","path");shape.setAttribute("d",path);svg.append(shape);link.prepend(svg);
 });
-document.querySelectorAll(".footer-links a").forEach(link=>{const icon=link.querySelector(".footer-link-icon");if(icon)icon.setAttribute("aria-hidden","true");});
+document.querySelectorAll(".footer-link-icon[data-icon]").forEach(wrapper=>{
+  const path=navIconPaths[wrapper.dataset.icon];if(!path)return;
+  const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("viewBox","0 0 24 24");svg.setAttribute("class","nav-icon");svg.setAttribute("aria-hidden","true");svg.setAttribute("fill","none");svg.setAttribute("stroke","currentColor");svg.setAttribute("stroke-width","1.8");svg.setAttribute("stroke-linecap","round");svg.setAttribute("stroke-linejoin","round");
+  const shape=document.createElementNS("http://www.w3.org/2000/svg","path");shape.setAttribute("d",path);svg.append(shape);wrapper.replaceChildren(svg);
+});
 
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector("#primary-navigation");
