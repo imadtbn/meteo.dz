@@ -50,16 +50,29 @@ self.addEventListener("fetch", (event) => {
   const scopePath = new URL(self.registration.scope).pathname;
   if (!url.pathname.startsWith(scopePath)) return;
 
-  event.respondWith(
-    caches.open(CACHE_NAME).then((cache) => cache.match(event.request)).then((cached) => {
-      const network = fetch(event.request).then((response) => {
-        if (response && response.status === 200 && response.type === "basic") {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-        }
-        return response;
-      }).catch(() => cached);
-      return cached || network;
-    })
-  );
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(event.request, { ignoreVary: true });
+    if (cached) return cached;
+
+    // Keep the application shell available for offline navigations, including
+    // browsers that issue a reload request with a different navigation header.
+    if (event.request.mode === "navigate") {
+      const appShell = await cache.match(new URL("./index.html", self.registration.scope).href, { ignoreVary: true });
+      if (appShell) return appShell;
+    }
+
+    try {
+      const response = await fetch(event.request);
+      if (response && response.status === 200 && response.type === "basic") {
+        await cache.put(event.request, response.clone());
+      }
+      return response;
+    } catch {
+      if (event.request.mode === "navigate") {
+        return await cache.match(new URL("./index.html", self.registration.scope).href, { ignoreVary: true }) || Response.error();
+      }
+      return Response.error();
+    }
+  })());
 });
