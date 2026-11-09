@@ -45,7 +45,7 @@ function svgNode(tag, attrs = {}) {
   return element;
 }
 
-export function createPlaceIllustration(scene, label, badge = "مرصد الأطلس") {
+export function createPlaceIllustration(scene, label, badge = "أجواء") {
   const colors = palettes[scene] || palettes.city;
   const root = document.createElement("div");
   root.className = "place-illustration place-illustration--" + (palettes[scene] ? scene : "city");

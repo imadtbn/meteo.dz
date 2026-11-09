@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="النشرة البحرية وحالة السواحل الجزائرية والبحر الأبيض المتوسط: ارتفاع الأمواج، الرياح البحرية، ودرجات حرارة المياه.">
+  <title>الطقس البحري والسواحل | أجواء</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="stylesheet" href="../assets/css/home-parity.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="أجواء | Ajwaa Weather">
+      <img src="../favicon.svg" width="42" height="42" alt="Ajwaa Logo">
+      <span><strong data-i18n="brand_title">أجواء</strong><small data-i18n="brand_sub">مرصد الطقس والمناخ</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="primary-navigation" id="primary-navigation" aria-label="التنقل الرئيسي">
+      <a href="../"  data-i18n="nav_home">الرئيسية</a>
+      <a href="../wilayas/"  data-i18n="nav_wilayas">الولايات</a>
+      <a href="../arab-capitals/"  data-i18n="nav_capitals">العواصم العربية</a>
+      <a href="../world-search/"  data-i18n="nav_world_search">بحث عالمي</a>
+      <a href="../map/"  data-i18n="nav_map">خريطة الطقس</a>
+      <a href="../climate-observatory/"  data-i18n="nav_climate">المرصد المناخي</a>
+      <a href="../agriculture-weather/"  data-i18n="nav_agri">الطقس الزراعي</a>
+      <a href="../marine/" aria-current="page" data-i18n="nav_marine">الطقس البحري</a>
+      <a href="../alerts/"  data-i18n="nav_alerts">الإنذارات</a>
+      <a href="../favorites/"  data-i18n="nav_favorites">المفضلة</a>
+    </nav>
+    <div class="header-actions">
+      <!-- Language Switcher -->
+      <select id="lang-select" class="lang-picker" aria-label="اختيار اللغة / Language">
+        <option value="ar">العربية</option>
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+      <button class="icon-button" type="button" data-action="theme" aria-label="تبديل الوضع الليلي" title="تبديل المظهر">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z" fill="currentColor"/></svg>
+      </button>
+      <button class="action-button" type="button" data-action="share" data-i18n="share">مشاركة</button>
+      <button class="action-button install-btn" type="button" data-action="install" data-i18n="install" style="display:none;">تثبيت</button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="status-dot"></span> السواحل والملاحة البحرية</span>
+        <h1 data-i18n="marine_title">النشرة البحرية وحالة الأمواج</h1>
+        <p>متابعة خاصة للمدن الساحلية الجزائرية الـ 11 والشريط الساحلي على البحر الأبيض المتوسط: ارتفاع الأمواج، اتجاهها، وفتراتها.</p>
+      </div>
+    </section>
+    <section class="content-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">المدن الساحلية</span><h2>اختر مدينة ساحلية</h2></div>
+        <p>11 ولاية ساحلية جزائرية مجهزة بقراءات بحرية متخصصة</p>
+      </div>
+      <div class="directory-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">
+
+          <a class="directory-card directory-card--visual" href="../weather/bejaia/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 06 · الساحل الشرقي</span>
+              <strong class="directory-card__title">ساحل بجاية</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/algiers/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 16 · الساحل الأوسط</span>
+              <strong class="directory-card__title">ساحل الجزائر العاصمة</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/jijel/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 18 · الساحل الشرقي</span>
+              <strong class="directory-card__title">ساحل جيجل</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/skikda/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 21 · الساحل الشرقي</span>
+              <strong class="directory-card__title">ساحل سكيكدة</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/annaba/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 23 · الساحل الشرقي</span>
+              <strong class="directory-card__title">ساحل عنابة</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/mostaganem/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 27 · الساحل الغربي</span>
+              <strong class="directory-card__title">ساحل مستغانم</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/oran/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 31 · الساحل الغربي</span>
+              <strong class="directory-card__title">ساحل وهران</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/boumerdes/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 35 · الساحل الأوسط</span>
+              <strong class="directory-card__title">ساحل بومرداس</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/el-tarf/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 36 · الساحل الشرقي</span>
+              <strong class="directory-card__title">ساحل الطارف</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/tipaza/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 42 · الساحل الأوسط</span>
+              <strong class="directory-card__title">ساحل تيبازة</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+          <a class="directory-card directory-card--visual" href="../weather/ain-temouchent/">
+            <span class="directory-card__body">
+              <span class="directory-card__meta">ولاية 46 · الساحل الغربي</span>
+              <strong class="directory-card__title">ساحل عين تموشنت</strong>
+              <span class="directory-card__action">عرض النشرة البحرية ←</span>
+            </span>
+          </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <a class="footer-brand" href="../">
+        <img src="../favicon.svg" width="32" height="32" alt="">
+        <span>أجواء | Ajwaa Weather</span>
+      </a>
+      <p data-i18n="data_source">المنصة المعتمدة للطقس والمناخ · بيانات مباشرة من Open-Meteo & NASA POWER</p>
+      <p>© <span data-current-year></span> أجواء. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="../assets/js/site.js"></script>
+</body>
+</html>
