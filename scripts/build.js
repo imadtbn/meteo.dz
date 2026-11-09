@@ -545,6 +545,13 @@ directoryConfig.forEach((cfg) => {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية.">
   <meta name="theme-color" content="#0c5b8c">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="Weather Today | الطقس اليوم - توقعات الطقس العالمية">
+  <meta property="og:description" content="حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/">
   <title>Weather Today | الطقس اليوم - توقعات الطقس العالمية</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.json">
