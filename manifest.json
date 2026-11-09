@@ -1,7 +1,7 @@
 {
-  "name": "أجواء | Ajwaa Weather",
-  "short_name": "أجواء",
-  "description": "منصة الطقس والمناخ المعتمدة في الجزائر والوطن العربي والعالم",
+  "name": "Weather Today | الطقس اليوم",
+  "short_name": "الطقس اليوم",
+  "description": "حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
