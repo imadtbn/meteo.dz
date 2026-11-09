@@ -3,6 +3,7 @@ const CACHE_NAME = CACHE_PREFIX + "v4";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
+  "./map/",
   "./manifest.json",
   "./favicon.svg",
   "./assets/icon.svg",
