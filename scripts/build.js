@@ -581,7 +581,7 @@ directoryConfig.forEach((cfg) => {
     <!-- Active Weather Card on Homepage -->
     <section class="content-section" id="active-weather-section">
       <div class="section-heading">
-        <div><span class="eyebrow">القراءة الحالية</span><h2 id="active-city-title">الجزائر العاصمة</h2></div>
+        <div><span class="eyebrow">القراءة الحالية</span><h2 id="active-city-title">الجزائر العاصمة</h2><span id="current-city-label" class="sr-only">النشرة الحالية: الجزائر العاصمة</span></div>
         <div class="active-card-actions">
           <button id="weather-refresh" class="button button-secondary" type="button" data-i18n="refresh">↻ تحديث</button>
           <button id="favorite-toggle" class="button button-primary" type="button" aria-pressed="false" data-i18n="add_favorite">☆ أضف للمفضلة</button>
