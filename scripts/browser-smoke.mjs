@@ -180,8 +180,21 @@ try {
 
   // The homepage must remain available from the service-worker cache without network.
   await context.setOffline(true);
-  const offlineResponse = await pwaPage.reload({ waitUntil: "domcontentloaded", timeout: 15000 }).catch(() => null);
-  if (!offlineResponse?.ok()) fail("PWA: homepage could not be reloaded offline from the service-worker cache");
+  const offlineFetch = await pwaPage.evaluate(async () => {
+    try {
+      const response = await fetch("./index.html");
+      return { ok: response.ok, status: response.status };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
+  }).catch(error => ({ ok: false, error: error.message }));
+  if (!offlineFetch.ok) fail(`PWA: cached index.html could not be fetched offline: ${JSON.stringify(offlineFetch)}`);
+
+  const offlineResponse = await pwaPage.goto(BASE + "index.html", {
+    waitUntil: "domcontentloaded",
+    timeout: 15000
+  }).catch(() => null);
+  if (!offlineResponse?.ok()) fail("PWA: homepage shell could not be opened offline from the service-worker cache");
   const offlineTitle = await pwaPage.title().catch(() => "");
   if (!offlineTitle.includes("Weather Today") && !offlineTitle.includes("الطقس اليوم")) {
     fail("PWA: offline homepage title/content did not load");
