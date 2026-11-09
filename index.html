@@ -3,9 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="منصة أجواء: المنصة المعتمدة للطقس والمناخ في الجزائر والوطن العربي والعالم. طقس 69 ولاية جزائرية، 22 عاصمة عربية، وبحث عالمي مباشر.">
+  <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية.">
   <meta name="theme-color" content="#0c5b8c">
-  <title>أجواء | Ajwaa Weather - مرصد الطقس والمناخ</title>
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="Weather Today | الطقس اليوم - توقعات الطقس العالمية">
+  <meta property="og:description" content="حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/">
+  <title>Weather Today | الطقس اليوم - توقعات الطقس العالمية</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./assets/css/site.css">
@@ -14,11 +21,11 @@
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main-content">تجاوز إلى المحتوى</a>
-
+  
   <header class="site-header">
-    <a class="brand" href="./" aria-label="أجواء | Ajwaa Weather">
-      <img src="./favicon.svg" width="42" height="42" alt="Ajwaa Logo">
-      <span><strong data-i18n="brand_title">أجواء</strong><small data-i18n="brand_sub">مرصد الطقس والمناخ</small></span>
+    <a class="brand" href="./" aria-label="Weather Today | الطقس اليوم">
+      <img src="./favicon.svg" width="42" height="42" alt="Weather Today">
+      <span><strong data-i18n="brand_title">الطقس اليوم</strong><small data-i18n="brand_sub">توقعات الطقس حول العالم</small></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة">
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -75,7 +82,7 @@
     <!-- Active Weather Card on Homepage -->
     <section class="content-section" id="active-weather-section">
       <div class="section-heading">
-        <div><span class="eyebrow">القراءة الحالية</span><h2 id="active-city-title">الجزائر العاصمة</h2></div>
+        <div><span class="eyebrow">القراءة الحالية</span><h2 id="active-city-title">الجزائر العاصمة</h2><span id="current-city-label" class="sr-only">النشرة الحالية: الجزائر العاصمة</span></div>
         <div class="active-card-actions">
           <button id="weather-refresh" class="button button-secondary" type="button" data-i18n="refresh">↻ تحديث</button>
           <button id="favorite-toggle" class="button button-primary" type="button" aria-pressed="false" data-i18n="add_favorite">☆ أضف للمفضلة</button>
@@ -98,6 +105,11 @@
         <div class="section-intro" style="margin-top:2rem;"><span>03 — نظرة أسبوعية</span><h2 data-i18n="daily_forecast">سبعة أيام قادمة</h2></div>
         <div class="daily-list" id="daily-list"></div>
       </div>
+
+      <section class="dashboard-shell insights-shell" id="insights" hidden style="margin-top:2rem;">
+        <div class="section-intro"><span>04 — قراءة أوسع</span><h2>نصائح ومؤشرات الطقس</h2></div>
+        <div class="insight-grid" id="insight-grid"></div>
+      </section>
 
       <!-- Marine Section -->
       <div class="dashboard-shell marine-section" id="marine" style="margin-top:2rem;">
@@ -129,49 +141,49 @@
         <p>22 عاصمة عربية بتغطية مباشرة</p>
       </div>
       <div class="feature-grid">
-
+        
           <a class="feature-card" href="./global-weather/?lat=36.7538&lon=3.0588&name=%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1%20%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9">
             <span class="feature-index">🌍</span>
             <h3>الجزائر العاصمة</h3>
             <p>الجزائر · Algiers</p>
             <span>عرض الطقس ←</span>
           </a>
-
+        
           <a class="feature-card" href="./global-weather/?lat=26.2235&lon=50.5876&name=%D8%A7%D9%84%D9%85%D9%86%D8%A7%D9%85%D8%A9">
             <span class="feature-index">🌍</span>
             <h3>المنامة</h3>
             <p>البحرين · Manama</p>
             <span>عرض الطقس ←</span>
           </a>
-
+        
           <a class="feature-card" href="./global-weather/?lat=-11.7172&lon=43.2473&name=%D9%85%D9%88%D8%B1%D9%88%D9%86%D9%8A">
             <span class="feature-index">🌍</span>
             <h3>موروني</h3>
             <p>جزر القمر · Moroni</p>
             <span>عرض الطقس ←</span>
           </a>
-
+        
           <a class="feature-card" href="./global-weather/?lat=11.5721&lon=43.1456&name=%D9%85%D8%AF%D9%8A%D9%86%D8%A9%20%D8%AC%D9%8A%D8%A8%D9%88%D8%AA%D9%8A">
             <span class="feature-index">🌍</span>
             <h3>مدينة جيبوتي</h3>
             <p>جيبوتي · Djibouti</p>
             <span>عرض الطقس ←</span>
           </a>
-
+        
           <a class="feature-card" href="./global-weather/?lat=30.0444&lon=31.2357&name=%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9">
             <span class="feature-index">🌍</span>
             <h3>القاهرة</h3>
             <p>مصر · Cairo</p>
             <span>عرض الطقس ←</span>
           </a>
-
+        
           <a class="feature-card" href="./global-weather/?lat=33.3152&lon=44.3661&name=%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF">
             <span class="feature-index">🌍</span>
             <h3>بغداد</h3>
             <p>العراق · Baghdad</p>
             <span>عرض الطقس ←</span>
           </a>
-
+        
       </div>
       <div style="text-align:center;margin-top:1.5rem;">
         <a class="button button-primary" href="./arab-capitals/">استعراض جميع العواصم العربية الـ 22 ←</a>
@@ -183,9 +195,10 @@
   <script type="application/json" id="capital-data">[{"slug":"algiers","country":"الجزائر","capital":"الجزائر العاصمة","englishName":"Algiers","latitude":36.7538,"longitude":3.0588},{"slug":"manama","country":"البحرين","capital":"المنامة","englishName":"Manama","latitude":26.2235,"longitude":50.5876},{"slug":"moroni","country":"جزر القمر","capital":"موروني","englishName":"Moroni","latitude":-11.7172,"longitude":43.2473},{"slug":"djibouti","country":"جيبوتي","capital":"مدينة جيبوتي","englishName":"Djibouti","latitude":11.5721,"longitude":43.1456},{"slug":"cairo","country":"مصر","capital":"القاهرة","englishName":"Cairo","latitude":30.0444,"longitude":31.2357},{"slug":"baghdad","country":"العراق","capital":"بغداد","englishName":"Baghdad","latitude":33.3152,"longitude":44.3661},{"slug":"amman","country":"الأردن","capital":"عمّان","englishName":"Amman","latitude":31.9539,"longitude":35.9106},{"slug":"kuwait-city","country":"الكويت","capital":"مدينة الكويت","englishName":"Kuwait City","latitude":29.3759,"longitude":47.9774},{"slug":"beirut","country":"لبنان","capital":"بيروت","englishName":"Beirut","latitude":33.8938,"longitude":35.5018},{"slug":"tripoli","country":"ليبيا","capital":"طرابلس","englishName":"Tripoli","latitude":32.8872,"longitude":13.1913},{"slug":"nouakchott","country":"موريتانيا","capital":"نواكشوط","englishName":"Nouakchott","latitude":18.0735,"longitude":-15.9582},{"slug":"rabat","country":"المغرب","capital":"الرباط","englishName":"Rabat","latitude":34.0209,"longitude":-6.8416},{"slug":"muscat","country":"عُمان","capital":"مسقط","englishName":"Muscat","latitude":23.588,"longitude":58.3829},{"slug":"ramallah","country":"فلسطين","capital":"رام الله (مرجع جغرافي)","englishName":"Ramallah","latitude":31.9038,"longitude":35.2034},{"slug":"doha","country":"قطر","capital":"الدوحة","englishName":"Doha","latitude":25.2854,"longitude":51.531},{"slug":"riyadh","country":"السعودية","capital":"الرياض","englishName":"Riyadh","latitude":24.7136,"longitude":46.6753},{"slug":"mogadishu","country":"الصومال","capital":"مقديشو","englishName":"Mogadishu","latitude":2.0469,"longitude":45.3182},{"slug":"khartoum","country":"السودان","capital":"الخرطوم","englishName":"Khartoum","latitude":15.5007,"longitude":32.5599},{"slug":"damascus","country":"سوريا","capital":"دمشق","englishName":"Damascus","latitude":33.5138,"longitude":36.2765},{"slug":"tunis","country":"تونس","capital":"تونس","englishName":"Tunis","latitude":36.8065,"longitude":10.1815},{"slug":"abu-dhabi","country":"الإمارات العربية المتحدة","capital":"أبوظبي","englishName":"Abu Dhabi","latitude":24.4539,"longitude":54.3773},{"slug":"sanaa","country":"اليمن","capital":"صنعاء","englishName":"Sana'a","latitude":15.3694,"longitude":44.191}]</script>
 
   <!-- Share Dialog Modal -->
-  <dialog id="share-dialog" class="share-dialog">
+  <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-title" aria-describedby="share-description">
     <div class="share-dialog__content">
       <h3 id="share-title">مشاركة حالة الطقس</h3>
+      <p id="share-description">تتضمن البطاقة الحرارة والحالة ووقت القراءة، مع رابط مباشر للمدينة.</p>
       <div id="share-preview" class="share-preview"></div>
       <div class="share-actions">
         <button id="share-copy" class="button button-secondary" type="button">نسخ الرابط</button>
@@ -197,15 +210,15 @@
     </div>
   </dialog>
 
-
+  
   <footer class="site-footer">
     <div class="footer-wrap">
       <a class="footer-brand" href="./">
         <img src="./favicon.svg" width="32" height="32" alt="">
-        <span>أجواء | Ajwaa Weather</span>
+        <span>Weather Today | الطقس اليوم</span>
       </a>
       <p data-i18n="data_source">المنصة المعتمدة للطقس والمناخ · بيانات مباشرة من Open-Meteo & NASA POWER</p>
-      <p>© <span data-current-year></span> أجواء. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
+      <p>© <span data-current-year></span> الطقس اليوم. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
     </div>
   </footer>
   <div class="toast" role="status" aria-live="polite" hidden></div>

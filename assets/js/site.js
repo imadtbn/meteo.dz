@@ -67,7 +67,7 @@ document.querySelector('[data-action="theme"]')?.addEventListener("click", () =>
 document.querySelector('[data-action="share"]')?.addEventListener("click", async () => {
   const shareData = {
     title: document.title,
-    text: "أجواء | Ajwaa Weather - منصة الطقس والمناخ المعتمدة",
+    text: "Weather Today | الطقس اليوم - منصة الطقس والمناخ المعتمدة",
     url: window.location.href
   };
   try {
@@ -123,18 +123,18 @@ installBtns.forEach((btn) => {
       deferredPrompt.prompt();
       const choice = await deferredPrompt.userChoice;
       if (choice.outcome === "accepted") {
-        showToast("شكراً لتثبيت تطبيق أجواء للطقس!");
+        showToast("شكراً لتثبيت تطبيق الطقس اليوم!");
       }
       deferredPrompt = null;
       btn.style.display = "none";
     } else {
-      showToast("تطبيق أجواء جاهز للتثبيت أو مثبت بالفعل من خلال شريط المتصفح.");
+      showToast("تطبيق الطقس اليوم جاهز للتثبيت أو مثبت بالفعل من خلال شريط المتصفح.");
     }
   });
 });
 
 window.addEventListener("appinstalled", () => {
-  showToast("تم تثبيت تطبيق أجواء بنجاح على جهازك.");
+  showToast("تم تثبيت تطبيق الطقس اليوم بنجاح على جهازك.");
   installBtns.forEach((btn) => { btn.style.display = "none"; });
 });
 
@@ -146,10 +146,12 @@ document.querySelectorAll("[data-current-year]").forEach((node) => {
 // Register Service Worker
 if ("serviceWorker" in navigator && (window.location.protocol === "https:" || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
   window.addEventListener("load", () => {
-    const swPath = new URL("/service-worker.js", window.location.origin).pathname;
-    navigator.serviceWorker.register(swPath).catch(() => {
-      // In subdirectories or standalone preview, fallback to relative
-      navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+    // Resolve the worker from this shared module so it remains correct on
+    // GitHub Pages project paths and on root-domain deployments.
+    const workerUrl = new URL("../../service-worker.js", import.meta.url);
+    const scopeUrl = new URL("../../", import.meta.url);
+    navigator.serviceWorker.register(workerUrl.href, { scope: scopeUrl.pathname }).catch((error) => {
+      console.error("Weather Today service worker registration failed:", error);
     });
   });
 }

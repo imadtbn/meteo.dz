@@ -3,7 +3,7 @@ import sys
 import json
 import re
 
-print("Running Comprehensive Verification Test Suite for 'أجواء | Ajwaa Weather'...")
+print("Running Comprehensive Verification Test Suite for 'Weather Today | الطقس اليوم'...")
 
 # 1. Verify 69 Algerian Wilayas
 cities_file = "data/cities.json"
@@ -26,7 +26,7 @@ for city in cities:
         assert str(city["code"]) in content, f"Missing code {city['code']} in {html_path}"
         assert "application/ld+json" in content, f"Missing Schema.org JSON-LD in {html_path}"
         assert 'name="description"' in content, f"Missing meta description in {html_path}"
-        assert "أجواء" in content, f"Missing branding in {html_path}"
+        assert "الطقس اليوم" in content or "Weather Today" in content, f"Missing Weather Today branding in {html_path}"
 
 print("✓ All 69 standalone wilaya pages exist, have valid HTML, Schema.org LD+JSON, and SEO tags.")
 
@@ -58,7 +58,7 @@ for page in key_pages:
     with open(page, "r", encoding="utf-8") as f:
         content = f.read()
         assert "<!doctype html>" in content.lower(), f"Invalid HTML in {page}"
-        assert "أجواء" in content, f"Missing branding in {page}"
+        assert "الطقس اليوم" in content or "Weather Today" in content, f"Missing Weather Today branding in {page}"
         assert "header class=\"site-header\"" in content, f"Missing header in {page}"
         assert "footer class=\"site-footer\"" in content, f"Missing footer in {page}"
 
@@ -72,9 +72,34 @@ assert os.path.exists("assets/icon.svg"), "Missing assets/icon.svg"
 
 with open("manifest.json", "r", encoding="utf-8") as f:
     manifest = json.load(f)
-    assert manifest.get("name") == "أجواء | Ajwaa Weather", "Incorrect PWA app name"
+    assert manifest.get("name") == "Weather Today | الطقس اليوم", "Incorrect PWA app name"
     assert manifest.get("display") == "standalone", "PWA display must be standalone"
 
 print("✓ PWA manifest and service worker configuration verified.")
 
+# 5. Verify project URL, SEO discovery files, and homepage runtime hooks
+with open("index.html", "r", encoding="utf-8") as f:
+    home = f.read()
+    assert "Weather Today | الطقس اليوم" in home
+    assert 'id="active-city-title"' in home
+    assert 'id="current-city-label"' in home
+    assert 'id="insight-grid"' in home
+    assert 'id="location-quick"' in home
+    assert "https://imadtbn.github.io/weather-today/" in home
+
+assert os.path.exists("sitemap.xml"), "Missing sitemap.xml"
+assert os.path.exists("robots.txt"), "Missing robots.txt"
+with open("sitemap.xml", "r", encoding="utf-8") as f:
+    sitemap = f.read()
+    assert "https://imadtbn.github.io/weather-today/" in sitemap
+    assert sitemap.count("<url>") >= 80, "Sitemap does not include all key and city pages"
+with open("robots.txt", "r", encoding="utf-8") as f:
+    robots = f.read()
+    assert "Sitemap: https://imadtbn.github.io/weather-today/sitemap.xml" in robots
+
+with open("service-worker.js", "r", encoding="utf-8") as f:
+    worker = f.read()
+    assert 'key.startsWith(CACHE_PREFIX)' in worker
+    assert 'weather-today-cache-' in worker
+print("✓ Weather Today branding, GitHub Pages SEO, sitemap, robots, and scoped cache checks passed.")
 print("\nAll verification tests passed with 100% success!")
