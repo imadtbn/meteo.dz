@@ -50,6 +50,9 @@ try {
   ]) {
     for (const route of routes) {
       const page = await context.newPage();
+      if (route.path === "/" && viewport.name === "mobile") {
+        await page.addInitScript(() => localStorage.clear());
+      }
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       const pageErrors = [];
       const consoleErrors = [];
