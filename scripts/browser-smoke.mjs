@@ -53,6 +53,10 @@ try {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       const pageErrors = [];
       const consoleErrors = [];
+      const failedResponses = [];
+      page.on("response", response => {
+        if (response.status() >= 400) failedResponses.push({ status: response.status(), url: response.url() });
+      });
       page.on("pageerror", error => pageErrors.push(error.message));
       page.on("console", message => {
         if (message.type() === "error") consoleErrors.push(message.text());
@@ -121,7 +125,10 @@ try {
       if (pageErrors.length) {
         for (const error of pageErrors) fail(`${viewport.name} ${route.label}: uncaught JavaScript error: ${error}`);
       }
-      if (consoleErrors.length) {
+      if (failedResponses.length) {
+        for (const item of failedResponses) fail(`${viewport.name} ${route.label}: HTTP ${item.status} resource: ${item.url}`);
+      }
+      if (consoleErrors.length && !failedResponses.length) {
         for (const error of consoleErrors) fail(`${viewport.name} ${route.label}: console error: ${error}`);
       }
       await page.close();
