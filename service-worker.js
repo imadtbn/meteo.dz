@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v2";
+const CACHE_NAME = CACHE_PREFIX + "v3";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
