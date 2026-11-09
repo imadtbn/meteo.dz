@@ -32,6 +32,12 @@ jobs:
         run: python scripts/test_suite.py
       - name: Check local links, CSS assets, and service worker precache
         run: python scripts/check_site_integrity.py
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+      - name: Run responsive, JavaScript, and PWA browser checks
+        run: node scripts/browser-smoke.mjs
       - name: Commit regenerated static pages on pull requests
         if: github.event_name == 'pull_request'
         env:
@@ -39,6 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf node_modules
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "chore: regenerate Weather Today static pages and SEO"

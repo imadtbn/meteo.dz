@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v2";
+const CACHE_NAME = CACHE_PREFIX + "v3";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
@@ -50,16 +50,25 @@ self.addEventListener("fetch", (event) => {
   const scopePath = new URL(self.registration.scope).pathname;
   if (!url.pathname.startsWith(scopePath)) return;
 
-  event.respondWith(
-    caches.open(CACHE_NAME).then((cache) => cache.match(event.request)).then((cached) => {
-      const network = fetch(event.request).then((response) => {
-        if (response && response.status === 200 && response.type === "basic") {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-        }
-        return response;
-      }).catch(() => cached);
-      return cached || network;
-    })
-  );
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(event.request, { ignoreVary: true });
+    if (cached) return cached;
+
+    try {
+      // Prefer the real page whenever the network is available. The app shell
+      // is an offline-only fallback, never a replacement for uncached routes.
+      const response = await fetch(event.request);
+      if (response && response.status === 200 && response.type === "basic") {
+        await cache.put(event.request, response.clone());
+      }
+      return response;
+    } catch {
+      if (event.request.mode === "navigate") {
+        const appShell = await cache.match(new URL("./index.html", self.registration.scope).href, { ignoreVary: true });
+        if (appShell) return appShell;
+      }
+      return Response.error();
+    }
+  })());
 });
