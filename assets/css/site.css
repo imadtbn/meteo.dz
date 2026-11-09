@@ -284,3 +284,37 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
     margin-inline-start: 0;
   }
 }
+
+
+/* Weather Today visual refinement — search, metrics, navigation and footer */
+.primary-navigation a{gap:.42rem}
+.nav-icon{width:1.05rem;height:1.05rem;flex:0 0 1.05rem;opacity:.82}
+.primary-navigation a[aria-current="page"] .nav-icon{opacity:1}
+.city-search-panel{position:absolute;top:calc(100% - .2rem);right:0;left:0;z-index:35;max-height:20rem;overflow:auto;padding:.45rem;border:1px solid var(--line);border-radius:1rem;background:var(--surface);box-shadow:0 18px 42px rgba(9,40,59,.16)}
+.city-search-panel:not([hidden]){display:grid;gap:.25rem}
+.city-search-panel button,.city-search-panel a{display:flex;align-items:center;justify-content:space-between;gap:.7rem;width:100%;padding:.72rem .85rem;border:0;border-radius:.7rem;background:transparent;color:var(--ink);text-align:right;font:inherit}
+.city-search-panel button:hover,.city-search-panel a:hover{background:var(--surface-soft);color:var(--blue)}
+#hero-global-city-search,.city-index-toolbar--home input,.directory-search-input{min-height:48px;border:1px solid var(--line);border-radius:.9rem;background:var(--surface);color:var(--ink);box-shadow:0 5px 18px rgba(12,91,140,.06);transition:border-color .2s,box-shadow .2s}
+#hero-global-city-search:focus,.city-index-toolbar--home input:focus,.directory-search-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 16%,transparent)}
+.location-prompt{display:flex;align-items:center;gap:.75rem;margin-top:.85rem;padding:.85rem;border:1px solid color-mix(in srgb,var(--blue) 30%,var(--line));border-radius:.9rem;background:color-mix(in srgb,var(--blue) 7%,var(--surface))}
+.location-prompt__icon{display:grid;place-items:center;width:2.5rem;height:2.5rem;flex:0 0 2.5rem;border-radius:.8rem;background:var(--blue);color:#fff;font-size:1.35rem}
+.location-prompt strong{font-size:.88rem}.location-prompt p,.location-feedback{margin:.2rem 0 0;color:var(--muted);font-size:.75rem;line-height:1.8}
+.current-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hourly-rail{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.hour-card{min-width:0;flex:0 0 clamp(100px,12vw,124px)}
+.daily-list{gap:.55rem}.day-row{border:1px solid var(--line);border-radius:.85rem;background:var(--surface);box-shadow:0 3px 12px rgba(19,42,56,.035)}
+.insight-grid{gap:.8rem}.insight-card{min-width:0;box-shadow:0 5px 18px rgba(19,42,56,.035)}
+.marine-section{padding:1.25rem;border:1px solid var(--line);border-radius:1.1rem;background:var(--surface-soft)}
+.site-footer{margin-top:3rem;padding:2.5rem clamp(1rem,4vw,3rem) 1rem;background:linear-gradient(135deg,#0b2d43,#104c69);color:#e8f3f7}
+.footer-wrap{display:grid;grid-template-columns:minmax(220px,1fr) minmax(300px,1.4fr);gap:1.5rem;max-width:1200px;margin:auto}
+.footer-brand{display:inline-flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none}
+.footer-brand img{border-radius:12px;background:#fff;padding:3px}
+.footer-brand span{display:grid;gap:.1rem}.footer-brand small{color:#b8d1dc;font-size:.72rem}
+.footer-about p{max-width:25rem;color:#c4d9e2;font-size:.82rem;line-height:1.9}
+.footer-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-content:center;gap:.75rem}
+.footer-links a{display:flex;align-items:center;gap:.55rem;color:#e8f3f7;font-size:.82rem;text-decoration:none}
+.footer-links a:hover{color:#f1c96d}
+.footer-link-icon{display:grid;place-items:center;width:2rem;height:2rem;border:1px solid rgba(255,255,255,.18);border-radius:.7rem;color:#f1c96d;font-size:1.1rem}
+.footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.16);color:#b8d1dc;font-size:.72rem}
+@media(max-width:700px){.footer-wrap{grid-template-columns:1fr;gap:1rem}.footer-links{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-bottom{flex-direction:column;gap:.35rem}.current-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:420px){.current-metrics{grid-template-columns:1fr 1fr}.footer-links{gap:.6rem}.footer-links a{font-size:.76rem}}
