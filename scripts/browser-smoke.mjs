@@ -74,10 +74,21 @@ try {
           viewport: document.documentElement.clientWidth,
           document: document.documentElement.scrollWidth,
           body: document.body.scrollWidth,
-          title: document.title
+          title: document.title,
+          overflowElements: Array.from(document.querySelectorAll("body *")).filter(element => {
+            const rect = element.getBoundingClientRect();
+            return rect.right > window.innerWidth + 1 || rect.left < -1;
+          }).slice(0, 8).map(element => ({
+            tag: element.tagName,
+            id: element.id,
+            className: typeof element.className === "string" ? element.className : "",
+            left: Math.round(element.getBoundingClientRect().left),
+            right: Math.round(element.getBoundingClientRect().right),
+            width: Math.round(element.getBoundingClientRect().width)
+          }))
         }));
         if (dimensions.document > dimensions.viewport + 1 || dimensions.body > dimensions.viewport + 1) {
-          fail(`${viewport.name} ${route.label}: horizontal overflow (viewport ${dimensions.viewport}px, document ${dimensions.document}px, body ${dimensions.body}px)`);
+          fail(`${viewport.name} ${route.label}: horizontal overflow (viewport ${dimensions.viewport}px, document ${dimensions.document}px, body ${dimensions.body}px); elements: ${JSON.stringify(dimensions.overflowElements)}`);
         }
         if (!dimensions.title.trim()) fail(`${viewport.name} ${route.label}: document title is empty`);
         observations.push({ viewport: viewport.name, route: route.label, ...dimensions });
@@ -154,11 +165,16 @@ try {
 
   await pwaPage.waitForFunction(() => Boolean(navigator.serviceWorker.controller), { timeout: 10000 })
     .catch(() => fail("PWA: page did not become controlled by the service worker"));
-  const cacheState = await pwaPage.evaluate(async () => ({
-    controller: Boolean(navigator.serviceWorker.controller),
-    caches: await caches.keys()
-  }));
-  if (!cacheState.caches.some(name => name.startsWith("weather-today-cache-"))) {
+  const cacheState = await pwaPage.evaluate(async () => {
+    const names = await caches.keys();
+    const details = await Promise.all(names.map(async name => {
+      const cache = await caches.open(name);
+      const keys = await cache.keys();
+      return { name, keys: keys.map(request => request.url), rootMatch: Boolean(await cache.match(new URL("./", location.href).href)) };
+    }));
+    return { controller: Boolean(navigator.serviceWorker.controller), caches: details };
+  });
+  if (!cacheState.caches.some(cache => cache.name.startsWith("weather-today-cache-"))) {
     fail("PWA: expected Weather Today cache namespace was not created");
   }
 
