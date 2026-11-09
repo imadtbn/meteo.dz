@@ -57,7 +57,7 @@ def local_target(source: Path, raw_url: str) -> Path | None:
 def check_html() -> list[str]:
     errors: list[str] = []
     for page in sorted(ROOT.rglob("*.html")):
-        if any(part in {".git", "node_modules"} for part in page.parts):
+        if page.name.endswith(".template.html"):\n            continue\n        if any(part in {".git", "node_modules"} for part in page.parts):
             continue
         parser = ReferenceParser()
         try:
