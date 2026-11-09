@@ -659,10 +659,8 @@ directoryConfig.forEach((cfg) => {
   <script type="application/json" id="capital-data">${JSON.stringify(capitals)}</script>
 
   <!-- Share Dialog Modal -->
-  <div class="share-backdrop" id="share-dialog" hidden>
-    <section class="share-dialog" role="dialog" aria-modal="true" aria-labelledby="share-title" aria-describedby="share-description">
-      <button class="icon-button" id="share-close" type="button" aria-label="إغلاق نافذة المشاركة">×</button>
-      <span class="eyebrow">بطاقة المشاركة</span>
+  <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-title" aria-describedby="share-description">
+    <div class="share-dialog__content">
       <h3 id="share-title">مشاركة حالة الطقس</h3>
       <p id="share-description">تتضمن البطاقة الحرارة والحالة ووقت القراءة، مع رابط مباشر للمدينة.</p>
       <div id="share-preview" class="share-preview"></div>
@@ -670,10 +668,11 @@ directoryConfig.forEach((cfg) => {
         <button id="share-copy" class="button button-secondary" type="button">نسخ الرابط</button>
         <button id="share-native" class="button button-primary" type="button">مشاركة مباشرة</button>
         <button id="share-image" class="button button-secondary" type="button">تحميل صورة</button>
+        <button id="share-close" class="button button-secondary" type="button">إغلاق</button>
       </div>
       <p id="share-status" class="share-status"></p>
-    </section>
-  </div>
+    </div>
+  </dialog>
 
   ${getFooter(0)}
   <script type="module" src="./assets/js/site.js"></script>
