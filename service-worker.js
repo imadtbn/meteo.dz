@@ -1,5 +1,11 @@
+/*
+ * Weather Today — Service Worker
+ * Network-first for pages and same-origin files to prevent stale deployments.
+ * Offline cache is a fallback, never the preferred source while online.
+ */
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v5";
+const CACHE_NAME = CACHE_PREFIX + "v6";
+
 const STATIC_ASSETS = [
   "./",
   "./index.html",
@@ -27,49 +33,74 @@ const STATIC_ASSETS = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(STATIC_ASSETS))
-      .then(() => self.skipWaiting())
-  );
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+
+    // A missing optional asset must not prevent the new worker from installing.
+    await Promise.allSettled(STATIC_ASSETS.map(async (asset) => {
+      const url = new URL(asset, self.registration.scope);
+      const response = await fetch(url.href, { cache: "reload" });
+      if (response.ok && response.type === "basic") {
+        await cache.put(url.href, response);
+      }
+    }));
+
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) => Promise.all(
-      keys.filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
-        .map((key) => caches.delete(key))
-    )).then(() => self.clients.claim())
-  );
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys
+      .filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
+      .map((key) => caches.delete(key)));
+
+    await self.clients.claim();
+  })());
 });
 
 self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") return;
-  const url = new URL(event.request.url);
+  const request = event.request;
+  if (request.method !== "GET" || request.headers.has("range")) return;
+
+  const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  // Never intercept navigation outside this GitHub Pages project scope.
   const scopePath = new URL(self.registration.scope).pathname;
   if (!url.pathname.startsWith(scopePath)) return;
 
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
-    const cached = await cache.match(event.request, { ignoreVary: true });
-    if (cached) return cached;
 
     try {
-      // Prefer the real page whenever the network is available. The app shell
-      // is an offline-only fallback, never a replacement for uncached routes.
-      const response = await fetch(event.request);
-      if (response && response.status === 200 && response.type === "basic") {
-        await cache.put(event.request, response.clone());
+      // Revalidate with the server instead of trusting the browser HTTP cache.
+      const networkResponse = await fetch(new Request(request, { cache: "no-cache" }));
+
+      if (networkResponse && networkResponse.status === 200 &&
+          networkResponse.type === "basic" &&
+          !/no-store/i.test(networkResponse.headers.get("Cache-Control") || "")) {
+        // Cache failures (e.g. quota limits) must not break a successful response.
+        try {
+          await cache.put(request, networkResponse.clone());
+        } catch (cacheError) {
+          console.warn("Weather Today cache write skipped:", cacheError);
+        }
       }
-      return response;
-    } catch {
-      if (event.request.mode === "navigate") {
-        const appShell = await cache.match(new URL("./index.html", self.registration.scope).href, { ignoreVary: true });
+
+      return networkResponse;
+    } catch (networkError) {
+      // Offline fallback: use the exact cached request first.
+      const cachedResponse = await cache.match(request);
+      if (cachedResponse) return cachedResponse;
+
+      // For a direct page visit, fall back to the cached app shell.
+      if (request.mode === "navigate") {
+        const appShellUrl = new URL("./index.html", self.registration.scope).href;
+        const appShell = await cache.match(appShellUrl);
         if (appShell) return appShell;
       }
+
       return Response.error();
     }
   })());
