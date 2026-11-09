@@ -226,3 +226,61 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
   gap: 0.75rem;
   flex-wrap: wrap;
 }
+
+/* Responsive header guard: keep the desktop navigation out of the mobile flex row. */
+@media (max-width: 700px) {
+  .site-header {
+    min-width: 0;
+    gap: .4rem;
+    padding-inline: 1rem;
+    overflow-x: clip;
+  }
+  .site-header > .brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .site-header > .brand span {
+    min-width: 0;
+  }
+  .site-header > .menu-toggle {
+    display: grid;
+    flex: 0 0 38px;
+    margin-inline-start: 0;
+  }
+  .site-header > .primary-navigation {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    z-index: 45;
+    display: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: .15rem;
+    max-height: min(75vh, 560px);
+    overflow: auto;
+    margin: 0;
+    padding: .65rem 1rem 1rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .site-header > .primary-navigation.is-open {
+    display: flex;
+  }
+  .site-header > .primary-navigation a {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 44px;
+    padding: .65rem .8rem;
+    border-radius: .7rem;
+    white-space: normal;
+  }
+  .site-header > .header-actions {
+    flex: 0 0 auto;
+    gap: .25rem;
+    margin-inline-start: 0;
+  }
+}
