@@ -77,8 +77,6 @@ with open("manifest.json", "r", encoding="utf-8") as f:
 
 print("✓ PWA manifest and service worker configuration verified.")
 
-print("\nAll verification tests passed with 100% success!")
-
 # 5. Verify project URL, SEO discovery files, and homepage runtime hooks
 with open("index.html", "r", encoding="utf-8") as f:
     home = f.read()
@@ -104,3 +102,4 @@ with open("service-worker.js", "r", encoding="utf-8") as f:
     assert 'key.startsWith(CACHE_PREFIX)' in worker
     assert 'weather-today-cache-' in worker
 print("✓ Weather Today branding, GitHub Pages SEO, sitemap, robots, and scoped cache checks passed.")
+print("\nAll verification tests passed with 100% success!")
