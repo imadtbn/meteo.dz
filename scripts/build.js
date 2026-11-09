@@ -14,9 +14,9 @@ function getHeader(depth = 0, activeKey = '') {
   const rel = depth === 0 ? './' : '../'.repeat(depth);
   return `
   <header class="site-header">
-    <a class="brand" href="${rel}" aria-label="أجواء | Ajwaa Weather">
-      <img src="${rel}favicon.svg" width="42" height="42" alt="Ajwaa Logo">
-      <span><strong data-i18n="brand_title">أجواء</strong><small data-i18n="brand_sub">مرصد الطقس والمناخ</small></span>
+    <a class="brand" href="${rel}" aria-label="Weather Today | الطقس اليوم">
+      <img src="${rel}favicon.svg" width="42" height="42" alt="Weather Today">
+      <span><strong data-i18n="brand_title">الطقس اليوم</strong><small data-i18n="brand_sub">توقعات الطقس حول العالم</small></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة">
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -56,7 +56,7 @@ function getFooter(depth = 0) {
     <div class="footer-wrap">
       <a class="footer-brand" href="${rel}">
         <img src="${rel}favicon.svg" width="32" height="32" alt="">
-        <span>أجواء | Ajwaa Weather</span>
+        <span>Weather Today | الطقس اليوم</span>
       </a>
       <p data-i18n="data_source">المنصة المعتمدة للطقس والمناخ · بيانات مباشرة من Open-Meteo & NASA POWER</p>
       <p>© <span data-current-year></span> أجواء. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
@@ -80,11 +80,11 @@ cities.forEach((city) => {
   <meta name="description" content="حالة الطقس المباشرة والتوقعات الساعية والأسبوعية لولاية ${city.name} (${city.name_fr} - ${city.name_en})، درجات الحرارة والرطوبة والرياح وحالة البحر.">
   <meta name="keywords" content="طقس ${city.name}, طقس ${city.name_fr}, ولاية ${city.code}, طقس الجزائر, أحوال الجو ${city.slug}">
   <meta name="theme-color" content="#0c5b8c">
-  <title>طقس ولاية ${city.name} (${city.code}) | أجواء</title>
+  <title>طقس ولاية ${city.name} (${city.code}) | الطقس اليوم</title>
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../../manifest.json">
   <link rel="stylesheet" href="../../assets/css/site.css">
-  <link rel="canonical" href="https://ajwaa.weather/weather/${city.slug}/">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/weather/${city.slug}/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -287,7 +287,7 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="المرصد المناخي الجزائري: السلاسل المناخية اليومية حسب الولاية اعتماداً على بيانات NASA POWER.">
-  <title>المرصد المناخي الجزائري | أجواء</title>
+  <title>المرصد المناخي الجزائري | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -347,7 +347,7 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="مؤشرات الطقس الزراعي حسب الولاية: الأمطار المتراكمة، الوحدات الحرارية GDD، أيام الصقيع والحرارة.">
-  <title>الطقس الزراعي | أجواء</title>
+  <title>الطقس الزراعي | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -403,7 +403,7 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="خريطة الطقس التفاعلية ومركز الملاحة للولايات الجزائرية والعواصم العربية مع طبقات الرياح والحرارة والأمطار.">
-  <title>خريطة الطقس ومركز الملاحة | أجواء</title>
+  <title>خريطة الطقس ومركز الملاحة | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -450,7 +450,7 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="النشرة البحرية وحالة السواحل الجزائرية والبحر الأبيض المتوسط: ارتفاع الأمواج، الرياح البحرية، ودرجات حرارة المياه.">
-  <title>الطقس البحري والسواحل | أجواء</title>
+  <title>الطقس البحري والسواحل | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -502,7 +502,7 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="قراءة الطقس العالمي والتوقعات لأي موقع حول العالم عبر Open-Meteo API.">
-  <title>الطقس العالمي | أجواء</title>
+  <title>الطقس العالمي | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../assets/css/site.css">
@@ -543,9 +543,9 @@ directoryConfig.forEach((cfg) => {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="منصة أجواء: المنصة المعتمدة للطقس والمناخ في الجزائر والوطن العربي والعالم. طقس 69 ولاية جزائرية، 22 عاصمة عربية، وبحث عالمي مباشر.">
+  <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية.">
   <meta name="theme-color" content="#0c5b8c">
-  <title>أجواء | Ajwaa Weather - مرصد الطقس والمناخ</title>
+  <title>Weather Today | الطقس اليوم - مرصد الطقس والمناخ</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./assets/css/site.css">
@@ -605,6 +605,11 @@ directoryConfig.forEach((cfg) => {
         <div class="daily-list" id="daily-list"></div>
       </div>
 
+      <section class="dashboard-shell insights-shell" id="insights" hidden style="margin-top:2rem;">
+        <div class="section-intro"><span>04 — قراءة أوسع</span><h2>نصائح ومؤشرات الطقس</h2></div>
+        <div class="insight-grid" id="insight-grid"></div>
+      </section>
+
       <!-- Marine Section -->
       <div class="dashboard-shell marine-section" id="marine" style="margin-top:2rem;">
         <div class="marine-copy"><span class="eyebrow">حالة البحر</span><h2 id="marine-title">النشرة البحرية</h2><p id="marine-copy"></p></div>
@@ -654,19 +659,21 @@ directoryConfig.forEach((cfg) => {
   <script type="application/json" id="capital-data">${JSON.stringify(capitals)}</script>
 
   <!-- Share Dialog Modal -->
-  <dialog id="share-dialog" class="share-dialog">
-    <div class="share-dialog__content">
+  <div class="share-backdrop" id="share-dialog" hidden>
+    <section class="share-dialog" role="dialog" aria-modal="true" aria-labelledby="share-title" aria-describedby="share-description">
+      <button class="icon-button" id="share-close" type="button" aria-label="إغلاق نافذة المشاركة">×</button>
+      <span class="eyebrow">بطاقة المشاركة</span>
       <h3 id="share-title">مشاركة حالة الطقس</h3>
+      <p id="share-description">تتضمن البطاقة الحرارة والحالة ووقت القراءة، مع رابط مباشر للمدينة.</p>
       <div id="share-preview" class="share-preview"></div>
       <div class="share-actions">
         <button id="share-copy" class="button button-secondary" type="button">نسخ الرابط</button>
         <button id="share-native" class="button button-primary" type="button">مشاركة مباشرة</button>
         <button id="share-image" class="button button-secondary" type="button">تحميل صورة</button>
-        <button id="share-close" class="button button-secondary" type="button">إغلاق</button>
       </div>
       <p id="share-status" class="share-status"></p>
-    </div>
-  </dialog>
+    </section>
+  </div>
 
   ${getFooter(0)}
   <script type="module" src="./assets/js/site.js"></script>
@@ -678,3 +685,14 @@ directoryConfig.forEach((cfg) => {
 }
 
 console.log('Build completed successfully!');
+
+// Generate crawlable sitemap and robots.txt for the GitHub Pages project URL.
+{
+  const siteBase = 'https://imadtbn.github.io/weather-today';
+  const routes = ['/', '/wilayas/', '/arab-capitals/', '/world-search/', '/map/', '/climate-observatory/', '/agriculture-weather/', '/alerts/', '/favorites/', '/marine/', '/global-weather/'];
+  const urls = [...routes, ...cities.map(city => '/weather/' + city.slug + '/')];
+  const today = new Date().toISOString().slice(0, 10);
+  const entries = urls.map(route => '  <url><loc>' + siteBase + route + '</loc><lastmod>' + today + '</lastmod></url>').join('\\n');
+  fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n' + entries + '\\n</urlset>\\n', 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'robots.txt'), 'User-agent: *\\nAllow: /\\nSitemap: ' + siteBase + '/sitemap.xml\\n', 'utf8');
+}
