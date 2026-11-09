@@ -92,7 +92,9 @@ if(cityPage){
     const news=element("article","insight-card");news.append(element("h3","","متابعة الطقس والمناخ"),element("p","","مصدر إضافي للأخبار والمعلومات المناخية."));const newsLink=element("a","source-link","أخبار NOAA ↗");newsLink.href="https://www.noaa.gov/news";newsLink.target="_blank";newsLink.rel="noopener noreferrer";news.append(newsLink);
     insights.append(tipsCard,stats,sources,news);
   }
+  let lastRefreshAt=Date.now();
   async function loadWeather(force=false){
+    lastRefreshAt=Date.now();
     refresh.disabled=true;refresh.textContent="جارٍ التحديث…";setStatus("جارٍ جلب القراءة الحالية والتوقعات من Open-Meteo…");current.hidden=true;
     const cached=cacheRead();
     if(!force&&cached&&Date.now()-cached.savedAt<15*60*1000){renderReading(cached.value);status.hidden=true;refresh.disabled=false;refresh.textContent="تحديث القراءة";return;}
@@ -117,4 +119,7 @@ if(cityPage){
     }finally{refresh.disabled=false;refresh.textContent="تحديث القراءة";}
   }
   refresh.addEventListener("click",()=>loadWeather(true));loadWeather();
+  const refreshIfDue=()=>{if(document.visibilityState==="visible"&&Date.now()-lastRefreshAt>=30*60*1000)loadWeather(true);};
+  window.setInterval(refreshIfDue,60*1000);
+  document.addEventListener("visibilitychange",refreshIfDue);
 }
