@@ -692,7 +692,7 @@ console.log('Build completed successfully!');
   const routes = ['/', '/wilayas/', '/arab-capitals/', '/world-search/', '/map/', '/climate-observatory/', '/agriculture-weather/', '/alerts/', '/favorites/', '/marine/', '/global-weather/'];
   const urls = [...routes, ...cities.map(city => '/weather/' + city.slug + '/')];
   const today = new Date().toISOString().slice(0, 10);
-  const entries = urls.map(route => '  <url><loc>' + siteBase + route + '</loc><lastmod>' + today + '</lastmod></url>').join('\\n');
-  fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n' + entries + '\\n</urlset>\\n', 'utf8');
-  fs.writeFileSync(path.join(rootDir, 'robots.txt'), 'User-agent: *\\nAllow: /\\nSitemap: ' + siteBase + '/sitemap.xml\\n', 'utf8');
+  const entries = urls.map(route => '  <url><loc>' + siteBase + route + '</loc><lastmod>' + today + '</lastmod></url>').join('\n');
+  fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + entries + '\n</urlset>\n', 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: ' + siteBase + '/sitemap.xml\n', 'utf8');
 }
