@@ -55,14 +55,9 @@ self.addEventListener("fetch", (event) => {
     const cached = await cache.match(event.request, { ignoreVary: true });
     if (cached) return cached;
 
-    // Keep the application shell available for offline navigations, including
-    // browsers that issue a reload request with a different navigation header.
-    if (event.request.mode === "navigate") {
-      const appShell = await cache.match(new URL("./index.html", self.registration.scope).href, { ignoreVary: true });
-      if (appShell) return appShell;
-    }
-
     try {
+      // Prefer the real page whenever the network is available. The app shell
+      // is an offline-only fallback, never a replacement for uncached routes.
       const response = await fetch(event.request);
       if (response && response.status === 200 && response.type === "basic") {
         await cache.put(event.request, response.clone());
@@ -70,7 +65,8 @@ self.addEventListener("fetch", (event) => {
       return response;
     } catch {
       if (event.request.mode === "navigate") {
-        return await cache.match(new URL("./index.html", self.registration.scope).href, { ignoreVary: true }) || Response.error();
+        const appShell = await cache.match(new URL("./index.html", self.registration.scope).href, { ignoreVary: true });
+        if (appShell) return appShell;
       }
       return Response.error();
     }
