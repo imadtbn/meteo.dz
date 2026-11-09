@@ -163,7 +163,16 @@ if ("serviceWorker" in navigator && (window.location.protocol === "https:" || wi
     // GitHub Pages project paths and on root-domain deployments.
     const workerUrl = new URL("../../service-worker.js", import.meta.url);
     const scopeUrl = new URL("../../", import.meta.url);
-    navigator.serviceWorker.register(workerUrl.href, { scope: scopeUrl.pathname }).catch((error) => {
+    navigator.serviceWorker.register(workerUrl.href, {
+      scope: scopeUrl.pathname,
+      updateViaCache: "none"
+    }).then((registration) => {
+      // Check for a newer worker on each visit; do not wait for the browser's
+      // periodic update check or a cached copy of service-worker.js.
+      registration.update().catch((error) => {
+        console.warn("Weather Today service worker update check failed:", error);
+      });
+    }).catch((error) => {
       console.error("Weather Today service worker registration failed:", error);
     });
   });
