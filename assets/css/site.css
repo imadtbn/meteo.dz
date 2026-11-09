@@ -318,3 +318,5 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
 .footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.16);color:#b8d1dc;font-size:.72rem}
 @media(max-width:700px){.footer-wrap{grid-template-columns:1fr;gap:1rem}.footer-links{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-bottom{flex-direction:column;gap:.35rem}.current-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:420px){.current-metrics{grid-template-columns:1fr 1fr}.footer-links{gap:.6rem}.footer-links a{font-size:.76rem}}
+
+.location-prompt[hidden]{display:none!important}
