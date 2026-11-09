@@ -1,8 +1,9 @@
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v3";
+const CACHE_NAME = CACHE_PREFIX + "v4";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
+  "./map/",
   "./manifest.json",
   "./favicon.svg",
   "./assets/icon.svg",
@@ -12,6 +13,7 @@ const STATIC_ASSETS = [
   "./assets/css/climate.css",
   "./assets/css/agriculture-weather.css",
   "./assets/css/map.css",
+  "./assets/js/map.js",
   "./assets/js/site.js",
   "./assets/js/home-parity.js",
   "./assets/js/home-visual-parity.js",

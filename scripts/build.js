@@ -54,12 +54,25 @@ function getFooter(depth = 0) {
   return `
   <footer class="site-footer">
     <div class="footer-wrap">
-      <a class="footer-brand" href="${rel}">
-        <img src="${rel}favicon.svg" width="32" height="32" alt="">
-        <span>Weather Today | الطقس اليوم</span>
-      </a>
-      <p data-i18n="data_source">المنصة المعتمدة للطقس والمناخ · بيانات مباشرة من Open-Meteo & NASA POWER</p>
-      <p>© <span data-current-year></span> الطقس اليوم. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
+      <div class="footer-about">
+        <a class="footer-brand" href="${rel}" aria-label="Weather Today | الطقس اليوم">
+          <img src="${rel}favicon.svg" width="38" height="38" alt="">
+          <span><strong>الطقس اليوم</strong><small>Weather Today</small></span>
+        </a>
+        <p>منصتك لمتابعة الطقس والتوقعات الجوية في الجزائر والوطن العربي والعالم.</p>
+      </div>
+      <nav class="footer-links" aria-label="روابط الموقع">
+        <a href="${rel}"><span class="footer-link-icon" data-icon="nav_home" aria-hidden="true"></span> الرئيسية</a>
+        <a href="${rel}wilayas/"><span class="footer-link-icon" data-icon="nav_wilayas" aria-hidden="true"></span> الولايات</a>
+        <a href="${rel}world-search/"><span class="footer-link-icon" data-icon="nav_world_search" aria-hidden="true"></span> البحث العالمي</a>
+        <a href="${rel}map/"><span class="footer-link-icon" data-icon="nav_map" aria-hidden="true"></span> خريطة الطقس</a>
+        <a href="${rel}alerts/"><span class="footer-link-icon" data-icon="nav_alerts" aria-hidden="true"></span> الإنذارات</a>
+        <a href="${rel}favorites/"><span class="footer-link-icon" data-icon="nav_favorites" aria-hidden="true"></span> المفضلة</a>
+      </nav>
+      <div class="footer-bottom">
+        <span>بيانات الطقس: Open-Meteo · خرائط الأساس: OpenStreetMap</span>
+        <span>© <span data-current-year></span> الطقس اليوم · جميع الحقوق محفوظة</span>
+      </div>
     </div>
   </footer>
   <div class="toast" role="status" aria-live="polite" hidden></div>`;
@@ -581,6 +594,8 @@ directoryConfig.forEach((cfg) => {
         <div id="city-search-results" class="city-search-panel" hidden></div>
         <div class="note-divider"></div>
         <button id="location-quick" class="button button-secondary" type="button" style="width:100%;">استخدم موقعي الحالي</button>
+        <div id="location-prompt" class="location-prompt" hidden><span class="location-prompt__icon" aria-hidden="true">⌖</span><div><strong>طقس منطقتك بدقة</strong><p>اسمح باستخدام موقعك لعرض حالة الطقس وفق إحداثياتك الحالية.</p></div></div>
+        <p id="location-feedback" class="location-feedback" role="status" aria-live="polite"></p>
         <p id="location-error" class="location-error" hidden></p>
       </aside>
     </section>
@@ -688,6 +703,61 @@ directoryConfig.forEach((cfg) => {
 </body>
 </html>`;
   fs.writeFileSync(path.join(rootDir, 'index.html'), html, 'utf8');
+}
+
+
+// Generate the interactive map page from the same source used by the homepage.
+{
+  const mapHtml = `<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="خريطة الطقس التفاعلية للولايات الجزائرية الـ69 والعواصم العربية مع طبقات الأمطار والحرارة والرياح.">
+  <meta name="theme-color" content="#0c5b8c">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/map/">
+  <title>خريطة الطقس التفاعلية | الطقس اليوم</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="stylesheet" href="../assets/css/map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body>
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+  ${getHeader(1, 'map')}
+  <main id="main" class="map-page">
+    <section class="map-hero map-page-hero">
+      <span class="eyebrow"><span class="status-dot"></span> الطقس اليوم · مركز الخرائط</span>
+      <h1>خريطة الطقس التفاعلية</h1>
+      <p>استكشف مواقع الولايات الجزائرية والعواصم العربية، وافتح قراءة الطقس لكل موقع مباشرة من الخريطة.</p>
+    </section>
+    <section class="map-panel" aria-label="خريطة الطقس">
+      <div class="map-toolbar">
+        <div class="map-toolbar-title"><strong>الخريطة الجوية</strong><small id="map-status" role="status" aria-live="polite">جارٍ تهيئة الخريطة…</small></div>
+        <div class="map-layers" aria-label="طبقات الطقس">
+          <button type="button" data-layer="base" aria-pressed="false">الخريطة الأساسية</button>
+          <button type="button" data-layer="precip" aria-pressed="false">الأمطار</button>
+          <button type="button" data-layer="tmp2m" aria-pressed="false">الحرارة</button>
+          <button type="button" data-layer="wind" aria-pressed="false">الرياح</button>
+          <button type="button" data-layer="pressure" aria-pressed="false">الضغط</button>
+        </div>
+      </div>
+      <div id="atlas-map" class="atlas-map" role="region" aria-label="خريطة تفاعلية للولايات والعواصم"></div>
+      <div class="map-footer"><strong id="map-count">69 ولاية · 22 عاصمة عربية</strong><span>OpenStreetMap · Open-Meteo</span></div>
+    </section>
+    <aside class="map-disclaimer"><strong>ملاحظة:</strong> العلامات تعرض مواقع المدن والولايات، أما طبقات الطقس فتُحمّل من مزود الخرائط عند توفرها. لا تُعد هذه الخريطة بديلاً عن الإنذارات الرسمية.</aside>
+    <script type="application/json" id="city-data">${JSON.stringify(cities)}</script>
+    <script type="application/json" id="capital-data">${JSON.stringify(capitals)}</script>
+  </main>
+  ${getFooter(1)}
+  <script type="module" src="../assets/js/site.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="../assets/js/map.js"></script>
+</body>
+</html>`;
+  fs.mkdirSync(path.join(rootDir, 'map'), { recursive: true });
+  fs.writeFileSync(path.join(rootDir, 'map', 'index.html'), mapHtml, 'utf8');
 }
 
 console.log('Build completed successfully!');
