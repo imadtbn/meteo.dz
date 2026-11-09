@@ -113,6 +113,7 @@ try {
         }
 
         if (route.path === "/map/") {
+          await page.waitForFunction(() => Boolean(document.querySelector("#atlas-map") && window.L), { timeout: 10000 }).catch(() => {});
           const mapState = await page.evaluate(() => ({
             mapElement: Boolean(document.querySelector("#atlas-map")),
             leafletLoaded: Boolean(window.L),
