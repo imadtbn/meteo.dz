@@ -3,9 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="منصة أجواء: المنصة المعتمدة للطقس والمناخ في الجزائر والوطن العربي والعالم. طقس 69 ولاية جزائرية، 22 عاصمة عربية، وبحث عالمي مباشر.">
+  <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية.">
   <meta name="theme-color" content="#0c5b8c">
-  <title>أجواء | Ajwaa Weather - مرصد الطقس والمناخ</title>
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="Weather Today | الطقس اليوم - توقعات الطقس العالمية">
+  <meta property="og:description" content="حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/">
+  <title>Weather Today | الطقس اليوم - توقعات الطقس العالمية</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./assets/css/site.css">
@@ -16,9 +23,9 @@
   <a class="skip-link" href="#main-content">تجاوز إلى المحتوى</a>
 
   <header class="site-header">
-    <a class="brand" href="./" aria-label="أجواء | Ajwaa Weather">
-      <img src="./favicon.svg" width="42" height="42" alt="Ajwaa Logo">
-      <span><strong data-i18n="brand_title">أجواء</strong><small data-i18n="brand_sub">مرصد الطقس والمناخ</small></span>
+    <a class="brand" href="./" aria-label="Weather Today | الطقس اليوم">
+      <img src="./favicon.svg" width="42" height="42" alt="Weather Today">
+      <span><strong data-i18n="brand_title">الطقس اليوم</strong><small data-i18n="brand_sub">توقعات الطقس حول العالم</small></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة">
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -75,7 +82,7 @@
     <!-- Active Weather Card on Homepage -->
     <section class="content-section" id="active-weather-section">
       <div class="section-heading">
-        <div><span class="eyebrow">القراءة الحالية</span><h2 id="active-city-title">الجزائر العاصمة</h2></div>
+        <div><span class="eyebrow">القراءة الحالية</span><h2 id="active-city-title">الجزائر العاصمة</h2><span id="current-city-label" class="sr-only">النشرة الحالية: الجزائر العاصمة</span></div>
         <div class="active-card-actions">
           <button id="weather-refresh" class="button button-secondary" type="button" data-i18n="refresh">↻ تحديث</button>
           <button id="favorite-toggle" class="button button-primary" type="button" aria-pressed="false" data-i18n="add_favorite">☆ أضف للمفضلة</button>
@@ -99,6 +106,10 @@
         <div class="daily-list" id="daily-list"></div>
       </div>
 
+      <section class="dashboard-shell insights-shell" id="insights" hidden style="margin-top:2rem;">
+        <div class="section-intro"><span>04 — قراءة أوسع</span><h2>نصائح ومؤشرات الطقس</h2></div>
+        <div class="insight-grid" id="insight-grid"></div>
+      </section>
       <!-- Marine Section -->
       <div class="dashboard-shell marine-section" id="marine" style="margin-top:2rem;">
         <div class="marine-copy"><span class="eyebrow">حالة البحر</span><h2 id="marine-title">النشرة البحرية</h2><p id="marine-copy"></p></div>
@@ -202,7 +213,7 @@
     <div class="footer-wrap">
       <a class="footer-brand" href="./">
         <img src="./favicon.svg" width="32" height="32" alt="">
-        <span>أجواء | Ajwaa Weather</span>
+        <span>Weather Today | الطقس اليوم</span>
       </a>
       <p data-i18n="data_source">المنصة المعتمدة للطقس والمناخ · بيانات مباشرة من Open-Meteo & NASA POWER</p>
       <p>© <span data-current-year></span> أجواء. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
