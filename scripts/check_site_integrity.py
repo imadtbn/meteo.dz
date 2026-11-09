@@ -4,14 +4,12 @@ from __future__ import annotations
 
 import os
 import re
-import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SKIP_SCHEMES = {"http", "https", "mailto", "tel", "data", "javascript", "blob"}
-HTML_EXTENSIONS = {".html", ".htm"}
 
 
 class ReferenceParser(HTMLParser):
@@ -43,10 +41,7 @@ def local_target(source: Path, raw_url: str) -> Path | None:
     path = unquote(parsed.path)
     if not path:
         return None
-    if path.startswith("/"):
-        target = ROOT / path.lstrip("/")
-    else:
-        target = source.parent / path
+    target = ROOT / path.lstrip("/") if path.startswith("/") else source.parent / path
     target = Path(os.path.normpath(str(target)))
     try:
         target.relative_to(ROOT)
@@ -54,10 +49,8 @@ def local_target(source: Path, raw_url: str) -> Path | None:
         return target
     if target.is_dir():
         target = target / "index.html"
-    elif not target.suffix:
-        directory_index = target / "index.html"
-        if directory_index.exists():
-            target = directory_index
+    elif not target.suffix and (target / "index.html").is_file():
+        target = target / "index.html"
     return target
 
 
@@ -74,19 +67,15 @@ def check_html() -> list[str]:
             continue
         for raw_url, context in parser.references:
             target = local_target(page, raw_url)
-            if target is None:
-                continue
-            if not target.is_file():
-                errors.append(
-                    f"{page.relative_to(ROOT)}: missing {context} target "
-                    f"{raw_url!r} -> {target.relative_to(ROOT) if target.is_relative_to(ROOT) else target}"
-                )
+            if target is not None and not target.is_file():
+                display = target.relative_to(ROOT) if target.is_relative_to(ROOT) else target
+                errors.append(f"{page.relative_to(ROOT)}: missing {context} target {raw_url!r} -> {display}")
     return errors
 
 
 def check_css() -> list[str]:
     errors: list[str] = []
-    pattern = re.compile(r"url\\(\\s*(['\"]?)(.*?)\\1\\s*\\)", re.IGNORECASE)
+    pattern = re.compile(r"url\(\s*(['\"]?)(.*?)\1\s*\)", re.IGNORECASE)
     for css in sorted((ROOT / "assets").rglob("*.css")):
         content = css.read_text(encoding="utf-8")
         for match in pattern.finditer(content):
@@ -102,16 +91,18 @@ def check_css() -> list[str]:
 def check_service_worker_assets() -> list[str]:
     worker = ROOT / "service-worker.js"
     content = worker.read_text(encoding="utf-8")
-    match = re.search(r"const\\s+STATIC_ASSETS\\s*=\\s*\\[(.*?)\\];", content, re.S)
+    match = re.search(r"const\s+STATIC_ASSETS\s*=\s*\[(.*?)\];", content, re.S)
     if not match:
         return ["service-worker.js: STATIC_ASSETS array was not found"]
-    paths = re.findall(r"['\"]([^'\"]+)['\"]", match.group(1))
     errors = []
-    for raw in paths:
+    for raw in re.findall(r"['\"]([^'\"]+)['\"]", match.group(1)):
         parsed = urlsplit(raw)
         if parsed.scheme or parsed.netloc:
             continue
-        target = ROOT / unquote(parsed.path).lstrip("./")
+        path = unquote(parsed.path)
+        target = ROOT / path.lstrip("/") if path.startswith("/") else ROOT / path.removeprefix("./")
+        if target.is_dir():
+            target = target / "index.html"
         if not target.is_file():
             errors.append(f"service-worker.js: precache asset does not exist: {raw}")
     return errors
