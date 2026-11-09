@@ -19,3 +19,115 @@
 .insight-card ul{margin:0;padding-right:1.1rem}
 .insight-card li{margin:.35rem 0;line-height:1.8}
 .insight-card a{display:inline-flex;align-items:center;gap:.3rem;color:#0c5b8c;font-size:.72rem;font-weight:700}
+
+
+/* Dark theme contrast and card parity: keep every homepage component on shared theme tokens. */
+:root[data-theme="dark"] .hero-art {
+  background: radial-gradient(circle at 78% 30%, rgba(107,180,220,.16), transparent 23rem),
+              linear-gradient(135deg, #172a35, #101d25);
+}
+:root[data-theme="dark"] .hero-band:after {
+  background: linear-gradient(270deg, rgba(16,29,37,.78), rgba(16,29,37,.94));
+}
+:root[data-theme="dark"] .city-command--search {
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .city-command--search input,
+:root[data-theme="dark"] .city-index-toolbar--home input {
+  color: var(--ink);
+  background: var(--surface);
+}
+:root[data-theme="dark"] .city-picker__panel,
+:root[data-theme="dark"] .city-search-panel {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .city-picker__group-label,
+:root[data-theme="dark"] .insight-card__head,
+:root[data-theme="dark"] .city-picker__option:hover,
+:root[data-theme="dark"] .city-picker__option:focus {
+  color: var(--blue);
+}
+:root[data-theme="dark"] .city-picker__option {
+  color: var(--ink);
+}
+:root[data-theme="dark"] .city-picker__option small,
+:root[data-theme="dark"] .hour-card small,
+:root[data-theme="dark"] .day-row small,
+:root[data-theme="dark"] .day-row i,
+:root[data-theme="dark"] .insight-card p,
+:root[data-theme="dark"] .insight-card li {
+  color: var(--muted);
+}
+:root[data-theme="dark"] .city-picker__option:hover,
+:root[data-theme="dark"] .city-picker__option:focus {
+  background: var(--surface-soft);
+}
+:root[data-theme="dark"] .decision-panel,
+:root[data-theme="dark"] .loading-card,
+:root[data-theme="dark"] .error-card,
+:root[data-theme="dark"] .hour-card,
+:root[data-theme="dark"] .day-row,
+:root[data-theme="dark"] .insight-card,
+:root[data-theme="dark"] .marine-metrics span,
+:root[data-theme="dark"] .directory-card--visual,
+:root[data-theme="dark"] .share-dialog {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .decision-panel {
+  box-shadow: var(--shadow);
+}
+:root[data-theme="dark"] .decision-points {
+  border-color: var(--line);
+  color: var(--muted);
+}
+:root[data-theme="dark"] .marine-section {
+  color: var(--ink);
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .marine-metrics span {
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .marine-metrics b,
+:root[data-theme="dark"] .directory-card__action,
+:root[data-theme="dark"] .insight-card__head {
+  color: var(--blue);
+}
+:root[data-theme="dark"] .directory-card__meta {
+  color: var(--muted);
+}
+:root[data-theme="dark"] .place-illustration__tag {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border: 1px solid var(--line);
+}
+:root[data-theme="dark"] .share-dialog {
+  box-shadow: var(--shadow);
+}
+:root[data-theme="dark"] .share-preview {
+  background: #103f59;
+  color: #fff;
+}
+:root[data-theme="dark"] .secondary-button {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line);
+}
+:root[data-theme="dark"] .favorite-toggle.is-active {
+  color: #f5d58d;
+  background: #46391f;
+  border-color: #94743a;
+}
+:root[data-theme="dark"] .error-card {
+  color: #ffb4aa;
+  border-color: #75443f;
+  background: #342326;
+}
+:root[data-theme="dark"] .location-error {
+  color: #ffb4aa;
+}
