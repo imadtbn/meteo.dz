@@ -59,7 +59,7 @@ function getFooter(depth = 0) {
         <span>Weather Today | الطقس اليوم</span>
       </a>
       <p data-i18n="data_source">المنصة المعتمدة للطقس والمناخ · بيانات مباشرة من Open-Meteo & NASA POWER</p>
-      <p>© <span data-current-year></span> أجواء. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
+      <p>© <span data-current-year></span> الطقس اليوم. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
     </div>
   </footer>
   <div class="toast" role="status" aria-live="polite" hidden></div>`;
@@ -184,7 +184,7 @@ const directoryConfig = [
   {
     folder: 'wilayas',
     kind: 'wilayas',
-    title: 'دليل ولايات الجزائر الـ 69 | أجواء',
+    title: 'دليل ولايات الجزائر الـ 69 | الطقس اليوم',
     heading: 'ولايات الجزائر الـ 69',
     intro: 'استكشف حالة الطقس والتوقعات في كافة ولايات الجزائر الـ 69 بالبحث بالاسم العربي أو الفرنسي أو الإنجليزي أو رمز الولاية ومفتاح الهاتف.',
     subheading: 'فهرس ولايات الجزائر'
@@ -192,7 +192,7 @@ const directoryConfig = [
   {
     folder: 'arab-capitals',
     kind: 'arab-capitals',
-    title: 'طقس العواصم العربية | أجواء',
+    title: 'طقس العواصم العربية | الطقس اليوم',
     heading: 'طقس العواصم العربية الـ 22',
     intro: 'رصد جوي دقيق لجميع عواصم الدول العربية مع درجات الحرارة اللحظية وتوقعات الأيام القادمة.',
     subheading: 'قائمة العواصم العربية'
@@ -200,7 +200,7 @@ const directoryConfig = [
   {
     folder: 'world-search',
     kind: 'world-search',
-    title: 'البحث العالمي عن الطقس | أجواء',
+    title: 'البحث العالمي عن الطقس | الطقس اليوم',
     heading: 'البحث العالمي عن مدن العالم',
     intro: 'ابحث عن أي مدينة أو ولاية في الجزائر والوطن العربي وجميع أنحاء العالم للحصول على تقرير طقس دقيق.',
     subheading: 'محرك البحث الجغرافي العالمي'
@@ -208,7 +208,7 @@ const directoryConfig = [
   {
     folder: 'favorites',
     kind: 'favorites',
-    title: 'المدن والولايات المفضلة | أجواء',
+    title: 'المدن والولايات المفضلة | الطقس اليوم',
     heading: 'قائمتي المفضلة',
     intro: 'الوصول السريع إلى ولاياتك ومدنك المحفوظة لمتابعة مستمرة لطقسها اليومي.',
     subheading: 'ولاياتك المحفوظة'
@@ -216,7 +216,7 @@ const directoryConfig = [
   {
     folder: 'alerts',
     kind: 'alerts',
-    title: 'الإنذارات والتنبيهات الجوية | أجواء',
+    title: 'الإنذارات والتنبيهات الجوية | الطقس اليوم',
     heading: 'مركز الإنذارات والتنبيهات الجوية',
     intro: 'روابط وتحديثات النشرات الجوية الخاصة (BMS) ومستويات اليقظة الرسمية من الديوان الوطني للأرصاد الجوية ومراكز الرصد.',
     subheading: 'النشرات والإنذارات الرسمية'
@@ -246,7 +246,7 @@ directoryConfig.forEach((cfg) => {
   <main id="main-content">
     <section class="hero">
       <div class="hero-copy">
-        <span class="eyebrow"><span class="status-dot"></span> أجواء · دليل شامل</span>
+        <span class="eyebrow"><span class="status-dot"></span> الطقس اليوم · دليل شامل</span>
         <h1>${cfg.heading}</h1>
         <p>${cfg.intro}</p>
       </div>
@@ -298,7 +298,7 @@ directoryConfig.forEach((cfg) => {
   ${getHeader(1, 'climate')}
   <main id="main">
     <section class="climate-hero">
-      <span class="eyebrow"><span class="status-dot"></span> أجواء · سجل المناخ</span>
+      <span class="eyebrow"><span class="status-dot"></span> الطقس اليوم · سجل المناخ</span>
       <h1 data-i18n="climate_title">المرصد المناخي الإقليمي</h1>
       <p>استكشف السلاسل المناخية اليومية حسب الولاية، وقارن درجات الحرارة والأمطار اعتماداً على بيانات NASA POWER الموثقة.</p>
     </section>
@@ -359,7 +359,7 @@ directoryConfig.forEach((cfg) => {
   ${getHeader(1, 'agri')}
   <main id="main">
     <section class="climate-hero">
-      <span class="eyebrow"><span class="status-dot"></span> أجواء · المناخ والزراعة</span>
+      <span class="eyebrow"><span class="status-dot"></span> الطقس اليوم · المناخ والزراعة</span>
       <h1>مؤشرات الطقس الزراعي</h1>
       <p>تابع الحرارة المتراكمة والأمطار وأيام الصقيع والحرارة حسب الولاية لمساعدة المزارعين والمهندسين الزراعيين.</p>
     </section>
@@ -414,7 +414,7 @@ directoryConfig.forEach((cfg) => {
   ${getHeader(1, 'map')}
   <main id="main">
     <section class="map-hero">
-      <span class="eyebrow"><span class="status-dot"></span> أجواء · مركز الملاحة والخرائط</span>
+      <span class="eyebrow"><span class="status-dot"></span> الطقس اليوم · مركز الملاحة والخرائط</span>
       <h1 data-i18n="nav_map">خريطة الطقس ومركز الملاحة</h1>
       <p>استعرض خريطة الولايات الـ 69 والعواصم العربية مع إمكانية التنقل السريع وعرض النشرة الجوية لأي موقع.</p>
     </section>
@@ -545,7 +545,7 @@ directoryConfig.forEach((cfg) => {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية.">
   <meta name="theme-color" content="#0c5b8c">
-  <title>Weather Today | الطقس اليوم - مرصد الطقس والمناخ</title>
+  <title>Weather Today | الطقس اليوم - توقعات الطقس العالمية</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./assets/css/site.css">
