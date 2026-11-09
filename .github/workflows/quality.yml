@@ -1,0 +1,29 @@
+name: Weather Today quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate JavaScript syntax
+        run: |
+          for file in assets/js/*.js scripts/build.js; do node --check "$file"; done
+      - name: Build static pages and SEO files
+        run: node scripts/build.js
+      - name: Run project verification suite
+        run: python scripts/test_suite.py
