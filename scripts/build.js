@@ -54,12 +54,25 @@ function getFooter(depth = 0) {
   return `
   <footer class="site-footer">
     <div class="footer-wrap">
-      <a class="footer-brand" href="${rel}">
-        <img src="${rel}favicon.svg" width="32" height="32" alt="">
-        <span>Weather Today | الطقس اليوم</span>
-      </a>
-      <p data-i18n="data_source">المنصة المعتمدة للطقس والمناخ · بيانات مباشرة من Open-Meteo & NASA POWER</p>
-      <p>© <span data-current-year></span> الطقس اليوم. <span data-i18n="all_rights">جميع الحقوق محفوظة</span>.</p>
+      <div class="footer-about">
+        <a class="footer-brand" href="${rel}" aria-label="Weather Today | الطقس اليوم">
+          <img src="${rel}favicon.svg" width="38" height="38" alt="">
+          <span><strong>الطقس اليوم</strong><small>Weather Today</small></span>
+        </a>
+        <p>منصتك لمتابعة الطقس والتوقعات الجوية في الجزائر والوطن العربي والعالم.</p>
+      </div>
+      <nav class="footer-links" aria-label="روابط الموقع">
+        <a href="${rel}"><span class="footer-link-icon" data-icon="nav_home" aria-hidden="true"></span> الرئيسية</a>
+        <a href="${rel}wilayas/"><span class="footer-link-icon" data-icon="nav_wilayas" aria-hidden="true"></span> الولايات</a>
+        <a href="${rel}world-search/"><span class="footer-link-icon" data-icon="nav_world_search" aria-hidden="true"></span> البحث العالمي</a>
+        <a href="${rel}map/"><span class="footer-link-icon" data-icon="nav_map" aria-hidden="true"></span> خريطة الطقس</a>
+        <a href="${rel}alerts/"><span class="footer-link-icon" data-icon="nav_alerts" aria-hidden="true"></span> الإنذارات</a>
+        <a href="${rel}favorites/"><span class="footer-link-icon" data-icon="nav_favorites" aria-hidden="true"></span> المفضلة</a>
+      </nav>
+      <div class="footer-bottom">
+        <span>بيانات الطقس: Open-Meteo · خرائط الأساس: OpenStreetMap</span>
+        <span>© <span data-current-year></span> الطقس اليوم · جميع الحقوق محفوظة</span>
+      </div>
     </div>
   </footer>
   <div class="toast" role="status" aria-live="polite" hidden></div>`;
