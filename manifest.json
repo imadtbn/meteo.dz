@@ -1,0 +1,19 @@
+{
+  "name": "أجواء | Ajwaa Weather",
+  "short_name": "أجواء",
+  "description": "منصة الطقس والمناخ المعتمدة في الجزائر والوطن العربي والعالم",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071c2c",
+  "theme_color": "#0c5b8c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
