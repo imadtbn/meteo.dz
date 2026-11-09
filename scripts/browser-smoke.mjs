@@ -109,6 +109,26 @@ try {
           }
         }
 
+        if (route.path === "/map/") {
+          const mapState = await page.evaluate(() => ({
+            mapElement: Boolean(document.querySelector("#atlas-map")),
+            leafletLoaded: Boolean(window.L),
+            leafletCanvas: Boolean(document.querySelector("#atlas-map.leaflet-container")),
+            markerCount: document.querySelectorAll("#atlas-map .leaflet-marker-icon").length,
+            mapStatus: document.querySelector("#map-status")?.textContent || ""
+          }));
+          if (!mapState.mapElement) fail(`${viewport.name} weather map: #atlas-map is missing`);
+          if (!mapState.leafletLoaded || !mapState.leafletCanvas) fail(`${viewport.name} weather map: Leaflet did not initialize: ${JSON.stringify(mapState)}`);
+          if (!mapState.markerCount) fail(`${viewport.name} weather map: no city markers were rendered`);
+        }
+
+        if (route.path === "/" && viewport.name === "mobile") {
+          const gpsPrompt = page.locator("#location-prompt");
+          if (!(await gpsPrompt.count()) || !(await gpsPrompt.isVisible())) {
+            fail("first-visit homepage: GPS location prompt is not visible");
+          }
+        }
+
         if (route.path === "/" && viewport.name === "desktop") {
           const themeButton = page.locator('[data-action="theme"]').first();
           if (await themeButton.count()) {
