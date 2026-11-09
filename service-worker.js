@@ -51,7 +51,7 @@ self.addEventListener("fetch", (event) => {
   if (!url.pathname.startsWith(scopePath)) return;
 
   event.respondWith(
-    caches.match(event.request).then((cached) => {
+    caches.open(CACHE_NAME).then((cache) => cache.match(event.request)).then((cached) => {
       const network = fetch(event.request).then((response) => {
         if (response && response.status === 200 && response.type === "basic") {
           const copy = response.clone();
