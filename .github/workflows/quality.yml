@@ -45,6 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf node_modules
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "chore: regenerate Weather Today static pages and SEO"
