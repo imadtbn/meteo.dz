@@ -56,7 +56,8 @@ print(f"✓ Confirmed {len(world_capitals)} global capitals across four continen
 key_pages = [
     "index.html",
     "wilayas/index.html",
-    "arab-capitals/index.html",\n    "world-capitals/index.html",
+    "arab-capitals/index.html",
+    "world-capitals/index.html",
     "world-search/index.html",
     "map/index.html",
     "climate-observatory/index.html",
@@ -105,7 +106,8 @@ assert os.path.exists("sitemap.xml"), "Missing sitemap.xml"
 assert os.path.exists("robots.txt"), "Missing robots.txt"
 with open("sitemap.xml", "r", encoding="utf-8") as f:
     sitemap = f.read()
-    assert "https://imadtbn.github.io/weather-today/" in sitemap\n    assert "https://imadtbn.github.io/weather-today/world-capitals/" in sitemap
+    assert "https://imadtbn.github.io/weather-today/" in sitemap
+    assert "https://imadtbn.github.io/weather-today/world-capitals/" in sitemap
     assert sitemap.count("<url>") >= 80, "Sitemap does not include all key and city pages"
 with open("robots.txt", "r", encoding="utf-8") as f:
     robots = f.read()
@@ -115,5 +117,6 @@ with open("service-worker.js", "r", encoding="utf-8") as f:
     worker = f.read()
     assert 'key.startsWith(CACHE_PREFIX)' in worker
     assert 'weather-today-cache-' in worker
+    assert '"./data/world-capitals.json"' in worker
 print("✓ Weather Today branding, GitHub Pages SEO, sitemap, robots, and scoped cache checks passed.")
 print("\nAll verification tests passed with 100% success!")
