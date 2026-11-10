@@ -93,6 +93,7 @@ if (kind === "world-capitals") {
   tabs.className = "world-capitals-tabs";
   tabs.setAttribute("role", "group");
   tabs.setAttribute("aria-label", "تصفية العواصم حسب القارة");
+  tabs.style.gridColumn = "1 / -1";
   const continents = [
     ["all","كل القارات"],["africa","إفريقيا"],["europe","أوروبا"],
     ["america","الأمريكتان"],["asia","آسيا"]
@@ -166,6 +167,8 @@ if (kind === "world-capitals") {
 
   const searchWrap = document.createElement("div");
   searchWrap.className = "world-capitals-search";
+  searchWrap.style.gridColumn = "1 / -1";
+  grid.style.gridColumn = "1 / -1";
   searchWrap.append(input);
   root.replaceChildren(tabs, searchWrap, grid);
   render();
