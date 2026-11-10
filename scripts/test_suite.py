@@ -38,11 +38,25 @@ with open(capitals_file, "r", encoding="utf-8") as f:
 assert len(capitals) == 22, f"Expected 22 Arab capitals, got {len(capitals)}"
 print(f"✓ Confirmed exactly 22 Arab capitals in {capitals_file}")
 
+# 2b. Verify the global capitals directory dataset
+world_file = "data/world-capitals.json"
+assert os.path.exists(world_file), "Missing data/world-capitals.json"
+with open(world_file, "r", encoding="utf-8") as f:
+    world_capitals = json.load(f)
+assert len(world_capitals) >= 100, f"Expected a broad global capitals dataset, got {len(world_capitals)}"
+assert {row["continent"] for row in world_capitals} == {"africa", "europe", "america", "asia"}
+assert len({row["slug"] for row in world_capitals}) == len(world_capitals), "Duplicate global capital slugs"
+for row in world_capitals:
+    assert row["country"] and row["capital"] and row["englishName"] and row["countryCode"]
+    assert -90 <= row["latitude"] <= 90 and -180 <= row["longitude"] <= 180
+print(f"✓ Confirmed {len(world_capitals)} global capitals across four continents.")
+
+
 # 3. Verify Key Pages
 key_pages = [
     "index.html",
     "wilayas/index.html",
-    "arab-capitals/index.html",
+    "arab-capitals/index.html",\n    "world-capitals/index.html",
     "world-search/index.html",
     "map/index.html",
     "climate-observatory/index.html",
@@ -91,7 +105,7 @@ assert os.path.exists("sitemap.xml"), "Missing sitemap.xml"
 assert os.path.exists("robots.txt"), "Missing robots.txt"
 with open("sitemap.xml", "r", encoding="utf-8") as f:
     sitemap = f.read()
-    assert "https://imadtbn.github.io/weather-today/" in sitemap
+    assert "https://imadtbn.github.io/weather-today/" in sitemap\n    assert "https://imadtbn.github.io/weather-today/world-capitals/" in sitemap
     assert sitemap.count("<url>") >= 80, "Sitemap does not include all key and city pages"
 with open("robots.txt", "r", encoding="utf-8") as f:
     robots = f.read()
