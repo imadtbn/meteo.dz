@@ -1,0 +1,41 @@
+/* Weather Today — responsive AdSense containers */
+.ad-container {
+  display: block;
+  width: min(100%, 1200px);
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100px;
+  margin: clamp(14px, 2.5vw, 24px) auto;
+  padding: 0 clamp(8px, 2vw, 16px);
+  box-sizing: border-box;
+  clear: both;
+  isolation: isolate;
+}
+.ad-container--fluid { min-height: 110px; }
+.ad-container--responsive { min-height: 100px; }
+.ad-container .adsbygoogle {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin-inline: auto;
+}
+.ad-container iframe,
+.ad-container ins,
+.ad-container > div {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .ad-container {
+    width: 100%;
+    min-height: 90px;
+    margin-block: 12px;
+    padding-inline: 8px;
+  }
+  .ad-container--fluid { min-height: 100px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ad-container { scroll-behavior: auto; }
+}
