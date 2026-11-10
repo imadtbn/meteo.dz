@@ -116,6 +116,10 @@ if (kind === "world-capitals") {
     return button;
   });
 
+  const grid = document.createElement("div");
+  grid.className = "feature-grid world-capitals-grid";
+  grid.setAttribute("aria-live", "polite");
+
   const input = document.createElement("input");
   input.className = "directory-search-input";
   input.type = "search";
