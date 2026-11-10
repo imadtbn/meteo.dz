@@ -400,3 +400,22 @@ main, main > *, .content-section, .dashboard-shell, .directory-shell,
   .site-footer > .footer-wrap { width: 100%; }
   .ad-container { width: calc(100% - 1rem); }
 }
+
+
+/* Root-level horizontal overflow guard (including third-party ad frames). */
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+img, video, canvas, svg { max-width: 100%; }
+.ad-container,
+.ad-container > ins.adsbygoogle {
+  max-width: 100%;
+  min-width: 0;
+}
