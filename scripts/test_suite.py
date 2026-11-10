@@ -46,6 +46,8 @@ with open(world_file, "r", encoding="utf-8") as f:
 assert len(world_capitals) >= 100, f"Expected a broad global capitals dataset, got {len(world_capitals)}"
 assert {row["continent"] for row in world_capitals} == {"africa", "europe", "america", "asia"}
 assert len({row["slug"] for row in world_capitals}) == len(world_capitals), "Duplicate global capital slugs"
+assert not ({row["slug"] for row in world_capitals} & {row["slug"] for row in capitals}), "Arab capitals must be reused from the Arab capitals source, not duplicated in the global source"
+
 for row in world_capitals:
     assert row["country"] and row["capital"] and row["englishName"] and row["countryCode"]
     assert -90 <= row["latitude"] <= 90 and -180 <= row["longitude"] <= 180
