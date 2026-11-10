@@ -4,7 +4,7 @@
  * Offline cache is a fallback, never the preferred source while online.
  */
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v9";
+const CACHE_NAME = CACHE_PREFIX + "v10";
 
 const STATIC_ASSETS = [
   "./",
@@ -14,6 +14,7 @@ const STATIC_ASSETS = [
   "./favicon.svg",
   "./assets/icon.svg",
   "./assets/css/site.css",
+  "./assets/css/adsense.css",
   "./assets/css/home-parity.css",
   "./assets/css/directory-parity.css",
   "./assets/css/climate.css",
@@ -21,6 +22,7 @@ const STATIC_ASSETS = [
   "./assets/css/map.css",
   "./assets/js/map.js",
   "./assets/js/site.js",
+  "./assets/js/adsense.js",
   "./assets/js/home-parity.js",
   "./assets/js/home-visual-parity.js",
   "./assets/js/directory-parity.js",
