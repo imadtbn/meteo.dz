@@ -3,8 +3,9 @@ import { getLang, setLang, applyTranslations } from "./i18n.js";
 const root = document.documentElement;
 
 const navIconPaths={"nav_home":"M3 10.5 12 3l9 7.5M5.5 9.5V21h13V9.5M9.5 21v-7h5v7","nav_wilayas":"M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z","nav_capitals":"M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6","nav_world_capitals":"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20","nav_world_search":"M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15ZM16 16l5 5","nav_map":"M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15M15 6v15","nav_climate":"M12 3v18M5 7c2-3 4-3 7 0s5 3 7 0M5 17c2-3 4-3 7 0s5 3 7 0","nav_agri":"M12 21V11M12 13C5 13 3 9 3 5c5 0 9 2 9 8ZM12 11c0-5 3-8 9-8 0 5-3 8-9 8Z","nav_marine":"M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 20c2-2 4-2 6 0s4 2 6 0 4-2 6 0M12 3v8M8 7l4-4 4 4","nav_alerts":"M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4","nav_favorites":"m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"};
-document.querySelectorAll("#primary-navigation a[data-i18n], .site-navigation .nav-link[data-i18n], .site-navigation .nav-link[data-icon]").forEach(link=>{
-  const key=link.dataset.icon||link.dataset.i18n,path=navIconPaths[key];if(!path||link.querySelector(".nav-icon"))return;
+document.querySelectorAll("#primary-navigation a, .site-navigation .nav-link, nav.nav a[data-i18n], nav.nav a[data-icon]").forEach(link=>{
+  const key=link.dataset.icon||link.dataset.i18n||(link.href.includes("/world-capitals")?"nav_world_capitals":"");
+  const path=navIconPaths[key];if(!path||link.querySelector(".nav-icon"))return;
   const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("viewBox","0 0 24 24");svg.setAttribute("class","nav-icon");svg.setAttribute("aria-hidden","true");svg.setAttribute("fill","none");svg.setAttribute("stroke","currentColor");svg.setAttribute("stroke-width","1.8");svg.setAttribute("stroke-linecap","round");svg.setAttribute("stroke-linejoin","round");
   const shape=document.createElementNS("http://www.w3.org/2000/svg","path");shape.setAttribute("d",path);svg.append(shape);link.prepend(svg);
 });
