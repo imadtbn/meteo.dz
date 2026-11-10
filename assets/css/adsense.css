@@ -18,6 +18,18 @@
 .ad-container iframe,.ad-container ins,.ad-container > div {
   max-width:100%; box-sizing:border-box;
 }
+
+/* Collapse the entire placement only after AdSense confirms there is no ad. */
+.ad-container.is-unfilled {
+  display:none !important;
+  min-height:0;
+  margin:0;
+  padding:0;
+}
+.ad-container.is-unfilled::before {
+  display:none;
+}
+
 @media(max-width:600px) {
   .ad-container { width:calc(100% - 20px); min-height:104px; margin-block:14px; padding-block:6px; }
   .ad-container--fluid { min-height:112px; }
