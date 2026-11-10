@@ -82,6 +82,95 @@ if (kind === "wilayas" || kind === "arab-capitals") {
   render();
 }
 
+
+if (kind === "world-capitals") {
+  const worldCapitals = JSON.parse(document.querySelector("#world-capitals-data")?.textContent || "[]");
+  const params = new URLSearchParams(location.search);
+  const validContinents = new Set(["all","africa","europe","america","asia"]);
+  let activeContinent = validContinents.has(params.get("continent")) ? (params.get("continent") || "all") : "all";
+
+  const tabs = document.createElement("div");
+  tabs.className = "world-capitals-tabs";
+  tabs.setAttribute("role", "group");
+  tabs.setAttribute("aria-label", "تصفية العواصم حسب القارة");
+  const continents = [
+    ["all","كل القارات"],["africa","إفريقيا"],["europe","أوروبا"],
+    ["america","الأمريكتان"],["asia","آسيا"]
+  ];
+  const buttons = continents.map(([key,label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button button-secondary world-capitals-tab";
+    button.textContent = label;
+    button.dataset.continent = key;
+    button.addEventListener("click", () => {
+      activeContinent = key;
+      const next = new URL(location.href);
+      if (key === "all") next.searchParams.delete("continent");
+      else next.searchParams.set("continent", key);
+      history.replaceState({}, "", next);
+      render();
+    });
+    tabs.append(button);
+    return button;
+  });
+
+  const input = document.createElement("input");
+  input.className = "directory-search-input";
+  input.type = "search";
+  input.placeholder = "ابحث باسم العاصمة أو الدولة بالعربية أو الإنجليزية...";
+  input.setAttribute("aria-label", "البحث في عواصم العالم");
+  input.autocomplete = "off";
+  input.addEventListener("input", render);
+
+  const flagFromCode = code => {
+    const value = String(code || "").toUpperCase();
+    return /^[A-Z]{2}$/.test(value)
+      ? [...value].map(char => String.fromCodePoint(127397 + char.charCodeAt(0))).join("")
+      : "🌐";
+  };
+  const sceneFor = continent => ({
+    africa: "desert", europe: "city", america: "coast", asia: "river"
+  }[continent] || "city");
+
+  const render = () => {
+    const query = normalize(input.value);
+    const rows = worldCapitals.filter(city =>
+      (activeContinent === "all" || city.continent === activeContinent) &&
+      normalize([city.country,city.capital,city.englishName,city.slug].join(" ")).includes(query)
+    );
+    buttons.forEach(button => {
+      const selected = button.dataset.continent === activeContinent;
+      button.setAttribute("aria-pressed", String(selected));
+      button.classList.toggle("is-active", selected);
+    });
+    grid.replaceChildren(...rows.map(city => {
+      const card = makeCard({
+        href: "../global-weather/?lat=" + encodeURIComponent(city.latitude) +
+          "&lon=" + encodeURIComponent(city.longitude) + "&name=" + encodeURIComponent(city.capital),
+        label: "عرض الطقس في " + city.capital + "، " + city.country,
+        scene: sceneFor(city.continent),
+        badge: city.englishName,
+        meta: flagFromCode(city.countryCode) + " · " + city.country,
+        title: city.capital
+      });
+      return card;
+    }));
+    const label = activeContinent === "all" ? "جميع القارات" :
+      (continents.find(item => item[0] === activeContinent)?.[1] || "القارة المختارة");
+    setCount(rows.length + " عاصمة · " + label + " · من أصل " + worldCapitals.length);
+    setStatus(rows.length
+      ? "اختر العاصمة لعرض الطقس الحالي والتوقعات الساعية والأسبوعية."
+      : "لا توجد عاصمة مطابقة. جرّب البحث باسم الدولة أو بالاسم الإنجليزي.");
+  };
+
+  const searchWrap = document.createElement("div");
+  searchWrap.className = "world-capitals-search";
+  searchWrap.append(input);
+  root.replaceChildren(tabs, searchWrap, grid);
+  render();
+}
+
 if (kind === "world-search") {
   const params = new URLSearchParams(location.search);
   const initial = (params.get("q") || "").slice(0,100);
