@@ -4,7 +4,7 @@
  * Offline cache is a fallback, never the preferred source while online.
  */
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v12";
+const CACHE_NAME = CACHE_PREFIX + "v13";
 
 const STATIC_ASSETS = [
   "./",
@@ -31,7 +31,8 @@ const STATIC_ASSETS = [
   "./assets/js/place-illustration.js",
   "./assets/js/share-export-parity.js",
   "./data/cities.json",
-  "./data/arab-capitals.json"
+  "./data/arab-capitals.json",
+  "./data/world-capitals.json"
 ];
 
 self.addEventListener("install", (event) => {
