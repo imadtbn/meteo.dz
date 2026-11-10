@@ -6,12 +6,14 @@
   <meta name="description" content="خريطة الطقس التفاعلية للولايات الجزائرية الـ69 والعواصم العربية مع طبقات الأمطار والحرارة والرياح.">
   <meta name="theme-color" content="#0c5b8c">
   <link rel="canonical" href="https://imadtbn.github.io/weather-today/map/">
-  <title>خريطة الطقس التفاعلية | الطقس اليوم</title>
+  <title>خريطة الطقس التفاعلية | Weather Today | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../assets/css/site.css">
   <link rel="stylesheet" href="../assets/css/map.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="../assets/css/adsense.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5656416032906373" crossorigin="anonymous"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
@@ -19,7 +21,7 @@
   <header class="site-header">
     <a class="brand" href="../" aria-label="Weather Today | الطقس اليوم">
       <img src="../favicon.svg" width="42" height="42" alt="Weather Today">
-      <span><strong data-i18n="brand_title">الطقس اليوم</strong><small data-i18n="brand_sub">توقعات الطقس حول العالم</small></span>
+      <span><strong data-i18n="brand_title">Weather Today</strong><small data-i18n="brand_sub">الطقس اليوم</small></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة">
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -56,6 +58,13 @@
       <h1>خريطة الطقس التفاعلية</h1>
       <p>استكشف مواقع الولايات الجزائرية والعواصم العربية، وافتح قراءة الطقس لكل موقع مباشرة من الخريطة.</p>
     </section>
+    <!-- إعلانات ضمن المقال 01 -->
+    <div class="ad-container ad-container--fluid" data-ad-placement="after-hero">
+      <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+           data-ad-layout-key="-fr+57+4a-dc+8g"
+           data-ad-client="ca-pub-5656416032906373" data-ad-slot="7867079394"></ins>
+    </div>
+
     <section class="map-panel" aria-label="خريطة الطقس">
       <div class="map-toolbar">
         <div class="map-toolbar-title"><strong>الخريطة الجوية</strong><small id="map-status" role="status" aria-live="polite">جارٍ تهيئة الخريطة…</small></div>
@@ -75,12 +84,19 @@
     <script type="application/json" id="capital-data">[{"slug":"algiers","country":"الجزائر","capital":"الجزائر العاصمة","englishName":"Algiers","latitude":36.7538,"longitude":3.0588},{"slug":"manama","country":"البحرين","capital":"المنامة","englishName":"Manama","latitude":26.2235,"longitude":50.5876},{"slug":"moroni","country":"جزر القمر","capital":"موروني","englishName":"Moroni","latitude":-11.7172,"longitude":43.2473},{"slug":"djibouti","country":"جيبوتي","capital":"مدينة جيبوتي","englishName":"Djibouti","latitude":11.5721,"longitude":43.1456},{"slug":"cairo","country":"مصر","capital":"القاهرة","englishName":"Cairo","latitude":30.0444,"longitude":31.2357},{"slug":"baghdad","country":"العراق","capital":"بغداد","englishName":"Baghdad","latitude":33.3152,"longitude":44.3661},{"slug":"amman","country":"الأردن","capital":"عمّان","englishName":"Amman","latitude":31.9539,"longitude":35.9106},{"slug":"kuwait-city","country":"الكويت","capital":"مدينة الكويت","englishName":"Kuwait City","latitude":29.3759,"longitude":47.9774},{"slug":"beirut","country":"لبنان","capital":"بيروت","englishName":"Beirut","latitude":33.8938,"longitude":35.5018},{"slug":"tripoli","country":"ليبيا","capital":"طرابلس","englishName":"Tripoli","latitude":32.8872,"longitude":13.1913},{"slug":"nouakchott","country":"موريتانيا","capital":"نواكشوط","englishName":"Nouakchott","latitude":18.0735,"longitude":-15.9582},{"slug":"rabat","country":"المغرب","capital":"الرباط","englishName":"Rabat","latitude":34.0209,"longitude":-6.8416},{"slug":"muscat","country":"عُمان","capital":"مسقط","englishName":"Muscat","latitude":23.588,"longitude":58.3829},{"slug":"ramallah","country":"فلسطين","capital":"رام الله (مرجع جغرافي)","englishName":"Ramallah","latitude":31.9038,"longitude":35.2034},{"slug":"doha","country":"قطر","capital":"الدوحة","englishName":"Doha","latitude":25.2854,"longitude":51.531},{"slug":"riyadh","country":"السعودية","capital":"الرياض","englishName":"Riyadh","latitude":24.7136,"longitude":46.6753},{"slug":"mogadishu","country":"الصومال","capital":"مقديشو","englishName":"Mogadishu","latitude":2.0469,"longitude":45.3182},{"slug":"khartoum","country":"السودان","capital":"الخرطوم","englishName":"Khartoum","latitude":15.5007,"longitude":32.5599},{"slug":"damascus","country":"سوريا","capital":"دمشق","englishName":"Damascus","latitude":33.5138,"longitude":36.2765},{"slug":"tunis","country":"تونس","capital":"تونس","englishName":"Tunis","latitude":36.8065,"longitude":10.1815},{"slug":"abu-dhabi","country":"الإمارات العربية المتحدة","capital":"أبوظبي","englishName":"Abu Dhabi","latitude":24.4539,"longitude":54.3773},{"slug":"sanaa","country":"اليمن","capital":"صنعاء","englishName":"Sana'a","latitude":15.3694,"longitude":44.191}]</script>
   </main>
   
-  <footer class="site-footer">
+  
+  <!-- إعلانات صورية 01 -->
+  <div class="ad-container ad-container--responsive" data-ad-placement="before-footer">
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-5656416032906373" data-ad-slot="3143411927"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+<footer class="site-footer">
     <div class="footer-wrap">
       <div class="footer-about">
         <a class="footer-brand" href="../" aria-label="Weather Today | الطقس اليوم">
           <img src="../favicon.svg" width="38" height="38" alt="">
-          <span><strong>الطقس اليوم</strong><small>Weather Today</small></span>
+          <span><strong>Weather Today</strong><small>الطقس اليوم</small></span>
         </a>
         <p>منصتك لمتابعة الطقس والتوقعات الجوية في الجزائر والوطن العربي والعالم.</p>
       </div>
@@ -94,7 +110,7 @@
       </nav>
       <div class="footer-bottom">
         <span>بيانات الطقس: Open-Meteo · خرائط الأساس: OpenStreetMap</span>
-        <span>© <span data-current-year></span> الطقس اليوم · جميع الحقوق محفوظة</span>
+        <span>© <span data-current-year></span> Weather Today | الطقس اليوم · جميع الحقوق محفوظة</span>
       </div>
     </div>
   </footer>
@@ -102,5 +118,6 @@
   <script type="module" src="../assets/js/site.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script type="module" src="../assets/js/map.js"></script>
+  <script defer src="../assets/js/adsense.js"></script>
 </body>
 </html>
