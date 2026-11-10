@@ -154,8 +154,8 @@ if (kind === "world-capitals") {
         label: "عرض الطقس في " + city.capital + "، " + city.country,
         scene: sceneFor(city.continent),
         badge: city.englishName,
-        meta: flagFromCode(city.countryCode) + " · " + city.country,
-        title: city.capital
+        meta: flagFromCode(city.countryCode) + " · الدولة: " + city.country,
+        title: "العاصمة: " + city.capital
       });
       return card;
     }));
