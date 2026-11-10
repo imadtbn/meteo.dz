@@ -1,12 +1,20 @@
 const params=new URLSearchParams(location.search);
 const latitude=Number(params.get("lat")),longitude=Number(params.get("lon"));
 const name=(params.get("name")||"الموقع المختار").slice(0,100);
+const country=(params.get("country")||"").slice(0,100);
+const favoriteKey="atlas-favorite-global-cities-v1";
+const favoriteButton=document.querySelector("#global-favorite-toggle");
+const favoriteId=Number.isFinite(latitude)&&Number.isFinite(longitude)?latitude.toFixed(4)+","+longitude.toFixed(4):"";
+const readGlobalFavorites=()=>{try{const value=JSON.parse(localStorage.getItem(favoriteKey)||"[]");return Array.isArray(value)?value.filter(item=>item&&typeof item.id==="string"&&Number.isFinite(item.latitude)&&Number.isFinite(item.longitude)):[]}catch{return []}};
+const paintGlobalFavorite=()=>{if(!favoriteButton||!valid)return;const active=readGlobalFavorites().some(item=>item.id===favoriteId);favoriteButton.disabled=false;favoriteButton.setAttribute("aria-pressed",String(active));favoriteButton.textContent=active?"★ في المفضلة":"☆ أضف إلى المفضلة";};
 const title=document.querySelector("#global-title"),coords=document.querySelector("#global-coordinates"),status=document.querySelector("#global-status"),currentNode=document.querySelector("#global-current"),daysNode=document.querySelector("#global-days");
 const valid=params.has("lat")&&params.has("lon")&&Number.isFinite(latitude)&&Number.isFinite(longitude)&&Math.abs(latitude)<=90&&Math.abs(longitude)<=180;
 const condition=code=>{if(code===0)return["سماء صافية","☀"];if([1,2].includes(code))return["صحو جزئي","⛅"];if(code===3)return["غائم","☁"];if([45,48].includes(code))return["ضباب","〰"];if([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code))return["أمطار","☔"];if([71,73,75,77,85,86].includes(code))return["ثلوج","❄"];if([95,96,99].includes(code))return["عواصف رعدية","ϟ"];return["حالة متغيرة","◌"];};
 const fmtDay=value=>new Intl.DateTimeFormat("ar-DZ",{weekday:"long",day:"numeric",month:"short",timeZone:"Africa/Algiers"}).format(new Date(value+"T12:00:00+01:00"));
 if(title)title.textContent="الطقس في "+name;
-if(coords&&valid)coords.textContent=latitude.toFixed(3)+"°، "+longitude.toFixed(3)+"°";
+if(coords&&valid)coords.textContent=latitude.toFixed(3)+"°، "+longitude.toFixed(3)+"°"+(country?" · "+country:"");
+if(favoriteButton){paintGlobalFavorite();favoriteButton.addEventListener("click",()=>{if(!valid)return;const items=readGlobalFavorites(),exists=items.some(item=>item.id===favoriteId);const next=exists?items.filter(item=>item.id!==favoriteId):[...items,{id:favoriteId,name,country,latitude,longitude}].slice(-100);try{localStorage.setItem(favoriteKey,JSON.stringify(next));paintGlobalFavorite();}catch{if(status)status.textContent="تعذر حفظ المفضلة. تحقق من إعدادات التخزين في المتصفح.";}});}
+window.addEventListener("storage",event=>{if(event.key===favoriteKey||event.key===null)paintGlobalFavorite();});
 if(!valid){if(status){status.className="error-card";status.textContent="إحداثيات الموقع غير صالحة. ارجع إلى الخريطة واختر علامة أخرى.";} }
 else{
  const query=new URLSearchParams({latitude:String(latitude),longitude:String(longitude),current:"temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m",daily:"weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",timezone:"auto",forecast_days:"5"});
