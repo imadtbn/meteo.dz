@@ -9,6 +9,7 @@ const setStatus=message=>{status.hidden=!message;status.textContent=message||"";
 const setCount=message=>{count.textContent=message||"";};
 const localHref=slug=>"../weather/"+encodeURIComponent(slug)+"/";
 const saved=()=>{try{const data=JSON.parse(localStorage.getItem("atlas-favorite-cities-v1")||"[]");return Array.isArray(data)?data.filter(x=>typeof x==="string"):[]}catch{return []}};
+const savedGlobal=()=>{try{const data=JSON.parse(localStorage.getItem("atlas-favorite-global-cities-v1")||"[]");return Array.isArray(data)?data.filter(x=>x&&typeof x.id==="string"&&typeof x.name==="string"&&Number.isFinite(x.latitude)&&Number.isFinite(x.longitude)&&Math.abs(x.latitude)<=90&&Math.abs(x.longitude)<=180):[]}catch{return []}};
 if(kind==="wilayas"){
  const input=node("input","directory-search-input");input.type="search";input.placeholder="ابحث بالعربية أو الفرنسية أو اللاتينية أو رمز الولاية والهاتف";input.setAttribute("aria-label","بحث الولايات");
  const wrap=node("div","");wrap.style.cssText="display:grid;gap:1rem;grid-column:1/-1";wrap.append(input);
@@ -16,8 +17,17 @@ if(kind==="wilayas"){
  const render=()=>{const q=norm(input.value);const rows=cities.filter(c=>norm([c.name,c.name_fr,c.name_en,c.region,c.code,c.slug,c.phone_code].join(" ")).includes(q));setCount(rows.length+" ولاية من أصل "+cities.length);grid.replaceChildren(...rows.map(c=>card(c.name,"ولاية "+c.code+" · "+c.region+" · "+(c.name_fr||""),localHref(c.slug),"توقعات الطقس")));if(!rows.length)setStatus("لا توجد ولاية مطابقة للبحث.");else setStatus("");};
  input.addEventListener("input",render);render();
 }else if(kind==="favorites"){
- const render=()=>{const ids=saved(),rows=cities.filter(c=>ids.includes(c.slug));setCount(rows.length+" ولاية محفوظة على هذا الجهاز");root.replaceChildren(...rows.map(c=>{const wrap=node("div","feature-card");wrap.append(node("h3","",c.name),node("p","",c.region+" · ولاية "+c.code),card("فتح توقعات "+c.name,"القراءة الحالية والتوقعات الساعية واليومية",localHref(c.slug)));const remove=node("button","action-button","إزالة من المفضلة");remove.type="button";remove.addEventListener("click",()=>{try{localStorage.setItem("atlas-favorite-cities-v1",JSON.stringify(ids.filter(x=>x!==c.slug)))}catch{}render()});wrap.append(remove);return wrap;}));if(!rows.length){root.append(card("استكشف الولايات","أضف الولايات التي تتابعها إلى المفضلة من صفحة الطقس.","../wilayas/"));setStatus("لم تحفظ أي ولاية بعد. أضف ولاية من صفحة الطقس لعرضها هنا.");}else setStatus("");};
- render();window.addEventListener("storage",render);
+ const render=()=>{
+  const ids=saved(),rows=cities.filter(c=>ids.includes(c.slug)),world=savedGlobal();
+  setCount((rows.length+world.length)+" موقع محفوظ على هذا الجهاز · "+rows.length+" ولاية و"+world.length+" مدينة عالمية");
+  const cards=[
+   ...rows.map(c=>{const wrap=node("article","feature-card");wrap.append(node("span","feature-index","DZ"),node("h3","",c.name),node("p","",c.region+" · ولاية "+c.code),card("فتح توقعات "+c.name,"القراءة الحالية والتوقعات الساعية واليومية",localHref(c.slug)));const remove=node("button","action-button","إزالة من المفضلة");remove.type="button";remove.addEventListener("click",()=>{try{localStorage.setItem("atlas-favorite-cities-v1",JSON.stringify(saved().filter(x=>x!==c.slug)))}catch{}render()});wrap.append(remove);return wrap;}),
+   ...world.map(c=>{const wrap=node("article","feature-card");wrap.append(node("span","feature-index","🌍"),node("h3","",c.name),node("p","",[c.country,c.latitude.toFixed(3)+"°، "+c.longitude.toFixed(3)+"°"].filter(Boolean).join(" · ")));const open=card("فتح توقعات "+c.name,"القراءة الحالية والتوقعات الساعية واليومية","../global-weather/?"+new URLSearchParams({lat:String(c.latitude),lon:String(c.longitude),name:c.name,country:c.country||""}).toString(),"عرض الطقس");wrap.append(open);const remove=node("button","action-button","إزالة من المفضلة");remove.type="button";remove.addEventListener("click",()=>{try{localStorage.setItem("atlas-favorite-global-cities-v1",JSON.stringify(savedGlobal().filter(x=>x.id!==c.id)))}catch{}render()});wrap.append(remove);return wrap;})
+  ];
+  root.replaceChildren(...cards);
+  if(!cards.length){root.append(card("استكشف المدن والولايات","أضف الولايات أو المدن العالمية من صفحات الطقس لعرضها هنا.","../wilayas/"));setStatus("لم تحفظ أي موقع بعد. أضف ولاية أو مدينة من صفحة الطقس إلى المفضلة.");}else setStatus("");
+ };
+ render();window.addEventListener("storage",event=>{if(event.key==="atlas-favorite-cities-v1"||event.key==="atlas-favorite-global-cities-v1"||event.key===null)render();});
 }else if(kind==="alerts"){
  setCount("المصادر الرسمية للتحذيرات الجوية");
  const sources=[["خريطة اليقظة الجوية","تابع مستوى اليقظة العامة والبحرية حسب الولاية والظواهر الجوية.","https://www.meteo.dz/?lang=ar"],["النشرات الجوية الخاصة BMS","راجع التحذيرات الرسمية ومناطق سريانها وفترة صلاحيتها.","https://www.meteo.dz/bms"],["قنوات RSS وCAP","تحقق من قنوات النشر الرسمية المتاحة لدى الديوان الوطني للأرصاد الجوية.","https://www.meteo.dz/rss"]];
