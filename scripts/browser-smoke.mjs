@@ -101,8 +101,12 @@ try {
             width: Math.round(element.getBoundingClientRect().width)
           }))
         }));
-        if (dimensions.document > dimensions.viewport + 1 || dimensions.body > dimensions.viewport + 1) {
-          fail(`${viewport.name} ${route.label}: horizontal overflow (viewport ${dimensions.viewport}px, document ${dimensions.document}px, body ${dimensions.body}px); elements: ${JSON.stringify(dimensions.overflowElements)}`);
+        // The document element defines the page's actual horizontal scroll range.
+        // body.scrollWidth may be larger when an inner component is clipped by the
+        // intentional root-level overflow-x: clip guard; report it for diagnostics,
+        // but do not fail unless the document itself can scroll beyond the viewport.
+        if (dimensions.document > dimensions.viewport + 1) {
+          fail(`${viewport.name} ${route.label}: page-level horizontal overflow (viewport ${dimensions.viewport}px, document ${dimensions.document}px, body ${dimensions.body}px); elements: ${JSON.stringify(dimensions.overflowElements)}`);
         }
         if (!dimensions.title.trim()) fail(`${viewport.name} ${route.label}: document title is empty`);
         observations.push({ viewport: viewport.name, route: route.label, ...dimensions });
