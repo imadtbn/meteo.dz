@@ -259,6 +259,12 @@ directoryConfig.forEach((cfg) => {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="${cfg.intro}">
   <meta name="theme-color" content="#0c5b8c">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/${cfg.folder}/">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="${cfg.title}">
+  <meta property="og:description" content="${cfg.intro}">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/${cfg.folder}/">
   <title>${cfg.title}</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
@@ -291,7 +297,7 @@ directoryConfig.forEach((cfg) => {
     </section>
     <script type="application/json" id="city-data">${JSON.stringify(cities)}</script>
     <script type="application/json" id="capital-data">${JSON.stringify(capitals)}</script>
-    <script type="application/json" id="world-capitals-data">${JSON.stringify(worldCapitals)}</script>
+    ${cfg.kind === 'world-capitals' ? `<script type="application/json" id="world-capitals-data">${JSON.stringify(worldCapitals)}</script>` : ''}
   </main>
   ${getFooter(1)}
   <script type="module" src="../assets/js/site.js"></script>
@@ -569,7 +575,7 @@ directoryConfig.forEach((cfg) => {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية.">
+  <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية و145 عاصمة عالمية.">
   <meta name="theme-color" content="#0c5b8c">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://imadtbn.github.io/weather-today/">
@@ -593,7 +599,7 @@ directoryConfig.forEach((cfg) => {
       <div class="hero-copy">
         <span class="eyebrow"><span class="status-dot"></span> Weather Today | الطقس اليوم</span>
         <h1>الطقس حولك،<br><em>أينما كنت.</em></h1>
-        <p>تابع حالة الطقس الحالية والتوقعات الساعية والأسبوعية لمدينتك حول العالم، مع تحديد موقعك عبر GPS وتغطية 69 ولاية جزائرية و22 عاصمة عربية.</p>
+        <p>تابع حالة الطقس الحالية والتوقعات الساعية والأسبوعية لمدينتك حول العالم، مع تحديد موقعك عبر GPS وتغطية 69 ولاية جزائرية و22 عاصمة عربية و145 عاصمة عالمية.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="./wilayas/" data-i18n="explore_wilayas">استكشف الولايات الـ 69 <span aria-hidden="true">←</span></a>
           <a class="button button-secondary" href="./world-search/" data-i18n="nav_world_search">بحث عالمي</a>
