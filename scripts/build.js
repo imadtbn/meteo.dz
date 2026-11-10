@@ -795,54 +795,61 @@ console.log('Build completed successfully!');
     const depth = path.relative(rootDir, path.dirname(filePath))
       .split(path.sep).filter(Boolean).length;
     const rel = depth ? '../'.repeat(depth) : './';
-    const cssHref = `${rel}assets/css/adsense.css`;
-    const jsSrc = `${rel}assets/js/adsense.js`;
+    const cssHref = rel + 'assets/css/adsense.css';
+    const jsSrc = rel + 'assets/js/adsense.js';
     let changed = false;
 
-    if (!html.includes('adsense.css') && /<\\/head>/i.test(html)) {
-      html = html.replace(/<\\/head>/i,
-        `  <link rel="stylesheet" href="${cssHref}">\\n</head>`);
+    const headAt = html.toLowerCase().indexOf('</head>');
+    if (!html.includes('adsense.css') && headAt >= 0) {
+      html = html.slice(0, headAt) +
+        '  <link rel="stylesheet" href="' + cssHref + '">' + '\n' +
+        html.slice(headAt);
       changed = true;
     }
 
     if (!html.includes('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')) {
-      html = html.replace(/<\\/head>/i,
-        `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5656416032906373" crossorigin="anonymous"></script>\\n</head>`);
-      changed = true;
+      const at = html.toLowerCase().indexOf('</head>');
+      if (at >= 0) {
+        html = html.slice(0, at) +
+          '  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5656416032906373" crossorigin="anonymous"></script>' + '\n' +
+          html.slice(at);
+        changed = true;
+      }
     }
 
-    const fluidId = '7867079394';
-    if (!html.includes(`data-ad-slot="${fluidId}"`)) {
-      const heroOpen = /<(section|div)\\b(?=[^>]*\\bclass=["'][^"']*["'])[^>]*>/gi;
+    if (!html.includes('data-ad-slot="7867079394"')) {
+      const openTagPattern = new RegExp('<(section|div)\\b[^>]*>', 'gi');
       let match;
-      let inserted = false;
-      while ((match = heroOpen.exec(html))) {
-        const classMatch = match[0].match(/\\bclass=["']([^"']+)["']/i);
+      while ((match = openTagPattern.exec(html))) {
+        const classMatch = match[0].match(/class=["']([^"']+)["']/i);
         if (!classMatch) continue;
-        const tokens = classMatch[1].split(/\\s+/);
+        const tokens = classMatch[1].split(/\s+/);
         if (!tokens.some(token => token === 'hero' || token.endsWith('-hero') ||
-                                  token.startsWith('hero-') || token.startsWith('hero--'))) continue;
+                                  token.startsWith('hero-'))) continue;
+
         const tag = match[1].toLowerCase();
-        const tagRe = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
-        tagRe.lastIndex = match.index;
-        let depthCount = 0;
+        const tagPattern = new RegExp('</?' + tag + '\\b[^>]*>', 'gi');
+        tagPattern.lastIndex = match.index;
+        let nesting = 0;
         let tagMatch;
         let closeEnd = -1;
-        while ((tagMatch = tagRe.exec(html))) {
-          if (/^<\\//.test(tagMatch[0])) depthCount--;
-          else if (!/\\/>$/.test(tagMatch[0])) depthCount++;
-          if (depthCount === 0) { closeEnd = tagRe.lastIndex; break; }
+        while ((tagMatch = tagPattern.exec(html))) {
+          if (tagMatch[0].startsWith('</')) nesting--;
+          else if (!tagMatch[0].endsWith('/>')) nesting++;
+          if (nesting === 0) {
+            closeEnd = tagPattern.lastIndex;
+            break;
+          }
         }
-        if (closeEnd > -1) {
-          const ad = `
-    <!-- إعلانات ضمن المقال 01 -->
-    <div class="ad-container ad-container--fluid" data-ad-placement="after-hero">
-      <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
-           data-ad-layout-key="-fr+57+4a-dc+8g"
-           data-ad-client="ca-pub-5656416032906373" data-ad-slot="7867079394"></ins>
-    </div>`;
+
+        if (closeEnd >= 0) {
+          const ad = '\n    <!-- إعلانات ضمن المقال 01 -->\n' +
+            '    <div class="ad-container ad-container--fluid" data-ad-placement="after-hero">\n' +
+            '      <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"\n' +
+            '           data-ad-layout-key="-fr+57+4a-dc+8g"\n' +
+            '           data-ad-client="ca-pub-5656416032906373" data-ad-slot="7867079394"></ins>\n' +
+            '    </div>\n';
           html = html.slice(0, closeEnd) + ad + html.slice(closeEnd);
-          inserted = true;
           changed = true;
         }
         break;
@@ -850,25 +857,27 @@ console.log('Build completed successfully!');
     }
 
     if (!html.includes('data-ad-slot="3143411927"')) {
-      const footerMatch = /<footer\\b[^>]*>/i.exec(html);
-      if (footerMatch) {
-        const ad = `
-  <!-- إعلانات صورية 01 -->
-  <div class="ad-container ad-container--responsive" data-ad-placement="before-footer">
-    <ins class="adsbygoogle" style="display:block"
-         data-ad-client="ca-pub-5656416032906373" data-ad-slot="3143411927"
-         data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
-  `;
-        html = html.slice(0, footerMatch.index) + ad + html.slice(footerMatch.index);
+      const footerAt = html.toLowerCase().indexOf('<footer');
+      if (footerAt >= 0) {
+        const ad = '\n  <!-- إعلانات صورية 01 -->\n' +
+          '  <div class="ad-container ad-container--responsive" data-ad-placement="before-footer">\n' +
+          '    <ins class="adsbygoogle" style="display:block"\n' +
+          '         data-ad-client="ca-pub-5656416032906373" data-ad-slot="3143411927"\n' +
+          '         data-ad-format="auto" data-full-width-responsive="true"></ins>\n' +
+          '  </div>\n';
+        html = html.slice(0, footerAt) + ad + html.slice(footerAt);
         changed = true;
       }
     }
 
-    if (!html.includes('assets/js/adsense.js') && /<\\/body>/i.test(html)) {
-      html = html.replace(/<\\/body>/i,
-        `  <script defer src="${jsSrc}"></script>\\n</body>`);
-      changed = true;
+    if (!html.includes('assets/js/adsense.js')) {
+      const bodyAt = html.toLowerCase().lastIndexOf('</body>');
+      if (bodyAt >= 0) {
+        html = html.slice(0, bodyAt) +
+          '  <script defer src="' + jsSrc + '"></script>' + '\n' +
+          html.slice(bodyAt);
+        changed = true;
+      }
     }
 
     if (changed) {
@@ -876,5 +885,6 @@ console.log('Build completed successfully!');
       updated++;
     }
   }
-  console.log(`Applied AdSense placements to ${updated} HTML pages (where matching hero/footer landmarks exist).`);
+  console.log('Applied AdSense placements to ' + updated +
+    ' HTML pages (where matching hero/footer landmarks exist).');
 }
