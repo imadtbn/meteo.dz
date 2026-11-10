@@ -4,11 +4,13 @@ const path = require('path');
 const rootDir = path.resolve(__dirname, '..');
 const citiesPath = path.join(rootDir, 'data', 'cities.json');
 const capitalsPath = path.join(rootDir, 'data', 'arab-capitals.json');
+const worldCapitalsPath = path.join(rootDir, 'data', 'world-capitals.json');
 
 const cities = JSON.parse(fs.readFileSync(citiesPath, 'utf8'));
 const capitals = JSON.parse(fs.readFileSync(capitalsPath, 'utf8'));
+const worldCapitals = JSON.parse(fs.readFileSync(worldCapitalsPath, 'utf8'));
 
-console.log(`Loaded ${cities.length} Algerian wilayas and ${capitals.length} Arab capitals.`);
+console.log(`Loaded ${cities.length} Algerian wilayas, ${capitals.length} Arab capitals, and ${worldCapitals.length} world capitals.`);
 
 function getHeader(depth = 0, activeKey = '') {
   const rel = depth === 0 ? './' : '../'.repeat(depth);
@@ -25,6 +27,7 @@ function getHeader(depth = 0, activeKey = '') {
       <a href="${rel}" ${activeKey === 'home' ? 'aria-current="page"' : ''} data-i18n="nav_home">الرئيسية</a>
       <a href="${rel}wilayas/" ${activeKey === 'wilayas' ? 'aria-current="page"' : ''} data-i18n="nav_wilayas">الولايات</a>
       <a href="${rel}arab-capitals/" ${activeKey === 'capitals' ? 'aria-current="page"' : ''} data-i18n="nav_capitals">العواصم العربية</a>
+      <a href="${rel}world-capitals/" ${activeKey === 'world-capitals' ? 'aria-current="page"' : ''}>عواصم العالم</a>
       <a href="${rel}world-search/" ${activeKey === 'search' ? 'aria-current="page"' : ''} data-i18n="nav_world_search">بحث عالمي</a>
       <a href="${rel}map/" ${activeKey === 'map' ? 'aria-current="page"' : ''} data-i18n="nav_map">خريطة الطقس</a>
       <a href="${rel}climate-observatory/" ${activeKey === 'climate' ? 'aria-current="page"' : ''} data-i18n="nav_climate">المرصد المناخي</a>
@@ -64,6 +67,7 @@ function getFooter(depth = 0) {
       <nav class="footer-links" aria-label="روابط الموقع">
         <a href="${rel}"><span class="footer-link-icon" data-icon="nav_home" aria-hidden="true"></span> الرئيسية</a>
         <a href="${rel}wilayas/"><span class="footer-link-icon" data-icon="nav_wilayas" aria-hidden="true"></span> الولايات</a>
+        <a href="${rel}world-capitals/">عواصم العالم</a>
         <a href="${rel}world-search/"><span class="footer-link-icon" data-icon="nav_world_search" aria-hidden="true"></span> البحث العالمي</a>
         <a href="${rel}map/"><span class="footer-link-icon" data-icon="nav_map" aria-hidden="true"></span> خريطة الطقس</a>
         <a href="${rel}alerts/"><span class="footer-link-icon" data-icon="nav_alerts" aria-hidden="true"></span> الإنذارات</a>
@@ -211,6 +215,14 @@ const directoryConfig = [
     subheading: 'قائمة العواصم العربية'
   },
   {
+    folder: 'world-capitals',
+    kind: 'world-capitals',
+    title: 'عواصم العالم حسب القارات | Weather Today | الطقس اليوم',
+    heading: 'طقس عواصم العالم',
+    intro: 'اكتشف حالة الطقس في عواصم إفريقيا وأوروبا والأمريكتين وآسيا، مع بحث متعدد اللغات وبيانات جوية مرتبطة بالإحداثيات الجغرافية لكل عاصمة.',
+    subheading: 'استكشف عواصم القارات الأربع'
+  },
+  {
     folder: 'world-search',
     kind: 'world-search',
     title: 'البحث العالمي عن الطقس | Weather Today | الطقس اليوم',
@@ -279,6 +291,7 @@ directoryConfig.forEach((cfg) => {
     </section>
     <script type="application/json" id="city-data">${JSON.stringify(cities)}</script>
     <script type="application/json" id="capital-data">${JSON.stringify(capitals)}</script>
+    <script type="application/json" id="world-capitals-data">${JSON.stringify(worldCapitals)}</script>
   </main>
   ${getFooter(1)}
   <script type="module" src="../assets/js/site.js"></script>
@@ -675,10 +688,25 @@ directoryConfig.forEach((cfg) => {
         <a class="button button-primary" href="./arab-capitals/">استعراض جميع العواصم العربية الـ 22 ←</a>
       </div>
     </section>
+
+    <!-- World Capitals by Continent -->
+    <section class="content-section world-capitals-preview" aria-labelledby="world-capitals-heading">
+      <div class="section-heading">
+        <div><span class="eyebrow">استكشف العالم</span><h2 id="world-capitals-heading">عواصم العالم</h2></div>
+        <p>${worldCapitals.length} عاصمة من أربع قارات</p>
+      </div>
+      <div class="feature-grid world-capitals-continent-grid">
+        ${[
+          ['africa','إفريقيا','🌍'],['europe','أوروبا','🏛️'],['america','الأمريكتان','🌎'],['asia','آسيا','🌏']
+        ].map(([key,label,icon]) => `<a class="feature-card" href="./world-capitals/?continent=${key}"><span class="feature-index">${icon}</span><h3>عواصم ${label}</h3><p>${worldCapitals.filter(city => city.continent === key).length} عاصمة · بيانات طقس مباشرة</p><span>استكشف القارة ←</span></a>`).join('')}
+      </div>
+      <div style="text-align:center;margin-top:1.5rem;"><a class="button button-primary" href="./world-capitals/">استعراض جميع عواصم العالم ←</a></div>
+    </section>
   </main>
 
   <script type="application/json" id="city-data">${JSON.stringify(cities)}</script>
   <script type="application/json" id="capital-data">${JSON.stringify(capitals)}</script>
+  <script type="application/json" id="world-capitals-data">${JSON.stringify(worldCapitals)}</script>
 
   <!-- Share Dialog Modal -->
   <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-title" aria-describedby="share-description">
@@ -765,7 +793,7 @@ console.log('Build completed successfully!');
 // Generate crawlable sitemap and robots.txt for the GitHub Pages project URL.
 {
   const siteBase = 'https://imadtbn.github.io/weather-today';
-  const routes = ['/', '/wilayas/', '/arab-capitals/', '/world-search/', '/map/', '/climate-observatory/', '/agriculture-weather/', '/alerts/', '/favorites/', '/marine/', '/global-weather/'];
+  const routes = ['/', '/wilayas/', '/arab-capitals/', '/world-capitals/', '/world-search/', '/map/', '/climate-observatory/', '/agriculture-weather/', '/alerts/', '/favorites/', '/marine/', '/global-weather/'];
   const urls = [...routes, ...cities.map(city => '/weather/' + city.slug + '/')];
   const today = new Date().toISOString().slice(0, 10);
   const entries = urls.map(route => '  <url><loc>' + siteBase + route + '</loc><lastmod>' + today + '</lastmod></url>').join('\n');
