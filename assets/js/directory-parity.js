@@ -126,8 +126,6 @@ if (kind === "world-capitals") {
   input.placeholder = "ابحث باسم العاصمة أو الدولة بالعربية أو الإنجليزية...";
   input.setAttribute("aria-label", "البحث في عواصم العالم");
   input.autocomplete = "off";
-  input.addEventListener("input", render);
-
   const flagFromCode = code => {
     const value = String(code || "").toUpperCase();
     return /^[A-Z]{2}$/.test(value)
@@ -168,6 +166,8 @@ if (kind === "world-capitals") {
       ? "اختر العاصمة لعرض الطقس الحالي والتوقعات الساعية والأسبوعية."
       : "لا توجد عاصمة مطابقة. جرّب البحث باسم الدولة أو بالاسم الإنجليزي.");
   };
+
+  input.addEventListener("input", render);
 
   const searchWrap = document.createElement("div");
   searchWrap.className = "world-capitals-search";
