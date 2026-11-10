@@ -43,7 +43,7 @@ world_file = "data/world-capitals.json"
 assert os.path.exists(world_file), "Missing data/world-capitals.json"
 with open(world_file, "r", encoding="utf-8") as f:
     world_capitals = json.load(f)
-assert len(world_capitals) >= 100, f"Expected a broad global capitals dataset, got {len(world_capitals)}"
+assert len(world_capitals) >= 150, f"Expected a complete multi-continent capital dataset, got {len(world_capitals)}"
 assert {row["continent"] for row in world_capitals} == {"africa", "europe", "america", "asia"}
 assert len({row["slug"] for row in world_capitals}) == len(world_capitals), "Duplicate global capital slugs"
 assert not ({row["slug"] for row in world_capitals} & {row["slug"] for row in capitals}), "Arab capitals must be reused from the Arab capitals source, not duplicated in the global source"
