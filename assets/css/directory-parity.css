@@ -42,3 +42,6 @@
  .world-capitals-tab:first-child{grid-column:1/-1}
  .world-capitals-continent-grid{grid-template-columns:1fr}
 }
+
+.world-capitals-grid{grid-column:1/-1;width:100%;min-width:0}
+.world-capitals-grid>.directory-card{min-width:0}
