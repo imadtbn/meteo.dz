@@ -41,7 +41,7 @@ jobs:
       - name: Commit regenerated static pages after successful build
         if: success()
         env:
-          BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
