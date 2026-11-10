@@ -552,6 +552,7 @@ directoryConfig.forEach((cfg) => {
       </div>
     </section>
     <section class="content-section">
+      <div class="weather-actions"><button id="global-favorite-toggle" class="button button-primary" type="button" aria-pressed="false" disabled>☆ أضف إلى المفضلة</button></div>
       <div id="global-status" class="weather-status" role="status" aria-live="polite">جارٍ جلب القراءة العالمية…</div>
       <div id="global-current" class="weather-current" hidden></div>
       <div id="global-days" class="daily-list" style="margin-top:2rem;"></div>
