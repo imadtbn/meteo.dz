@@ -4,7 +4,7 @@
  * Offline cache is a fallback, never the preferred source while online.
  */
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v16";
+const CACHE_NAME = CACHE_PREFIX + "v17";
 
 const STATIC_ASSETS = [
   "./",
