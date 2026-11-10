@@ -25,3 +25,20 @@
 .my-location-panel>p{margin:0;color:var(--muted);font-size:.84rem}
 @media(max-width:800px){.directory-grid--visual-parity{grid-template-columns:repeat(2,minmax(0,1fr))}.world-search-results{grid-template-columns:1fr}}
 @media(max-width:520px){.directory-grid--visual-parity{grid-template-columns:1fr}.directory-grid--visual-parity .place-illustration{height:135px}.world-search-controls{align-items:stretch;flex-direction:column}.world-search-controls .button{width:100%}.search-result--visual{gap:.7rem;padding:.9rem}.search-result__flag{flex-basis:2.5rem;min-height:2.5rem}}
+
+
+/* World capitals directory */
+.world-capitals-tabs{display:flex;flex-wrap:wrap;gap:.55rem;margin:0 0 1rem}
+.world-capitals-tab{min-height:42px;padding:.55rem 1rem;border-radius:999px;font-size:.84rem;font-weight:800}
+.world-capitals-tab.is-active{background:var(--blue);border-color:var(--blue);color:#fff}
+.world-capitals-search{margin:0 0 1.25rem}
+.world-capitals-search input{width:100%;min-width:0}
+.world-capitals-continent-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.world-capitals-preview .feature-card{min-width:0}
+@media(max-width:800px){.world-capitals-continent-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){
+ .world-capitals-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .world-capitals-tab{min-width:0;padding:.55rem .45rem;font-size:.78rem}
+ .world-capitals-tab:first-child{grid-column:1/-1}
+ .world-capitals-continent-grid{grid-template-columns:1fr}
+}
