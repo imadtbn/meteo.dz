@@ -1,8 +1,8 @@
-// i18n dictionary and language helper for "أجواء | Ajwaa Weather"
+// i18n dictionary and language helper for "Weather Today | الطقس اليوم"
 export const translations = {
   ar: {
-    brand_title: "أجواء",
-    brand_sub: "مرصد الطقس والمناخ",
+    brand_title: "Weather Today",
+    brand_sub: "الطقس اليوم",
     nav_home: "الرئيسية",
     nav_wilayas: "الولايات",
     nav_capitals: "العواصم العربية",
@@ -45,8 +45,8 @@ export const translations = {
     refresh: "تحديث القراءة"
   },
   fr: {
-    brand_title: "Ajwaa",
-    brand_sub: "Observatoire Météo & Climat",
+    brand_title: "Weather Today",
+    brand_sub: "الطقس اليوم",
     nav_home: "Accueil",
     nav_wilayas: "Wilayas",
     nav_capitals: "Capitales Arabes",
@@ -89,8 +89,8 @@ export const translations = {
     refresh: "Actualiser"
   },
   en: {
-    brand_title: "Ajwaa Weather",
-    brand_sub: "Weather & Climate Observatory",
+    brand_title: "Weather Today",
+    brand_sub: "الطقس اليوم",
     nav_home: "Home",
     nav_wilayas: "Wilayas",
     nav_capitals: "Arab Capitals",
