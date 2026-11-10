@@ -70,4 +70,4 @@ if(kind==="wilayas"){
   },error=>{locate.disabled=false;setStatus(error.code===1?"رفضت إذن الموقع. يمكنك البحث عن المدينة يدويًا.":error.code===2?"تعذر تحديد موقع الجهاز. تحقق من خدمات الموقع.":"انتهت مهلة تحديد الموقع. حاول مجددًا أو ابحث يدويًا.");},{enableHighAccuracy:false,timeout:12000,maximumAge:300000});
  });
  if(initial.length>=2)run(initial);else{setCount("ابحث في مدن العالم");setStatus("يدعم البحث أسماء المدن والدول بالعربية واللاتينية، كما يعرض الولايات الجزائرية المطابقة.");}
-}else{setStatus("نوع الصفحة غير معروف.");}
+}else if(kind==="world-capitals"){ /* rendered by directory-parity.js */ }else{setStatus("نوع الصفحة غير معروف.");}
