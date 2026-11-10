@@ -84,7 +84,14 @@ try {
           title: document.title,
           overflowElements: Array.from(document.querySelectorAll("body *")).filter(element => {
             const rect = element.getBoundingClientRect();
-            return rect.right > window.innerWidth + 1 || rect.left < -1;
+            const intentionallyScrollable = element.closest(
+              ".hourly-rail, .daily-list, .map-panel, .leaflet-container"
+            );
+            const googleInternal = element.closest(
+              '[id^="aswift_"], [id^="google_ads"], .adsbygoogle iframe'
+            ) || element.id?.startsWith("aswift_");
+            return !intentionallyScrollable && !googleInternal &&
+              (rect.right > window.innerWidth + 1 || rect.left < -1);
           }).slice(0, 8).map(element => ({
             tag: element.tagName,
             id: element.id,
