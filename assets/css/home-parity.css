@@ -131,3 +131,19 @@
 :root[data-theme="dark"] .location-error {
   color: #ffb4aa;
 }
+
+/* Keep horizontally scrollable forecast cards inside their own viewport. */
+.hourly-rail {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+.hourly-rail > * { flex-shrink: 0; }
+.dashboard-shell,
+.dashboard-shell > *,
+.content-section,
+main,
+section { min-width: 0; }
