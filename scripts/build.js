@@ -8,7 +8,25 @@ const worldCapitalsPath = path.join(rootDir, 'data', 'world-capitals.json');
 
 const cities = JSON.parse(fs.readFileSync(citiesPath, 'utf8'));
 const capitals = JSON.parse(fs.readFileSync(capitalsPath, 'utf8'));
-const worldCapitals = JSON.parse(fs.readFileSync(worldCapitalsPath, 'utf8'));
+const worldCapitalRows = JSON.parse(fs.readFileSync(worldCapitalsPath, 'utf8'));
+const arabCapitalGeography = {
+  algiers: ['africa', 'DZ'], manama: ['asia', 'BH'], moroni: ['africa', 'KM'],
+  djibouti: ['africa', 'DJ'], cairo: ['africa', 'EG'], baghdad: ['asia', 'IQ'],
+  amman: ['asia', 'JO'], 'kuwait-city': ['asia', 'KW'], beirut: ['asia', 'LB'],
+  tripoli: ['africa', 'LY'], nouakchott: ['africa', 'MR'], rabat: ['africa', 'MA'],
+  muscat: ['asia', 'OM'], ramallah: ['asia', 'PS'], doha: ['asia', 'QA'],
+  riyadh: ['asia', 'SA'], mogadishu: ['africa', 'SO'], khartoum: ['africa', 'SD'],
+  damascus: ['asia', 'SY'], tunis: ['africa', 'TN'], 'abu-dhabi': ['asia', 'AE'],
+  sanaa: ['asia', 'YE']
+};
+const continentNames = { africa: 'إفريقيا', europe: 'أوروبا', america: 'الأمريكتان', asia: 'آسيا' };
+const worldCapitals = [
+  ...worldCapitalRows,
+  ...capitals.map(city => {
+    const [continent, countryCode] = arabCapitalGeography[city.slug] || ['asia', ''];
+    return { ...city, continent, continentName: continentNames[continent], countryCode };
+  })
+];
 
 console.log(`Loaded ${cities.length} Algerian wilayas, ${capitals.length} Arab capitals, and ${worldCapitals.length} world capitals.`);
 
@@ -576,7 +594,7 @@ directoryConfig.forEach((cfg) => {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية و145 عاصمة عالمية.">
+  <meta name="description" content="Weather Today | الطقس اليوم: حالة الطقس الآن والتوقعات اليومية والساعية والأسبوعية للمدن حول العالم، مع تغطية 69 ولاية جزائرية و22 عاصمة عربية و146 عاصمة عالمية.">
   <meta name="theme-color" content="#0c5b8c">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://imadtbn.github.io/weather-today/">
