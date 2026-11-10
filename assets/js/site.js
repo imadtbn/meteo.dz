@@ -71,6 +71,26 @@ navigation?.addEventListener("click", (event) => {
   }
 });
 
+// Keep the world-capitals entry available on legacy generated pages as well.
+const siteRootUrl = new URL("../../", import.meta.url);
+const worldCapitalsUrl = new URL("world-capitals/", siteRootUrl).href;
+if (navigation && !navigation.querySelector('a[href*="world-capitals"]')) {
+  const link = document.createElement("a");
+  link.href = worldCapitalsUrl;
+  link.textContent = "عواصم العالم";
+  const searchLink = navigation.querySelector('a[href*="world-search"]');
+  if (searchLink) navigation.insertBefore(link, searchLink);
+  else navigation.append(link);
+}
+const footerNavigation = document.querySelector(".footer-links");
+if (footerNavigation && !footerNavigation.querySelector('a[href*="world-capitals"]')) {
+  const link = document.createElement("a");
+  link.href = worldCapitalsUrl;
+  link.textContent = "عواصم العالم";
+  footerNavigation.append(link);
+}
+
+
 // Theme button
 document.querySelector('[data-action="theme"]')?.addEventListener("click", () => {
   setTheme(root.dataset.theme === "dark" ? "light" : "dark");
