@@ -320,3 +320,83 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
 @media(max-width:420px){.current-metrics{grid-template-columns:1fr 1fr}.footer-links{gap:.6rem}.footer-links a{font-size:.76rem}}
 
 .location-prompt[hidden]{display:none!important}
+
+
+/* Layout repair: full-bleed header/footer with centered inner content.
+   Keep the page shell full width; constrain only the content inside it. */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 320px;
+  margin-inline: 0;
+}
+body { overflow-x: clip; }
+.site-header,
+.site-footer {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin-inline: 0;
+  box-sizing: border-box;
+  flex: 0 0 100%;
+}
+.site-header {
+  position: sticky;
+  inset-inline: 0;
+  justify-content: space-between;
+}
+.site-header > .brand { flex: 0 0 auto; }
+.site-header > .primary-navigation {
+  min-width: 0;
+  max-width: none;
+}
+.site-footer {
+  display: block;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+.site-footer > .footer-wrap {
+  width: min(100%, 1200px);
+  max-width: 1200px;
+  min-width: 0;
+  margin-inline: auto;
+}
+.site-footer .footer-about,
+.site-footer .footer-links,
+.site-footer .footer-bottom { min-width: 0; }
+main, main > *, .content-section, .dashboard-shell, .directory-shell,
+.map-panel, .map-disclaimer, .ad-container {
+  min-width: 0;
+  box-sizing: border-box;
+}
+.ad-container {
+  width: min(calc(100% - 2rem), 1200px);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.ad-container ins.adsbygoogle {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+@media (max-width: 700px) {
+  .site-header {
+    width: 100%;
+    max-width: none;
+    padding-inline: 1rem;
+    overflow: visible;
+  }
+  .site-header > .brand { min-width: 0; }
+  .site-header > .primary-navigation {
+    width: 100%;
+    max-width: none;
+  }
+  .site-footer {
+    width: 100%;
+    max-width: none;
+    padding-inline: 1rem;
+  }
+  .site-footer > .footer-wrap { width: 100%; }
+  .ad-container { width: calc(100% - 1rem); }
+}
