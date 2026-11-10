@@ -772,3 +772,109 @@ console.log('Build completed successfully!');
   fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + entries + '\n</urlset>\n', 'utf8');
   fs.writeFileSync(path.join(rootDir, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: ' + siteBase + '/sitemap.xml\n', 'utf8');
 }
+
+
+/* Weather Today AdSense integration: applied to every generated HTML page. */
+{
+  const htmlFiles = [];
+  function collectHtml(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === '.git' || entry.name === 'node_modules') continue;
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) collectHtml(fullPath);
+      else if (entry.isFile() && entry.name.endsWith('.html') &&
+               !entry.name.endsWith('.template.html') &&
+               !entry.name.startsWith('google')) htmlFiles.push(fullPath);
+    }
+  }
+
+  collectHtml(rootDir);
+  let updated = 0;
+  for (const filePath of htmlFiles) {
+    let html = fs.readFileSync(filePath, 'utf8');
+    const depth = path.relative(rootDir, path.dirname(filePath))
+      .split(path.sep).filter(Boolean).length;
+    const rel = depth ? '../'.repeat(depth) : './';
+    const cssHref = `${rel}assets/css/adsense.css`;
+    const jsSrc = `${rel}assets/js/adsense.js`;
+    let changed = false;
+
+    if (!html.includes('adsense.css') && /<\\/head>/i.test(html)) {
+      html = html.replace(/<\\/head>/i,
+        `  <link rel="stylesheet" href="${cssHref}">\\n</head>`);
+      changed = true;
+    }
+
+    if (!html.includes('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')) {
+      html = html.replace(/<\\/head>/i,
+        `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5656416032906373" crossorigin="anonymous"></script>\\n</head>`);
+      changed = true;
+    }
+
+    const fluidId = '7867079394';
+    if (!html.includes(`data-ad-slot="${fluidId}"`)) {
+      const heroOpen = /<(section|div)\\b(?=[^>]*\\bclass=["'][^"']*["'])[^>]*>/gi;
+      let match;
+      let inserted = false;
+      while ((match = heroOpen.exec(html))) {
+        const classMatch = match[0].match(/\\bclass=["']([^"']+)["']/i);
+        if (!classMatch) continue;
+        const tokens = classMatch[1].split(/\\s+/);
+        if (!tokens.some(token => token === 'hero' || token.endsWith('-hero') ||
+                                  token.startsWith('hero-') || token.startsWith('hero--'))) continue;
+        const tag = match[1].toLowerCase();
+        const tagRe = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+        tagRe.lastIndex = match.index;
+        let depthCount = 0;
+        let tagMatch;
+        let closeEnd = -1;
+        while ((tagMatch = tagRe.exec(html))) {
+          if (/^<\\//.test(tagMatch[0])) depthCount--;
+          else if (!/\\/>$/.test(tagMatch[0])) depthCount++;
+          if (depthCount === 0) { closeEnd = tagRe.lastIndex; break; }
+        }
+        if (closeEnd > -1) {
+          const ad = `
+    <!-- إعلانات ضمن المقال 01 -->
+    <div class="ad-container ad-container--fluid" data-ad-placement="after-hero">
+      <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+           data-ad-layout-key="-fr+57+4a-dc+8g"
+           data-ad-client="ca-pub-5656416032906373" data-ad-slot="7867079394"></ins>
+    </div>`;
+          html = html.slice(0, closeEnd) + ad + html.slice(closeEnd);
+          inserted = true;
+          changed = true;
+        }
+        break;
+      }
+    }
+
+    if (!html.includes('data-ad-slot="3143411927"')) {
+      const footerMatch = /<footer\\b[^>]*>/i.exec(html);
+      if (footerMatch) {
+        const ad = `
+  <!-- إعلانات صورية 01 -->
+  <div class="ad-container ad-container--responsive" data-ad-placement="before-footer">
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-5656416032906373" data-ad-slot="3143411927"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  `;
+        html = html.slice(0, footerMatch.index) + ad + html.slice(footerMatch.index);
+        changed = true;
+      }
+    }
+
+    if (!html.includes('assets/js/adsense.js') && /<\\/body>/i.test(html)) {
+      html = html.replace(/<\\/body>/i,
+        `  <script defer src="${jsSrc}"></script>\\n</body>`);
+      changed = true;
+    }
+
+    if (changed) {
+      fs.writeFileSync(filePath, html, 'utf8');
+      updated++;
+    }
+  }
+  console.log(`Applied AdSense placements to ${updated} HTML pages (where matching hero/footer landmarks exist).`);
+}
