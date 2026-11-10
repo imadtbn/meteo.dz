@@ -101,6 +101,8 @@ with open("index.html", "r", encoding="utf-8") as f:
     assert 'id="insight-grid"' in home
     assert 'id="location-quick"' in home
     assert "https://imadtbn.github.io/weather-today/" in home
+    assert "world-capitals" in home
+
 
 assert os.path.exists("sitemap.xml"), "Missing sitemap.xml"
 assert os.path.exists("robots.txt"), "Missing robots.txt"
