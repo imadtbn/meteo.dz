@@ -1,54 +1,64 @@
 /*
  * Weather Today — Service Worker
- * Network-first for pages and same-origin files to prevent stale deployments.
- * Offline cache is a fallback, never the preferred source while online.
+ * Network-first for same-origin resources, with a generated offline precache.
+ * Live weather APIs still require connectivity; previously visited pages and
+ * their local modules/styles/data remain available offline.
  */
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v17";
+const CACHE_NAME = CACHE_PREFIX + "v18";
 
 const STATIC_ASSETS = [
   "./",
   "./index.html",
-  "./map/",
-  "./world-capitals/",
+  "./offline.html",
+  "./precache-manifest.json",
   "./manifest.json",
   "./favicon.svg",
   "./assets/icon.svg",
   "./assets/css/site.css",
-  "./assets/css/adsense.css",
-  "./assets/css/home-parity.css",
-  "./assets/css/directory-parity.css",
-  "./assets/css/climate.css",
-  "./assets/css/agriculture-weather.css",
-  "./assets/css/map.css",
-  "./assets/js/map.js",
-  "./assets/js/site.js",
-  "./assets/js/adsense.js",
-  "./assets/js/home-parity.js",
-  "./assets/js/home-visual-parity.js",
-  "./assets/js/directory-parity.js",
-  "./assets/js/directory-pages.js",
-  "./assets/js/pages.js",
-  "./assets/js/place-illustration.js",
-  "./assets/js/share-export-parity.js",
-  "./data/cities.json",
-  "./data/arab-capitals.json",
-  "./data/world-capitals.json"
+  "./assets/js/site.js"
 ];
+
+async function fetchAndCache(cache, asset, scope) {
+  try {
+    const url = new URL(asset, scope);
+    if (url.origin !== self.location.origin) return;
+    const response = await fetch(new Request(url.href, { cache: "reload" }));
+    if (response.ok && response.type === "basic") {
+      await cache.put(url.href, response);
+    }
+  } catch (error) {
+    console.warn("Weather Today precache skipped:", asset, error);
+  }
+}
 
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
+    const scope = self.registration.scope;
+    const manifestUrl = new URL("./precache-manifest.json", scope);
+    let generatedAssets = [];
 
-    // A missing optional asset must not prevent the new worker from installing.
-    await Promise.allSettled(STATIC_ASSETS.map(async (asset) => {
-      const url = new URL(asset, self.registration.scope);
-      const response = await fetch(url.href, { cache: "reload" });
+    // Read the build-generated inventory first. A missing manifest must not
+    // block installation; the small core shell is still cached below.
+    try {
+      const response = await fetch(new Request(manifestUrl.href, { cache: "reload" }));
       if (response.ok && response.type === "basic") {
-        await cache.put(url.href, response);
+        await cache.put(manifestUrl.href, response.clone());
+        const manifest = await response.json();
+        if (manifest && Array.isArray(manifest.assets)) {
+          generatedAssets = manifest.assets.filter(
+            (asset) => typeof asset === "string" && asset.startsWith("./")
+          );
+        }
       }
-    }));
+    } catch (error) {
+      console.warn("Weather Today precache manifest unavailable:", error);
+    }
 
+    const assets = [...new Set([...STATIC_ASSETS, ...generatedAssets])];
+    // Keep installation resilient: one missing optional file cannot block PWA.
+    await Promise.allSettled(assets.map((asset) => fetchAndCache(cache, asset, scope)));
     await self.skipWaiting();
   })());
 });
@@ -59,7 +69,6 @@ self.addEventListener("activate", (event) => {
     await Promise.all(keys
       .filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
       .map((key) => caches.delete(key)));
-
     await self.clients.claim();
   })());
 });
@@ -78,31 +87,35 @@ self.addEventListener("fetch", (event) => {
     const cache = await caches.open(CACHE_NAME);
 
     try {
-      // Revalidate with the server instead of trusting the browser HTTP cache.
+      // Always revalidate online to avoid serving stale deployments.
       const networkResponse = await fetch(new Request(request, { cache: "no-store" }));
 
       if (networkResponse && networkResponse.status === 200 &&
           networkResponse.type === "basic" &&
           !/no-store/i.test(networkResponse.headers.get("Cache-Control") || "")) {
-        // Cache failures (e.g. quota limits) must not break a successful response.
         try {
           await cache.put(request, networkResponse.clone());
         } catch (cacheError) {
           console.warn("Weather Today cache write skipped:", cacheError);
         }
       }
-
       return networkResponse;
     } catch (networkError) {
-      // Offline fallback: use the exact cached request first.
       const cachedResponse = await cache.match(request);
       if (cachedResponse) return cachedResponse;
 
-      // For a direct page visit, fall back to the cached app shell.
       if (request.mode === "navigate") {
-        const appShellUrl = new URL("./index.html", self.registration.scope).href;
-        const appShell = await cache.match(appShellUrl);
-        if (appShell) return appShell;
+        // Query-string pages (e.g. global-weather/?lat=...) can reuse their
+        // cached document even though the requested URL contains parameters.
+        const pageUrl = new URL(request.url);
+        pageUrl.search = "";
+        pageUrl.hash = "";
+        const cachedPage = await cache.match(pageUrl.href);
+        if (cachedPage) return cachedPage;
+
+        const offlineUrl = new URL("./offline.html", self.registration.scope).href;
+        const offlinePage = await cache.match(offlineUrl);
+        if (offlinePage) return offlinePage;
       }
 
       return Response.error();
