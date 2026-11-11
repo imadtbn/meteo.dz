@@ -42,17 +42,17 @@ function getHeader(depth = 0, activeKey = '') {
       <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
     <nav class="primary-navigation" id="primary-navigation" aria-label="التنقل الرئيسي">
-      <a href="${rel}" ${activeKey === 'home' ? 'aria-current="page"' : ''} data-i18n="nav_home"><i class="fa-solid fa-house" aria-hidden="true"></i><span>الرئيسية</span></a>
-      <a href="${rel}wilayas/" ${activeKey === 'wilayas' ? 'aria-current="page"' : ''} data-i18n="nav_wilayas"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span>الولايات</span></a>
-      <a href="${rel}arab-capitals/" ${activeKey === 'capitals' ? 'aria-current="page"' : ''} data-i18n="nav_capitals"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i><span>العواصم العربية</span></a>
+      <a href="${rel}" ${activeKey === 'home' ? 'aria-current="page"' : ''} <i class="fa-solid fa-house" aria-hidden="true"></i><span data-i18n="nav_home">الرئيسية</span></a>
+      <a href="${rel}wilayas/" ${activeKey === 'wilayas' ? 'aria-current="page"' : ''} <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span data-i18n="nav_wilayas">الولايات</span></a>
+      <a href="${rel}arab-capitals/" ${activeKey === 'capitals' ? 'aria-current="page"' : ''} <i class="fa-solid fa-earth-africa" aria-hidden="true"></i><span data-i18n="nav_capitals">العواصم العربية</span></a>
       <a href="${rel}world-capitals/" ${activeKey === 'world-capitals' ? 'aria-current="page"' : ''}><i class="fa-solid fa-globe" aria-hidden="true"></i><span>عواصم العالم</span></a>
-      <a href="${rel}world-search/" ${activeKey === 'search' ? 'aria-current="page"' : ''} data-i18n="nav_world_search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span>بحث عالمي</span></a>
-      <a href="${rel}map/" ${activeKey === 'map' ? 'aria-current="page"' : ''} data-i18n="nav_map"><i class="fa-solid fa-map" aria-hidden="true"></i><span>خريطة الطقس</span></a>
-      <a href="${rel}climate-observatory/" ${activeKey === 'climate' ? 'aria-current="page"' : ''} data-i18n="nav_climate"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>المرصد المناخي</span></a>
-      <a href="${rel}agriculture-weather/" ${activeKey === 'agri' ? 'aria-current="page"' : ''} data-i18n="nav_agri"><i class="fa-solid fa-seedling" aria-hidden="true"></i><span>الطقس الزراعي</span></a>
-      <a href="${rel}marine/" ${activeKey === 'marine' ? 'aria-current="page"' : ''} data-i18n="nav_marine"><i class="fa-solid fa-water" aria-hidden="true"></i><span>الطقس البحري</span></a>
-      <a href="${rel}alerts/" ${activeKey === 'alerts' ? 'aria-current="page"' : ''} data-i18n="nav_alerts"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span>الإنذارات</span></a>
-      <a href="${rel}favorites/" ${activeKey === 'favorites' ? 'aria-current="page"' : ''} data-i18n="nav_favorites"><i class="fa-solid fa-star" aria-hidden="true"></i><span>المفضلة</span></a>
+      <a href="${rel}world-search/" ${activeKey === 'search' ? 'aria-current="page"' : ''} <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span data-i18n="nav_world_search">بحث عالمي</span></a>
+      <a href="${rel}map/" ${activeKey === 'map' ? 'aria-current="page"' : ''} <i class="fa-solid fa-map" aria-hidden="true"></i><span data-i18n="nav_map">خريطة الطقس</span></a>
+      <a href="${rel}climate-observatory/" ${activeKey === 'climate' ? 'aria-current="page"' : ''} <i class="fa-solid fa-chart-line" aria-hidden="true"></i><span data-i18n="nav_climate">المرصد المناخي</span></a>
+      <a href="${rel}agriculture-weather/" ${activeKey === 'agri' ? 'aria-current="page"' : ''} <i class="fa-solid fa-seedling" aria-hidden="true"></i><span data-i18n="nav_agri">الطقس الزراعي</span></a>
+      <a href="${rel}marine/" ${activeKey === 'marine' ? 'aria-current="page"' : ''} <i class="fa-solid fa-water" aria-hidden="true"></i><span data-i18n="nav_marine">الطقس البحري</span></a>
+      <a href="${rel}alerts/" ${activeKey === 'alerts' ? 'aria-current="page"' : ''} <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span data-i18n="nav_alerts">الإنذارات</span></a>
+      <a href="${rel}favorites/" ${activeKey === 'favorites' ? 'aria-current="page"' : ''} <i class="fa-solid fa-star" aria-hidden="true"></i><span data-i18n="nav_favorites">المفضلة</span></a>
     </nav>
     <div class="header-actions">
       <!-- Language Switcher -->
@@ -64,8 +64,8 @@ function getHeader(depth = 0, activeKey = '') {
       <button class="icon-button" type="button" data-action="theme" aria-label="تبديل الوضع الليلي" title="تبديل المظهر">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z" fill="currentColor"/></svg>
       </button>
-      <button class="action-button" type="button" data-action="share" data-i18n="share"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span>مشاركة</span></button>
-      <button class="action-button install-btn" type="button" data-action="install" data-i18n="install" style="display:none;"><i class="fa-solid fa-download" aria-hidden="true"></i><span>تثبيت</span></button>
+      <button class="action-button" type="button" data-action="share"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span data-i18n="share">مشاركة</span></button>
+      <button class="action-button install-btn" type="button" data-action="install" style="display:none;"><i class="fa-solid fa-download" aria-hidden="true"></i><span data-i18n="install">تثبيت</span></button>
     </div>
   </header>`;
 }
@@ -685,7 +685,7 @@ directoryConfig.forEach((cfg) => {
         <p>تابع حالة الطقس الحالية والتوقعات الساعية والأسبوعية لمدينتك حول العالم، مع تحديد موقعك عبر GPS وتغطية 69 ولاية جزائرية و22 عاصمة عربية و145 عاصمة عالمية.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="./wilayas/" data-i18n="explore_wilayas">استكشف الولايات الـ 69 <span aria-hidden="true">←</span></a>
-          <a class="button button-secondary" href="./world-search/" data-i18n="nav_world_search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span>بحث عالمي</span></a>
+          <a class="button button-secondary" href="./world-search/" <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span data-i18n="nav_world_search">بحث عالمي</span></a>
           <button class="button button-secondary" type="button" data-action="install" data-i18n="install">تثبيت التطبيق</button>
         </div>
       </div>
