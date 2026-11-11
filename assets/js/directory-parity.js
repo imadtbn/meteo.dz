@@ -92,7 +92,7 @@ if (kind === "wilayas" || kind === "arab-capitals") {
         const card = makeCard({
           href:"../global-weather/?lat="+encodeURIComponent(city.latitude)+"&lon="+encodeURIComponent(city.longitude)+"&name="+encodeURIComponent(city.capital),
           label:"عرض الطقس في "+city.capital,
-            meta:countryFlag(city.countryCode)+" · "+city.country,
+            meta:countryFlag(city.country)+" · "+city.country,
           title:city.capital,
           image:city.countryImages,
           imageAlt:"صورة فوتوغرافية لمدينة "+city.capital,
