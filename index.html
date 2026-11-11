@@ -140,9 +140,9 @@
         <label for="wilaya-search">ابحث بالاسم العربي، الفرنسي، الإنجليزي، أو رمز الولاية:</label>
         <input id="wilaya-search" class="wilaya-search" type="search" placeholder="مثال: وهران، Oran، 31، 041" autocomplete="off">
       </div>
-      <div class="directory-grid directory-grid--visual-parity" id="wilaya-grid"></div>
-      <div style="text-align:center;margin-top:1.5rem;">
-        <button id="show-more" class="button button-secondary" type="button">عرض المزيد من الولايات</button>
+      <div class="directory-grid directory-grid--visual-parity home-city-preview" id="wilaya-grid"></div>
+      <div class="home-section-actions">
+        <a class="button button-primary home-more-button" href="./wilayas/">عرض المزيد من الولايات</a>
       </div>
     </section>
 
@@ -152,53 +152,9 @@
         <div><span class="eyebrow">الوطن العربي</span><h2 data-i18n="nav_capitals">العواصم العربية</h2></div>
         <p>22 عاصمة عربية بتغطية مباشرة</p>
       </div>
-      <div class="feature-grid">
-        
-          <a class="feature-card" href="./global-weather/?lat=36.7538&lon=3.0588&name=%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1%20%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9">
-            <span class="feature-index">🌍</span>
-            <h3>الجزائر العاصمة</h3>
-            <p>الجزائر · Algiers</p>
-            <span>عرض الطقس ←</span>
-          </a>
-        
-          <a class="feature-card" href="./global-weather/?lat=26.2235&lon=50.5876&name=%D8%A7%D9%84%D9%85%D9%86%D8%A7%D9%85%D8%A9">
-            <span class="feature-index">🌍</span>
-            <h3>المنامة</h3>
-            <p>البحرين · Manama</p>
-            <span>عرض الطقس ←</span>
-          </a>
-        
-          <a class="feature-card" href="./global-weather/?lat=-11.7172&lon=43.2473&name=%D9%85%D9%88%D8%B1%D9%88%D9%86%D9%8A">
-            <span class="feature-index">🌍</span>
-            <h3>موروني</h3>
-            <p>جزر القمر · Moroni</p>
-            <span>عرض الطقس ←</span>
-          </a>
-        
-          <a class="feature-card" href="./global-weather/?lat=11.5721&lon=43.1456&name=%D9%85%D8%AF%D9%8A%D9%86%D8%A9%20%D8%AC%D9%8A%D8%A8%D9%88%D8%AA%D9%8A">
-            <span class="feature-index">🌍</span>
-            <h3>مدينة جيبوتي</h3>
-            <p>جيبوتي · Djibouti</p>
-            <span>عرض الطقس ←</span>
-          </a>
-        
-          <a class="feature-card" href="./global-weather/?lat=30.0444&lon=31.2357&name=%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9">
-            <span class="feature-index">🌍</span>
-            <h3>القاهرة</h3>
-            <p>مصر · Cairo</p>
-            <span>عرض الطقس ←</span>
-          </a>
-        
-          <a class="feature-card" href="./global-weather/?lat=33.3152&lon=44.3661&name=%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF">
-            <span class="feature-index">🌍</span>
-            <h3>بغداد</h3>
-            <p>العراق · Baghdad</p>
-            <span>عرض الطقس ←</span>
-          </a>
-        
-      </div>
-      <div style="text-align:center;margin-top:1.5rem;">
-        <a class="button button-primary" href="./arab-capitals/">استعراض جميع العواصم العربية الـ 22 ←</a>
+      <div class="directory-grid directory-grid--visual-parity home-city-preview home-capitals-preview" id="arab-capitals-grid"></div>
+      <div class="home-section-actions">
+        <a class="button button-primary home-more-button" href="./arab-capitals/">عرض المزيد من العواصم العربية</a>
       </div>
     </section>
 
@@ -208,10 +164,10 @@
         <div><span class="eyebrow">استكشف العالم</span><h2 id="world-capitals-heading">عواصم العالم</h2></div>
         <p>217 عاصمة من أربع قارات</p>
       </div>
-      <div class="feature-grid world-capitals-continent-grid">
+      <div class="feature-grid world-capitals-continent-grid home-world-preview">
         <a class="feature-card" href="./world-capitals/?continent=africa"><span class="feature-index">🌍</span><h3>عواصم إفريقيا</h3><p>64 عاصمة · بيانات طقس مباشرة</p><span>استكشف القارة ←</span></a><a class="feature-card" href="./world-capitals/?continent=europe"><span class="feature-index">🏛️</span><h3>عواصم أوروبا</h3><p>45 عاصمة · بيانات طقس مباشرة</p><span>استكشف القارة ←</span></a><a class="feature-card" href="./world-capitals/?continent=america"><span class="feature-index">🌎</span><h3>عواصم الأمريكتان</h3><p>35 عاصمة · بيانات طقس مباشرة</p><span>استكشف القارة ←</span></a><a class="feature-card" href="./world-capitals/?continent=asia"><span class="feature-index">🌏</span><h3>عواصم آسيا</h3><p>60 عاصمة · بيانات طقس مباشرة</p><span>استكشف القارة ←</span></a>
       </div>
-      <div style="text-align:center;margin-top:1.5rem;"><a class="button button-primary" href="./world-capitals/">استعراض جميع عواصم العالم ←</a></div>
+      <div class="home-section-actions"><a class="button button-primary home-more-button" href="./world-capitals/">عرض المزيد من عواصم العالم</a></div>
     </section>
   </main>
 
@@ -271,6 +227,7 @@
   <script type="module" src="./assets/js/site.js"></script>
   <script type="module" src="./assets/js/home-parity.js"></script>
   <script type="module" src="./assets/js/home-visual-parity.js"></script>
+  <script type="module" src="./assets/js/home-directory-preview.js"></script>
   <script defer src="./assets/js/adsense.js"></script>
 </body>
 </html>

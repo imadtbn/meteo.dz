@@ -19,6 +19,7 @@
     "./assets/js/directory-pages.js",
     "./assets/js/directory-parity.js",
     "./assets/js/global-weather.js",
+    "./assets/js/home-directory-preview.js",
     "./assets/js/home-parity.js",
     "./assets/js/home-visual-parity.js",
     "./assets/js/i18n.js",
