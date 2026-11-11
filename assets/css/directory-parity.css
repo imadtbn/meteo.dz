@@ -153,3 +153,115 @@
   .directory-card--unified .directory-card__title{font-size:.94rem}
   .directory-card__photo-placeholder{font-size:.68rem;text-align:center}
 }
+
+
+/* Shared directory layout and card system — wilayas + Arab/world capitals */
+.directory-page-content{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+  gap:1.15rem;
+  width:100%;
+  min-width:0;
+}
+.directory-page-content>.directory-parity-search,
+.directory-page-content>.world-capitals-tabs,
+.directory-page-content>.world-capitals-search,
+.directory-page-content>.directory-grid--visual-parity,
+.directory-page-content>.world-capitals-grid{
+  grid-column:1/-1;
+  width:100%;
+  min-width:0;
+}
+.directory-page-content>.directory-grid--visual-parity,
+.directory-page-content>.world-capitals-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:stretch;
+  gap:1.15rem;
+}
+.directory-card--unified{
+  min-height:100%;
+  border-radius:1rem;
+  text-align:right;
+}
+.directory-card--unified .directory-card__media{
+  aspect-ratio:16/9;
+  min-height:132px;
+}
+.directory-card--unified .directory-card__body{
+  min-height:168px;
+  padding:1rem;
+  text-align:right;
+}
+.directory-card--unified .directory-card__meta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.4rem;
+  width:100%;
+  font-size:.8rem;
+}
+.directory-card--unified .directory-card__title{
+  display:block;
+  width:100%;
+  font-size:1.12rem;
+  font-weight:850;
+  line-height:1.65;
+  overflow-wrap:anywhere;
+}
+.directory-card--unified .directory-card__phone{
+  display:block;
+  width:100%;
+  direction:ltr;
+  text-align:right;
+  font-size:.82rem;
+}
+.directory-card--unified .directory-card__action{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:42px;
+  margin-top:auto;
+  padding:.6rem .85rem;
+  border:1px solid var(--blue);
+  border-radius:.7rem;
+  background:var(--blue);
+  color:#fff;
+  font-size:.86rem;
+  font-weight:800;
+  line-height:1.4;
+  transition:background .18s ease,color .18s ease,transform .18s ease;
+}
+.directory-card--unified:hover .directory-card__action{
+  background:var(--surface);
+  color:var(--blue);
+}
+.directory-card__photo-placeholder{
+  text-align:center;
+  line-height:1.8;
+}
+@media(max-width:1100px){
+  .directory-page-content>.directory-grid--visual-parity,
+  .directory-page-content>.world-capitals-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1rem;
+  }
+}
+@media(max-width:760px){
+  .directory-page-content>.directory-grid--visual-parity,
+  .directory-page-content>.world-capitals-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.8rem;
+  }
+  .directory-card--unified .directory-card__body{min-height:158px;padding:.85rem}
+  .directory-card--unified .directory-card__media{min-height:105px}
+}
+@media(max-width:380px){
+  .directory-page-content>.directory-grid--visual-parity,
+  .directory-page-content>.world-capitals-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .directory-card--unified .directory-card__media{min-height:145px}
+}
