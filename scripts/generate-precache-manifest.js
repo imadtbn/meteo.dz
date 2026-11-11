@@ -28,8 +28,6 @@ function addFile(absolute) {
   assets.add("./" + relative);
 }
 
-// Include every published HTML route, including generated wilaya/capital pages.
-// Source templates are not deployable routes and must not enter the offline cache.
 walk(ROOT, (absolute) => {
   if (!absolute.endsWith(".html") || absolute.endsWith(".template.html")) return;
   if (absolute.includes(path.sep + ".github" + path.sep)) return;
@@ -37,8 +35,6 @@ walk(ROOT, (absolute) => {
   addFile(absolute);
 });
 
-// Include every local runtime asset and data file. This automatically picks up
-// newly added JavaScript modules, stylesheets, icons, fonts and JSON datasets.
 for (const directory of ["assets", "data"]) {
   walk(path.join(ROOT, directory), (absolute) => {
     if (INCLUDED_ASSET_EXTENSIONS.has(path.extname(absolute).toLowerCase())) {
@@ -49,7 +45,7 @@ for (const directory of ["assets", "data"]) {
 
 const sortedAssets = [...assets].sort();
 const missing = sortedAssets.filter((asset) => {
-  const relative = asset.replace(/^\.\//, "");
+  const relative = asset === "./" ? "index.html" : asset.replace(/^\.\//, "");
   const absolute = path.join(ROOT, relative);
   return !fs.existsSync(absolute) || !fs.statSync(absolute).isFile();
 });
@@ -67,14 +63,13 @@ walk(ROOT, (absolute) => {
     requiredHtml.push("./" + path.relative(ROOT, absolute).split(path.sep).join("/"));
   }
 });
-for (const directory of ["assets"]) {
-  walk(path.join(ROOT, directory), (absolute) => {
-    const extension = path.extname(absolute).toLowerCase();
-    if (extension === ".js" || extension === ".mjs" || extension === ".css") {
-      requiredRuntimeAssets.push("./" + path.relative(ROOT, absolute).split(path.sep).join("/"));
-    }
-  });
-}
+walk(path.join(ROOT, "assets"), (absolute) => {
+  const extension = path.extname(absolute).toLowerCase();
+  if (extension === ".js" || extension === ".mjs" || extension === ".css") {
+    requiredRuntimeAssets.push("./" + path.relative(ROOT, absolute).split(path.sep).join("/"));
+  }
+});
+
 const coverage = new Set(sortedAssets);
 const uncovered = [...requiredHtml, ...requiredRuntimeAssets].filter((asset) => !coverage.has(asset));
 if (uncovered.length) {
