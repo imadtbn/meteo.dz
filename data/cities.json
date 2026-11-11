@@ -9,7 +9,10 @@
     "name_fr": "Adrar",
     "name_en": "Adrar",
     "phone_code": "049",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "02",
@@ -21,7 +24,10 @@
     "name_fr": "Chlef",
     "name_en": "Chlef",
     "phone_code": "027",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "03",
@@ -33,7 +39,10 @@
     "name_fr": "Laghouat",
     "name_en": "Laghouat",
     "phone_code": "029",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "04",
@@ -45,7 +54,10 @@
     "name_fr": "Oum El Bouaghi",
     "name_en": "Oum El Bouaghi",
     "phone_code": "032",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "05",
@@ -57,7 +69,10 @@
     "name_fr": "Batna",
     "name_en": "Batna",
     "phone_code": "033",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "06",
@@ -70,7 +85,10 @@
     "name_fr": "Bejaïa",
     "name_en": "Bejaia",
     "phone_code": "034",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "07",
@@ -82,7 +100,10 @@
     "name_fr": "Biskra",
     "name_en": "Biskra",
     "phone_code": "033",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "08",
@@ -94,7 +115,10 @@
     "name_fr": "Béchar",
     "name_en": "Bechar",
     "phone_code": "049",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "09",
@@ -106,7 +130,10 @@
     "name_fr": "Blida",
     "name_en": "Blida",
     "phone_code": "025",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "10",
@@ -118,7 +145,10 @@
     "name_fr": "Bouira",
     "name_en": "Bouira",
     "phone_code": "026",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "11",
@@ -130,7 +160,10 @@
     "name_fr": "Tamanghasset",
     "name_en": "Tamanghasset",
     "phone_code": "029",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "12",
@@ -142,7 +175,10 @@
     "name_fr": "Tebessa",
     "name_en": "Tebessa",
     "phone_code": "037",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "13",
@@ -154,7 +190,10 @@
     "name_fr": "Tlemcen",
     "name_en": "Tlemcen",
     "phone_code": "043",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "14",
@@ -166,7 +205,10 @@
     "name_fr": "Tiaret",
     "name_en": "Tiaret",
     "phone_code": "046",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "15",
@@ -178,7 +220,10 @@
     "name_fr": "Tizi Ouzou",
     "name_en": "Tizi Ouzou",
     "phone_code": "026",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "16",
@@ -191,7 +236,10 @@
     "name_fr": "Alger",
     "name_en": "Alger",
     "phone_code": "021",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "17",
@@ -203,7 +251,10 @@
     "name_fr": "Djelfa",
     "name_en": "Djelfa",
     "phone_code": "027",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "18",
@@ -216,7 +267,10 @@
     "name_fr": "Jijel",
     "name_en": "Jijel",
     "phone_code": "034",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "19",
@@ -228,7 +282,10 @@
     "name_fr": "Sétif",
     "name_en": "Setif",
     "phone_code": "036",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "20",
@@ -240,7 +297,10 @@
     "name_fr": "Saïda",
     "name_en": "Saida",
     "phone_code": "048",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "21",
@@ -253,7 +313,10 @@
     "name_fr": "Skikda",
     "name_en": "Skikda",
     "phone_code": "038",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "22",
@@ -265,7 +328,10 @@
     "name_fr": "Sidi Bel Abbès",
     "name_en": "Sidi Bel Abbes",
     "phone_code": "048",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "23",
@@ -278,7 +344,10 @@
     "name_fr": "Annaba",
     "name_en": "Annaba",
     "phone_code": "038",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "24",
@@ -290,7 +359,10 @@
     "name_fr": "Guelma",
     "name_en": "Guelma",
     "phone_code": "037",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "25",
@@ -302,7 +374,10 @@
     "name_fr": "Constantine",
     "name_en": "Constantine",
     "phone_code": "031",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "26",
@@ -314,7 +389,10 @@
     "name_fr": "Médéa",
     "name_en": "Medea",
     "phone_code": "025",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "27",
@@ -327,7 +405,10 @@
     "name_fr": "Mostaganem",
     "name_en": "Mostaganem",
     "phone_code": "045",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "28",
@@ -339,7 +420,10 @@
     "name_fr": "M’Sila",
     "name_en": "M'Sila",
     "phone_code": "035",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "29",
@@ -351,7 +435,10 @@
     "name_fr": "Mascara",
     "name_en": "Mascara",
     "phone_code": "045",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "30",
@@ -363,7 +450,10 @@
     "name_fr": "Ouargla",
     "name_en": "Ouargla",
     "phone_code": "029",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "31",
@@ -376,7 +466,10 @@
     "name_fr": "Oran",
     "name_en": "Oran",
     "phone_code": "041",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "32",
@@ -388,7 +481,10 @@
     "name_fr": "El Bayadh",
     "name_en": "El Bayadh",
     "phone_code": "049",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "33",
@@ -400,7 +496,10 @@
     "name_fr": "Illizi",
     "name_en": "Illizi",
     "phone_code": "029",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "34",
@@ -412,7 +511,10 @@
     "name_fr": "Bordj Bou Arréridj",
     "name_en": "Bordj Bou Arreridj",
     "phone_code": "035",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "35",
@@ -425,7 +527,10 @@
     "name_fr": "Boumerdes",
     "name_en": "Boumerdes",
     "phone_code": "024",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "36",
@@ -438,7 +543,10 @@
     "name_fr": "El Tarf",
     "name_en": "El Tarf",
     "phone_code": "038",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "37",
@@ -450,7 +558,10 @@
     "name_fr": "Tindouf",
     "name_en": "Tindouf",
     "phone_code": "049",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "38",
@@ -462,7 +573,10 @@
     "name_fr": "Tissemsilt",
     "name_en": "Tissemsilt",
     "phone_code": "046",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "39",
@@ -474,7 +588,10 @@
     "name_fr": "El Oued",
     "name_en": "El Oued",
     "phone_code": "032",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "40",
@@ -486,7 +603,10 @@
     "name_fr": "Khenchela",
     "name_en": "Khenchela",
     "phone_code": "032",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "41",
@@ -498,7 +618,10 @@
     "name_fr": "Souk Ahras",
     "name_en": "Souk Ahras",
     "phone_code": "037",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "42",
@@ -511,7 +634,10 @@
     "name_fr": "Tipaza",
     "name_en": "Tipaza",
     "phone_code": "024",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "43",
@@ -523,7 +649,10 @@
     "name_fr": "Mila",
     "name_en": "Mila",
     "phone_code": "031",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "44",
@@ -535,7 +664,10 @@
     "name_fr": "Aïn Defla",
     "name_en": "Ain Defla",
     "phone_code": "027",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "45",
@@ -547,7 +679,10 @@
     "name_fr": "Naama",
     "name_en": "Naama",
     "phone_code": "049",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "46",
@@ -560,7 +695,10 @@
     "name_fr": "Aïn Temouchent",
     "name_en": "Ain Temouchent",
     "phone_code": "043",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "47",
@@ -572,7 +710,10 @@
     "name_fr": "Ghardaïa",
     "name_en": "Ghardaia",
     "phone_code": "029",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "48",
@@ -584,7 +725,10 @@
     "name_fr": "Relizane",
     "name_en": "Relizane",
     "phone_code": "046",
-    "administrative_era": 48
+    "administrative_era": 48,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "49",
@@ -596,7 +740,10 @@
     "name_fr": "Timimoun",
     "name_en": "Timimoun",
     "phone_code": "049",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "50",
@@ -608,7 +755,10 @@
     "name_fr": "Bordj Badji Mokhtar",
     "name_en": "Bordj Badji Mokhtar",
     "phone_code": "049",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "51",
@@ -620,7 +770,10 @@
     "name_fr": "Ouled Djellal",
     "name_en": "Ouled Djellal",
     "phone_code": "033",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "52",
@@ -632,7 +785,10 @@
     "name_fr": "Béni Abbès",
     "name_en": "Beni Abbes",
     "phone_code": "049",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "53",
@@ -644,7 +800,10 @@
     "name_fr": "In Salah",
     "name_en": "In Salah",
     "phone_code": "029",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "54",
@@ -656,7 +815,10 @@
     "name_fr": "In Guezzam",
     "name_en": "In Guezzam",
     "phone_code": "029",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "55",
@@ -668,7 +830,10 @@
     "name_fr": "Touggourt",
     "name_en": "Touggourt",
     "phone_code": "029",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "56",
@@ -680,7 +845,10 @@
     "name_fr": "Djanet",
     "name_en": "Djanet",
     "phone_code": "029",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "57",
@@ -692,7 +860,10 @@
     "name_fr": "El M’Ghaier",
     "name_en": "El M'Ghaier",
     "phone_code": "032",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "58",
@@ -704,7 +875,10 @@
     "name_fr": "El Meniaa",
     "name_en": "El Meniaa",
     "phone_code": "029",
-    "administrative_era": 58
+    "administrative_era": 58,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "59",
@@ -716,7 +890,10 @@
     "name_fr": "Aflou",
     "name_en": "Aflou",
     "phone_code": "029",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "60",
@@ -728,7 +905,10 @@
     "name_fr": "Barika",
     "name_en": "Barika",
     "phone_code": "033",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "61",
@@ -740,7 +920,10 @@
     "name_fr": "El Kantara",
     "name_en": "El Kantara",
     "phone_code": "033",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "62",
@@ -752,7 +935,10 @@
     "name_fr": "Bir El Ater",
     "name_en": "Bir El Ater",
     "phone_code": "037",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "63",
@@ -764,7 +950,10 @@
     "name_fr": "El Aricha",
     "name_en": "El Aricha",
     "phone_code": "043",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "64",
@@ -776,7 +965,10 @@
     "name_fr": "Ksar Chellala",
     "name_en": "Ksar Chellala",
     "phone_code": "046",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "65",
@@ -788,7 +980,10 @@
     "name_fr": "Aïn Ouessara",
     "name_en": "Ain Ouessara",
     "phone_code": "027",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "66",
@@ -800,7 +995,10 @@
     "name_fr": "Messaad",
     "name_en": "Messaad",
     "phone_code": "027",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "67",
@@ -812,7 +1010,10 @@
     "name_fr": "Ksar El Boukhari",
     "name_en": "Ksar El Boukhari",
     "phone_code": "025",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "68",
@@ -824,7 +1025,10 @@
     "name_fr": "Bou Saâda",
     "name_en": "Bou Saada",
     "phone_code": "035",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "code": "69",
@@ -836,6 +1040,9 @@
     "name_fr": "El Abiodh Sidi Cheikh",
     "name_en": "El Abiodh Sidi Cheikh",
     "phone_code": "049",
-    "administrative_era": 69
+    "administrative_era": 69,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   }
 ]
