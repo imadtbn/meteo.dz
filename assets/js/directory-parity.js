@@ -5,6 +5,12 @@ const root = document.querySelector("#page-content");
 const count = document.querySelector("#page-count");
 const status = document.querySelector("#page-status");
 const cities = JSON.parse(document.querySelector("#city-data")?.textContent || "[]");
+if (["wilayas","arab-capitals","world-capitals"].includes(kind) && root) {
+  root.classList.remove("feature-grid");
+  root.classList.add("directory-page-content");
+  root.style.removeProperty("grid-template-columns");
+}
+
 const capitals = JSON.parse(document.querySelector("#capital-data")?.textContent || "[]");
 const normalize = value => String(value ?? "").normalize("NFKD").toLocaleLowerCase("en")
   .replace(/[\u064B-\u065F\u0670\u0640]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي")
