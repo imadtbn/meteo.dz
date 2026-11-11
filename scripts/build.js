@@ -751,9 +751,9 @@ directoryConfig.forEach((cfg) => {
         <label for="wilaya-search">ابحث بالاسم العربي، الفرنسي، الإنجليزي، أو رمز الولاية:</label>
         <input id="wilaya-search" class="wilaya-search" type="search" placeholder="مثال: وهران، Oran، 31، 041" autocomplete="off">
       </div>
-      <div class="directory-grid directory-grid--visual-parity" id="wilaya-grid"></div>
-      <div style="text-align:center;margin-top:1.5rem;">
-        <button id="show-more" class="button button-secondary" type="button">عرض المزيد من الولايات</button>
+      <div class="directory-grid directory-grid--visual-parity home-city-preview" id="wilaya-grid"></div>
+      <div class="home-section-actions">
+        <a class="button button-primary home-more-button" href="./wilayas/">عرض المزيد من الولايات</a>
       </div>
     </section>
 
@@ -763,18 +763,9 @@ directoryConfig.forEach((cfg) => {
         <div><span class="eyebrow">الوطن العربي</span><h2 data-i18n="nav_capitals">العواصم العربية</h2></div>
         <p>22 عاصمة عربية بتغطية مباشرة</p>
       </div>
-      <div class="feature-grid">
-        ${capitals.slice(0, 6).map(c => `
-          <a class="feature-card" href="./global-weather/?lat=${c.latitude}&lon=${c.longitude}&name=${encodeURIComponent(c.capital)}">
-            <span class="feature-index">🌍</span>
-            <h3>${c.capital}</h3>
-            <p>${c.country} · ${c.englishName}</p>
-            <span>عرض الطقس ←</span>
-          </a>
-        `).join('')}
-      </div>
-      <div style="text-align:center;margin-top:1.5rem;">
-        <a class="button button-primary" href="./arab-capitals/">استعراض جميع العواصم العربية الـ 22 ←</a>
+      <div class="directory-grid directory-grid--visual-parity home-city-preview home-capitals-preview" id="arab-capitals-grid"></div>
+      <div class="home-section-actions">
+        <a class="button button-primary home-more-button" href="./arab-capitals/">عرض المزيد من العواصم العربية</a>
       </div>
     </section>
 
@@ -784,12 +775,12 @@ directoryConfig.forEach((cfg) => {
         <div><span class="eyebrow">استكشف العالم</span><h2 id="world-capitals-heading">عواصم العالم</h2></div>
         <p>${worldCapitals.length} عاصمة من أربع قارات</p>
       </div>
-      <div class="feature-grid world-capitals-continent-grid">
+      <div class="feature-grid world-capitals-continent-grid home-world-preview">
         ${[
           ['africa','إفريقيا','🌍'],['europe','أوروبا','🏛️'],['america','الأمريكتان','🌎'],['asia','آسيا','🌏']
         ].map(([key,label,icon]) => `<a class="feature-card" href="./world-capitals/?continent=${key}"><span class="feature-index">${icon}</span><h3>عواصم ${label}</h3><p>${worldCapitals.filter(city => city.continent === key).length} عاصمة · بيانات طقس مباشرة</p><span>استكشف القارة ←</span></a>`).join('')}
       </div>
-      <div style="text-align:center;margin-top:1.5rem;"><a class="button button-primary" href="./world-capitals/">استعراض جميع عواصم العالم ←</a></div>
+      <div class="home-section-actions"><a class="button button-primary home-more-button" href="./world-capitals/">عرض المزيد من عواصم العالم</a></div>
     </section>
   </main>
 
@@ -817,6 +808,7 @@ directoryConfig.forEach((cfg) => {
   <script type="module" src="./assets/js/site.js"></script>
   <script type="module" src="./assets/js/home-parity.js"></script>
   <script type="module" src="./assets/js/home-visual-parity.js"></script>
+  <script type="module" src="./assets/js/home-directory-preview.js"></script>
 </body>
 </html>`;
   fs.writeFileSync(path.join(rootDir, 'index.html'), html, 'utf8');
