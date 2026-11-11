@@ -147,3 +147,16 @@
 .content-section,
 main,
 section { min-width: 0; }
+
+/* Homepage city previews: consistent card and action treatment. */
+.home-city-preview{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.home-city-preview .directory-card--unified .directory-card__media{aspect-ratio:16/9;min-height:0}
+.home-city-preview .directory-card--unified .directory-card__body{min-height:138px;padding:.9rem}
+.home-city-preview .directory-card--unified .directory-card__title{font-size:1rem}
+.home-section-actions{display:flex;justify-content:center;margin:1.25rem auto 0}
+.home-more-button{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-width:min(100%,280px);min-height:46px;padding:.7rem 1.25rem;border-radius:.8rem;font-weight:800;text-align:center;text-decoration:none}
+.home-more-button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.home-world-preview{grid-template-columns:repeat(4,minmax(0,1fr))}
+#active-weather-section .loading-card,#active-weather-section .error-card,#active-weather-section .weather-stale-note,.weather-status{min-height:0;padding:.7rem 1rem;line-height:1.6;border-radius:.85rem}
+@media(max-width:760px){.home-city-preview{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.home-world-preview{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.home-city-preview .directory-card--unified .directory-card__body{min-height:126px;padding:.7rem}.home-city-preview .directory-card--unified .directory-card__title{font-size:.92rem}.home-more-button{width:100%;min-width:0}.home-world-preview{grid-template-columns:repeat(2,minmax(0,1fr))}}
