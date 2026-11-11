@@ -158,5 +158,5 @@ section { min-width: 0; }
 .home-more-button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .home-world-preview{grid-template-columns:repeat(4,minmax(0,1fr))}
 #active-weather-section .loading-card,#active-weather-section .error-card,#active-weather-section .weather-stale-note,.weather-status{min-height:0;padding:.7rem 1rem;line-height:1.6;border-radius:.85rem}
-@media(max-width:760px){.home-city-preview{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.home-world-preview{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.home-city-preview{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.home-city-preview>.directory-card--unified:nth-child(n+4){display:none}.home-world-preview{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.home-city-preview .directory-card--unified .directory-card__body{min-height:126px;padding:.7rem}.home-city-preview .directory-card--unified .directory-card__title{font-size:.92rem}.home-more-button{width:100%;min-width:0}.home-world-preview{grid-template-columns:repeat(2,minmax(0,1fr))}}
