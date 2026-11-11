@@ -5,7 +5,10 @@
     "capital": "الجزائر العاصمة",
     "englishName": "Algiers",
     "latitude": 36.7538,
-    "longitude": 3.0588
+    "longitude": 3.0588,
+    "countryCode": "DZ",
+    "countryPhone": "+213",
+    "countryImages": ""
   },
   {
     "slug": "manama",
@@ -13,7 +16,10 @@
     "capital": "المنامة",
     "englishName": "Manama",
     "latitude": 26.2235,
-    "longitude": 50.5876
+    "longitude": 50.5876,
+    "countryCode": "BH",
+    "countryPhone": "+973",
+    "countryImages": ""
   },
   {
     "slug": "moroni",
@@ -21,7 +27,10 @@
     "capital": "موروني",
     "englishName": "Moroni",
     "latitude": -11.7172,
-    "longitude": 43.2473
+    "longitude": 43.2473,
+    "countryCode": "KM",
+    "countryPhone": "+269",
+    "countryImages": ""
   },
   {
     "slug": "djibouti",
@@ -29,7 +38,10 @@
     "capital": "مدينة جيبوتي",
     "englishName": "Djibouti",
     "latitude": 11.5721,
-    "longitude": 43.1456
+    "longitude": 43.1456,
+    "countryCode": "DJ",
+    "countryPhone": "+253",
+    "countryImages": ""
   },
   {
     "slug": "cairo",
@@ -37,7 +49,10 @@
     "capital": "القاهرة",
     "englishName": "Cairo",
     "latitude": 30.0444,
-    "longitude": 31.2357
+    "longitude": 31.2357,
+    "countryCode": "EG",
+    "countryPhone": "+20",
+    "countryImages": ""
   },
   {
     "slug": "baghdad",
@@ -45,7 +60,10 @@
     "capital": "بغداد",
     "englishName": "Baghdad",
     "latitude": 33.3152,
-    "longitude": 44.3661
+    "longitude": 44.3661,
+    "countryCode": "IQ",
+    "countryPhone": "+964",
+    "countryImages": ""
   },
   {
     "slug": "amman",
@@ -53,7 +71,10 @@
     "capital": "عمّان",
     "englishName": "Amman",
     "latitude": 31.9539,
-    "longitude": 35.9106
+    "longitude": 35.9106,
+    "countryCode": "JO",
+    "countryPhone": "+962",
+    "countryImages": ""
   },
   {
     "slug": "kuwait-city",
@@ -61,7 +82,10 @@
     "capital": "مدينة الكويت",
     "englishName": "Kuwait City",
     "latitude": 29.3759,
-    "longitude": 47.9774
+    "longitude": 47.9774,
+    "countryCode": "KW",
+    "countryPhone": "+965",
+    "countryImages": ""
   },
   {
     "slug": "beirut",
@@ -69,7 +93,10 @@
     "capital": "بيروت",
     "englishName": "Beirut",
     "latitude": 33.8938,
-    "longitude": 35.5018
+    "longitude": 35.5018,
+    "countryCode": "LB",
+    "countryPhone": "+961",
+    "countryImages": ""
   },
   {
     "slug": "tripoli",
@@ -77,7 +104,10 @@
     "capital": "طرابلس",
     "englishName": "Tripoli",
     "latitude": 32.8872,
-    "longitude": 13.1913
+    "longitude": 13.1913,
+    "countryCode": "LY",
+    "countryPhone": "+218",
+    "countryImages": ""
   },
   {
     "slug": "nouakchott",
@@ -85,7 +115,10 @@
     "capital": "نواكشوط",
     "englishName": "Nouakchott",
     "latitude": 18.0735,
-    "longitude": -15.9582
+    "longitude": -15.9582,
+    "countryCode": "MR",
+    "countryPhone": "+222",
+    "countryImages": ""
   },
   {
     "slug": "rabat",
@@ -93,7 +126,10 @@
     "capital": "الرباط",
     "englishName": "Rabat",
     "latitude": 34.0209,
-    "longitude": -6.8416
+    "longitude": -6.8416,
+    "countryCode": "MA",
+    "countryPhone": "+212",
+    "countryImages": ""
   },
   {
     "slug": "muscat",
@@ -101,7 +137,10 @@
     "capital": "مسقط",
     "englishName": "Muscat",
     "latitude": 23.588,
-    "longitude": 58.3829
+    "longitude": 58.3829,
+    "countryCode": "OM",
+    "countryPhone": "+968",
+    "countryImages": ""
   },
   {
     "slug": "ramallah",
@@ -109,7 +148,10 @@
     "capital": "رام الله (مرجع جغرافي)",
     "englishName": "Ramallah",
     "latitude": 31.9038,
-    "longitude": 35.2034
+    "longitude": 35.2034,
+    "countryCode": "PS",
+    "countryPhone": "+970",
+    "countryImages": ""
   },
   {
     "slug": "doha",
@@ -117,7 +159,10 @@
     "capital": "الدوحة",
     "englishName": "Doha",
     "latitude": 25.2854,
-    "longitude": 51.531
+    "longitude": 51.531,
+    "countryCode": "QA",
+    "countryPhone": "+974",
+    "countryImages": ""
   },
   {
     "slug": "riyadh",
@@ -125,7 +170,10 @@
     "capital": "الرياض",
     "englishName": "Riyadh",
     "latitude": 24.7136,
-    "longitude": 46.6753
+    "longitude": 46.6753,
+    "countryCode": "SA",
+    "countryPhone": "+966",
+    "countryImages": ""
   },
   {
     "slug": "mogadishu",
@@ -133,7 +181,10 @@
     "capital": "مقديشو",
     "englishName": "Mogadishu",
     "latitude": 2.0469,
-    "longitude": 45.3182
+    "longitude": 45.3182,
+    "countryCode": "SO",
+    "countryPhone": "+252",
+    "countryImages": ""
   },
   {
     "slug": "khartoum",
@@ -141,7 +192,10 @@
     "capital": "الخرطوم",
     "englishName": "Khartoum",
     "latitude": 15.5007,
-    "longitude": 32.5599
+    "longitude": 32.5599,
+    "countryCode": "SD",
+    "countryPhone": "+249",
+    "countryImages": ""
   },
   {
     "slug": "damascus",
@@ -149,7 +203,10 @@
     "capital": "دمشق",
     "englishName": "Damascus",
     "latitude": 33.5138,
-    "longitude": 36.2765
+    "longitude": 36.2765,
+    "countryCode": "SY",
+    "countryPhone": "+963",
+    "countryImages": ""
   },
   {
     "slug": "tunis",
@@ -157,7 +214,10 @@
     "capital": "تونس",
     "englishName": "Tunis",
     "latitude": 36.8065,
-    "longitude": 10.1815
+    "longitude": 10.1815,
+    "countryCode": "TN",
+    "countryPhone": "+216",
+    "countryImages": ""
   },
   {
     "slug": "abu-dhabi",
@@ -165,7 +225,10 @@
     "capital": "أبوظبي",
     "englishName": "Abu Dhabi",
     "latitude": 24.4539,
-    "longitude": 54.3773
+    "longitude": 54.3773,
+    "countryCode": "AE",
+    "countryPhone": "+971",
+    "countryImages": ""
   },
   {
     "slug": "sanaa",
@@ -173,6 +236,9 @@
     "capital": "صنعاء",
     "englishName": "Sana'a",
     "latitude": 15.3694,
-    "longitude": 44.191
+    "longitude": 44.191,
+    "countryCode": "YE",
+    "countryPhone": "+967",
+    "countryImages": ""
   }
 ]
