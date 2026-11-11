@@ -23,8 +23,41 @@ search.addEventListener("input",()=>{renderSuggestions();clearTimeout(state.time
 search.addEventListener("focus",()=>{if(search.value.trim())panel.hidden=false});document.addEventListener("pointerdown",e=>{if(!$("#city-picker").contains(e.target))panel.hidden=true});search.addEventListener("keydown",e=>{if(e.key==="Escape")panel.hidden=true;if(e.key==="Enter"&&state.global[0])location.href="global-weather/?lat="+state.global[0].latitude+"&lon="+state.global[0].longitude+"&name="+encodeURIComponent(state.global[0].name)});
 function scene(city){if(city.coastal||city.region.includes("الساحل"))return"coast";if(/الأوراس|القبائل|الأطلس/.test(city.region))return"mountain";if(/الصحراء|الجنوب/.test(city.region))return"desert";if(/الهضاب/.test(city.region))return"highland";if(/وادي|داخلي|الشرق/.test(city.region))return"river";return"city";}
 function illustration(city){const s=scene(city),paths=s==="mountain"?'<path d="M-30 164L80 63L144 128L238 43L355 158L410 79L490 162V186H-30Z" fill="#748f9c"/>':s==="desert"?'<path d="M0 147Q95 73 190 129T460 113V186H0Z" fill="#dfb077"/><path d="M0 171Q110 125 210 161T460 141V186H0Z" fill="#ce9861"/>':s==="highland"?'<path d="M0 140Q70 91 148 137T300 131T460 117V186H0Z" fill="#98b99c"/>':'<path d="M0 131Q90 116 174 133T340 123T460 133V186H0Z" fill="#7ca9b7"/>';return '<div class="place-illustration" role="img" aria-label="رسم رمزي لمعالم '+city.name+'"><svg viewBox="0 0 460 186" preserveAspectRatio="xMidYMid slice"><rect width="460" height="186" fill="#c7dde7"/><circle cx="371" cy="44" r="22" fill="#fff7d8"/><path d="M0 112Q75 105 146 114T290 108T460 110L460 186H0Z" fill="#e3e8e1"/>'+paths+'</svg><span class="place-illustration__tag">ولاية '+city.code+'</span></div>';}
-function renderWilayas(){const q=norm($("#wilaya-search").value),matches=cities.filter(c=>norm([c.name,c.name_fr,c.name_en,c.region,c.code,c.slug,c.phone_code].join(" ")).includes(q)),visible=matches.slice(0,state.visible),grid=$("#wilaya-grid");grid.replaceChildren();visible.forEach(c=>{const a=document.createElement("a");a.className="directory-card directory-card--visual";a.href="weather/"+encodeURIComponent(c.slug)+"/";a.innerHTML=illustration(c)+'<span class="directory-card__body"><span class="directory-card__meta">'+c.code+" · "+c.region+'</span><strong class="directory-card__title"></strong><span class="directory-card__action">عرض نشرة الطقس ←</span></span>';a.querySelector("strong").textContent=c.name;grid.append(a)});$("#result-count").textContent=matches.length+" ولاية من أصل "+cities.length;$("#show-more").hidden=matches.length<=state.visible;}
-$("#wilaya-search").addEventListener("input",()=>{state.visible=12;renderWilayas()});$("#show-more").onclick=()=>{state.visible+=12;renderWilayas()};renderWilayas();
+function renderWilayas(){
+  const q=norm($("#wilaya-search").value);
+  const matches=cities.filter(c=>norm([c.name,c.name_fr,c.name_en,c.region,c.code,c.slug,c.phone_code].join(" ")).includes(q));
+  const grid=$("#wilaya-grid");
+  const makeCard=city=>{
+    const link=document.createElement("a");
+    link.className="directory-card directory-card--unified";
+    link.href="weather/"+encodeURIComponent(city.slug)+"/";
+    link.setAttribute("aria-label","عرض نشرة الطقس في "+city.name);
+    const media=document.createElement("span");
+    media.className="directory-card__media is-photo-missing";
+    const placeholder=document.createElement("span");
+    placeholder.className="directory-card__photo-placeholder";
+    placeholder.textContent="ولاية "+city.code;
+    media.append(placeholder);
+    const body=document.createElement("span");
+    body.className="directory-card__body";
+    const meta=document.createElement("span");
+    meta.className="directory-card__meta";
+    meta.textContent="ولاية "+city.code+" · "+city.region;
+    const title=document.createElement("strong");
+    title.className="directory-card__title";
+    title.textContent=city.name;
+    const action=document.createElement("span");
+    action.className="directory-card__action";
+    action.textContent="عرض الطقس ←";
+    body.append(meta,title,action);
+    link.append(media,body);
+    return link;
+  };
+  grid.replaceChildren(...matches.slice(0,6).map(makeCard));
+  $("#result-count").textContent=matches.length+" ولاية من أصل "+cities.length;
+}
+$("#wilaya-search").addEventListener("input",renderWilayas);
+renderWilayas();
 
 /* React shared-component parity: PublicHeader/PublicFooter, favorite hook and WeatherShareDialog. */
 const menuButton=$("#menu-toggle"),mainNav=$("#site-navigation");
