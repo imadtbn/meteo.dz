@@ -55,3 +55,101 @@
 .world-capitals-grid .directory-card__title{display:block;min-width:0;color:var(--text);font-size:1.08rem;font-weight:800;line-height:1.8;overflow-wrap:anywhere}
 .world-capitals-grid .directory-card__action{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:40px;margin-top:.15rem;padding:.5rem .9rem;border-radius:.7rem;background:var(--blue);color:#fff;font-size:.82rem;font-weight:800;line-height:1.5;white-space:nowrap}
 @media(max-width:520px){.world-capitals-grid .place-illustration{height:112px}.world-capitals-grid .directory-card__body{padding:.85rem;gap:.55rem}.world-capitals-grid .directory-card__meta{font-size:.78rem}.world-capitals-grid .directory-card__title{font-size:1rem}}
+
+
+/* Unified photographic city cards: wilayas, Arab capitals and world capitals */
+.directory-grid--visual-parity,
+.world-capitals-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+}
+.directory-card--unified{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:1.1rem;
+  background:var(--surface);
+  color:inherit;
+  text-decoration:none;
+  box-shadow:0 5px 18px rgba(20,45,60,.055);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.directory-card--unified:hover{
+  transform:translateY(-3px);
+  border-color:var(--blue);
+  box-shadow:0 12px 28px rgba(20,45,60,.11);
+}
+.directory-card__media{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--surface-soft),var(--surface));
+}
+.directory-card__photo{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.directory-card--unified:hover .directory-card__photo{transform:scale(1.035)}
+.directory-card__media.is-photo-missing{
+  background:linear-gradient(135deg,rgba(12,91,140,.07),rgba(20,45,60,.035));
+}
+.directory-card__photo-placeholder{
+  padding:.6rem;
+  color:var(--muted);
+  font-size:.78rem;
+}
+.directory-card--unified .directory-card__body{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.45rem;
+  padding:1rem;
+}
+.directory-card--unified .directory-card__meta{
+  color:var(--muted);
+  font-size:.76rem;
+  line-height:1.7;
+}
+.directory-card--unified .directory-card__title{
+  color:var(--text);
+  font-size:1.05rem;
+  line-height:1.55;
+}
+.directory-card__phone{
+  color:var(--muted);
+  font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+.directory-card--unified .directory-card__action{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  margin-top:auto;
+  padding-top:.55rem;
+  color:var(--blue);
+  font-size:.82rem;
+  font-weight:800;
+}
+.directory-card--unified:focus-visible{
+  outline:3px solid var(--blue);
+  outline-offset:3px;
+}
+@media(max-width:800px){
+  .directory-grid--visual-parity,.world-capitals-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+  .directory-grid--visual-parity,.world-capitals-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+  .directory-card--unified .directory-card__body{padding:.75rem;gap:.35rem}
+  .directory-card--unified .directory-card__title{font-size:.94rem}
+  .directory-card__photo-placeholder{font-size:.68rem;text-align:center}
+}
