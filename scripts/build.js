@@ -113,6 +113,18 @@ cities.forEach((city) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="حالة الطقس المباشرة والتوقعات الساعية والأسبوعية لولاية ${city.name} (${city.name_fr} - ${city.name_en})، درجات الحرارة والرطوبة والرياح وحالة البحر.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_DZ">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="طقس ولاية ${city.name} (${city.code}) | Weather Today">
+  <meta property="og:description" content="حالة الطقس الآن والتوقعات الساعية والأسبوعية لولاية ${city.name}، مع درجات الحرارة والأمطار والرياح.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/weather/${city.slug}/">
+  <meta property="og:image" content="https://imadtbn.github.io/weather-today/favicon.svg">
+  <meta property="og:image:alt" content="Weather Today | الطقس اليوم">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="طقس ولاية ${city.name} | Weather Today">
+  <meta name="twitter:description" content="حالة الطقس والتوقعات الجوية لولاية ${city.name}.">
   <meta name="keywords" content="طقس ${city.name}, طقس ${city.name_fr}, ولاية ${city.code}, طقس الجزائر, أحوال الجو ${city.slug}">
   <meta name="theme-color" content="#0c5b8c">
   <title>طقس ولاية ${city.name} (${city.code}) | Weather Today | الطقس اليوم</title>
@@ -337,6 +349,19 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="المرصد المناخي الجزائري: السلاسل المناخية اليومية حسب الولاية اعتماداً على بيانات NASA POWER.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/climate-observatory/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_DZ">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="المرصد المناخي الجزائري | Weather Today">
+  <meta property="og:description" content="استكشف السلاسل المناخية اليومية حسب الولاية، وقارن درجات الحرارة والأمطار اعتماداً على بيانات NASA POWER.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/climate-observatory/">
+  <meta property="og:image" content="https://imadtbn.github.io/weather-today/favicon.svg">
+  <meta property="og:image:alt" content="Weather Today | الطقس اليوم">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="المرصد المناخي الجزائري | Weather Today">
+  <meta name="twitter:description" content="السلاسل المناخية اليومية ومؤشرات الحرارة والأمطار حسب الولاية.">
   <title>المرصد المناخي الجزائري | Weather Today | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
@@ -397,6 +422,19 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="مؤشرات الطقس الزراعي حسب الولاية: الأمطار المتراكمة، الوحدات الحرارية GDD، أيام الصقيع والحرارة.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/agriculture-weather/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_DZ">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="الطقس الزراعي والمؤشرات الزراعية | Weather Today">
+  <meta property="og:description" content="تابع الأمطار المتراكمة والوحدات الحرارية GDD وأيام الصقيع والحرارة حسب الولاية لدعم القرارات الزراعية.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/agriculture-weather/">
+  <meta property="og:image" content="https://imadtbn.github.io/weather-today/favicon.svg">
+  <meta property="og:image:alt" content="Weather Today | الطقس اليوم">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="الطقس الزراعي | Weather Today">
+  <meta name="twitter:description" content="مؤشرات الأمطار والحرارة والصقيع والوحدات الحرارية حسب الولاية.">
   <title>الطقس الزراعي | Weather Today | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
@@ -500,6 +538,19 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="النشرة البحرية وحالة السواحل الجزائرية والبحر الأبيض المتوسط: ارتفاع الأمواج، الرياح البحرية، ودرجات حرارة المياه.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/marine/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_DZ">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="الطقس البحري وحالة السواحل الجزائرية | Weather Today">
+  <meta property="og:description" content="تابع حالة البحر الأبيض المتوسط والسواحل الجزائرية، وارتفاع الأمواج واتجاهها والرياح البحرية.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/marine/">
+  <meta property="og:image" content="https://imadtbn.github.io/weather-today/favicon.svg">
+  <meta property="og:image:alt" content="Weather Today | الطقس اليوم">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="الطقس البحري وحالة السواحل | Weather Today">
+  <meta name="twitter:description" content="النشرة البحرية وبيانات الأمواج والرياح على السواحل الجزائرية.">
   <title>الطقس البحري والسواحل | Weather Today | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
@@ -552,6 +603,19 @@ directoryConfig.forEach((cfg) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="قراءة الطقس العالمي والتوقعات لأي موقع حول العالم عبر Open-Meteo API.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://imadtbn.github.io/weather-today/global-weather/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_DZ">
+  <meta property="og:site_name" content="Weather Today | الطقس اليوم">
+  <meta property="og:title" content="الطقس العالمي | Weather Today | الطقس اليوم">
+  <meta property="og:description" content="احصل على حالة الطقس الحالية والتوقعات الجوية لأي موقع حول العالم اعتماداً على الإحداثيات الجغرافية وبيانات Open-Meteo.">
+  <meta property="og:url" content="https://imadtbn.github.io/weather-today/global-weather/">
+  <meta property="og:image" content="https://imadtbn.github.io/weather-today/favicon.svg">
+  <meta property="og:image:alt" content="Weather Today | الطقس اليوم">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="الطقس العالمي | Weather Today">
+  <meta name="twitter:description" content="توقعات الطقس العالمية حسب الموقع الجغرافي.">
   <title>الطقس العالمي | Weather Today | الطقس اليوم</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="../manifest.json">
