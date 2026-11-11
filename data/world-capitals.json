@@ -8,7 +8,9 @@
     "slug": "dakar",
     "latitude": 14.7167,
     "longitude": -17.4677,
-    "countryCode": "SN"
+    "countryCode": "SN",
+    "countryPhone": "+221",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -19,7 +21,9 @@
     "slug": "bamako",
     "latitude": 12.6392,
     "longitude": -8.0029,
-    "countryCode": "ML"
+    "countryCode": "ML",
+    "countryPhone": "+223",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -30,7 +34,9 @@
     "slug": "niamey",
     "latitude": 13.5116,
     "longitude": 2.1254,
-    "countryCode": "NE"
+    "countryCode": "NE",
+    "countryPhone": "+227",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -41,7 +47,9 @@
     "slug": "abuja",
     "latitude": 9.0765,
     "longitude": 7.3986,
-    "countryCode": "NG"
+    "countryCode": "NG",
+    "countryPhone": "+234",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -52,7 +60,9 @@
     "slug": "accra",
     "latitude": 5.6037,
     "longitude": -0.187,
-    "countryCode": "GH"
+    "countryCode": "GH",
+    "countryPhone": "+233",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -63,7 +73,9 @@
     "slug": "yamoussoukro",
     "latitude": 6.8276,
     "longitude": -5.2893,
-    "countryCode": "CI"
+    "countryCode": "CI",
+    "countryPhone": "+225",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -74,7 +86,9 @@
     "slug": "ouagadougou",
     "latitude": 12.3714,
     "longitude": -1.5197,
-    "countryCode": "BF"
+    "countryCode": "BF",
+    "countryPhone": "+226",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -85,7 +99,9 @@
     "slug": "ndjamena",
     "latitude": 12.1348,
     "longitude": 15.0557,
-    "countryCode": "TD"
+    "countryCode": "TD",
+    "countryPhone": "+235",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -96,7 +112,9 @@
     "slug": "juba",
     "latitude": 4.8594,
     "longitude": 31.5713,
-    "countryCode": "SS"
+    "countryCode": "SS",
+    "countryPhone": "+211",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -107,7 +125,9 @@
     "slug": "addis-ababa",
     "latitude": 8.9806,
     "longitude": 38.7578,
-    "countryCode": "ET"
+    "countryCode": "ET",
+    "countryPhone": "+251",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -118,7 +138,9 @@
     "slug": "nairobi",
     "latitude": -1.2921,
     "longitude": 36.8219,
-    "countryCode": "KE"
+    "countryCode": "KE",
+    "countryPhone": "+254",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -129,7 +151,9 @@
     "slug": "kampala",
     "latitude": 0.3476,
     "longitude": 32.5825,
-    "countryCode": "UG"
+    "countryCode": "UG",
+    "countryPhone": "+256",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -140,7 +164,9 @@
     "slug": "kigali",
     "latitude": -1.9441,
     "longitude": 30.0619,
-    "countryCode": "RW"
+    "countryCode": "RW",
+    "countryPhone": "+250",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -151,7 +177,9 @@
     "slug": "dodoma",
     "latitude": -6.163,
     "longitude": 35.7516,
-    "countryCode": "TZ"
+    "countryCode": "TZ",
+    "countryPhone": "+255",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -162,7 +190,9 @@
     "slug": "lusaka",
     "latitude": -15.3875,
     "longitude": 28.3228,
-    "countryCode": "ZM"
+    "countryCode": "ZM",
+    "countryPhone": "+260",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -173,7 +203,9 @@
     "slug": "harare",
     "latitude": -17.8252,
     "longitude": 31.0335,
-    "countryCode": "ZW"
+    "countryCode": "ZW",
+    "countryPhone": "+263",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -184,7 +216,9 @@
     "slug": "maputo",
     "latitude": -25.9692,
     "longitude": 32.5732,
-    "countryCode": "MZ"
+    "countryCode": "MZ",
+    "countryPhone": "+258",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -195,7 +229,9 @@
     "slug": "windhoek",
     "latitude": -22.5609,
     "longitude": 17.0658,
-    "countryCode": "NA"
+    "countryCode": "NA",
+    "countryPhone": "+264",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -206,7 +242,9 @@
     "slug": "gaborone",
     "latitude": -24.6282,
     "longitude": 25.9231,
-    "countryCode": "BW"
+    "countryCode": "BW",
+    "countryPhone": "+267",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -217,7 +255,9 @@
     "slug": "luanda",
     "latitude": -8.839,
     "longitude": 13.2894,
-    "countryCode": "AO"
+    "countryCode": "AO",
+    "countryPhone": "+244",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -228,7 +268,9 @@
     "slug": "kinshasa",
     "latitude": -4.4419,
     "longitude": 15.2663,
-    "countryCode": "CD"
+    "countryCode": "CD",
+    "countryPhone": "+243",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -239,7 +281,9 @@
     "slug": "brazzaville",
     "latitude": -4.2634,
     "longitude": 15.2429,
-    "countryCode": "CG"
+    "countryCode": "CG",
+    "countryPhone": "+242",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -250,7 +294,9 @@
     "slug": "libreville",
     "latitude": 0.4162,
     "longitude": 9.4673,
-    "countryCode": "GA"
+    "countryCode": "GA",
+    "countryPhone": "+241",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -261,7 +307,9 @@
     "slug": "antananarivo",
     "latitude": -18.8792,
     "longitude": 47.5079,
-    "countryCode": "MG"
+    "countryCode": "MG",
+    "countryPhone": "+261",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -272,7 +320,9 @@
     "slug": "victoria",
     "latitude": -4.6191,
     "longitude": 55.4513,
-    "countryCode": "SC"
+    "countryCode": "SC",
+    "countryPhone": "+248",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -283,7 +333,9 @@
     "slug": "port-louis",
     "latitude": -20.1609,
     "longitude": 57.5012,
-    "countryCode": "MU"
+    "countryCode": "MU",
+    "countryPhone": "+230",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -294,7 +346,9 @@
     "slug": "paris",
     "latitude": 48.8566,
     "longitude": 2.3522,
-    "countryCode": "FR"
+    "countryCode": "FR",
+    "countryPhone": "+33",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -305,7 +359,9 @@
     "slug": "berlin",
     "latitude": 52.52,
     "longitude": 13.405,
-    "countryCode": "DE"
+    "countryCode": "DE",
+    "countryPhone": "+49",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -316,7 +372,9 @@
     "slug": "rome",
     "latitude": 41.9028,
     "longitude": 12.4964,
-    "countryCode": "IT"
+    "countryCode": "IT",
+    "countryPhone": "+39",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -327,7 +385,9 @@
     "slug": "madrid",
     "latitude": 40.4168,
     "longitude": -3.7038,
-    "countryCode": "ES"
+    "countryCode": "ES",
+    "countryPhone": "+34",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -338,7 +398,9 @@
     "slug": "london",
     "latitude": 51.5072,
     "longitude": -0.1276,
-    "countryCode": "GB"
+    "countryCode": "GB",
+    "countryPhone": "+44",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -349,7 +411,9 @@
     "slug": "lisbon",
     "latitude": 38.7223,
     "longitude": -9.1393,
-    "countryCode": "PT"
+    "countryCode": "PT",
+    "countryPhone": "+351",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -360,7 +424,9 @@
     "slug": "brussels",
     "latitude": 50.8503,
     "longitude": 4.3517,
-    "countryCode": "BE"
+    "countryCode": "BE",
+    "countryPhone": "+32",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -371,7 +437,9 @@
     "slug": "amsterdam",
     "latitude": 52.3676,
     "longitude": 4.9041,
-    "countryCode": "NL"
+    "countryCode": "NL",
+    "countryPhone": "+31",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -382,7 +450,9 @@
     "slug": "bern",
     "latitude": 46.948,
     "longitude": 7.4474,
-    "countryCode": "CH"
+    "countryCode": "CH",
+    "countryPhone": "+41",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -393,7 +463,9 @@
     "slug": "vienna",
     "latitude": 48.2082,
     "longitude": 16.3738,
-    "countryCode": "AT"
+    "countryCode": "AT",
+    "countryPhone": "+43",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -404,7 +476,9 @@
     "slug": "athens",
     "latitude": 37.9838,
     "longitude": 23.7275,
-    "countryCode": "GR"
+    "countryCode": "GR",
+    "countryPhone": "+30",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -415,7 +489,9 @@
     "slug": "stockholm",
     "latitude": 59.3293,
     "longitude": 18.0686,
-    "countryCode": "SE"
+    "countryCode": "SE",
+    "countryPhone": "+46",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -426,7 +502,9 @@
     "slug": "oslo",
     "latitude": 59.9139,
     "longitude": 10.7522,
-    "countryCode": "NO"
+    "countryCode": "NO",
+    "countryPhone": "+47",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -437,7 +515,9 @@
     "slug": "copenhagen",
     "latitude": 55.6761,
     "longitude": 12.5683,
-    "countryCode": "DK"
+    "countryCode": "DK",
+    "countryPhone": "+45",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -448,7 +528,9 @@
     "slug": "helsinki",
     "latitude": 60.1699,
     "longitude": 24.9384,
-    "countryCode": "FI"
+    "countryCode": "FI",
+    "countryPhone": "+358",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -459,7 +541,9 @@
     "slug": "reykjavik",
     "latitude": 64.1466,
     "longitude": -21.9426,
-    "countryCode": "IS"
+    "countryCode": "IS",
+    "countryPhone": "+354",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -470,7 +554,9 @@
     "slug": "warsaw",
     "latitude": 52.2297,
     "longitude": 21.0122,
-    "countryCode": "PL"
+    "countryCode": "PL",
+    "countryPhone": "+48",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -481,7 +567,9 @@
     "slug": "prague",
     "latitude": 50.0755,
     "longitude": 14.4378,
-    "countryCode": "CZ"
+    "countryCode": "CZ",
+    "countryPhone": "+420",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -492,7 +580,9 @@
     "slug": "budapest",
     "latitude": 47.4979,
     "longitude": 19.0402,
-    "countryCode": "HU"
+    "countryCode": "HU",
+    "countryPhone": "+36",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -503,7 +593,9 @@
     "slug": "bucharest",
     "latitude": 44.4268,
     "longitude": 26.1025,
-    "countryCode": "RO"
+    "countryCode": "RO",
+    "countryPhone": "+40",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -514,7 +606,9 @@
     "slug": "sofia",
     "latitude": 42.6977,
     "longitude": 23.3219,
-    "countryCode": "BG"
+    "countryCode": "BG",
+    "countryPhone": "+359",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -525,7 +619,9 @@
     "slug": "zagreb",
     "latitude": 45.815,
     "longitude": 15.9819,
-    "countryCode": "HR"
+    "countryCode": "HR",
+    "countryPhone": "+385",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -536,7 +632,9 @@
     "slug": "belgrade",
     "latitude": 44.7866,
     "longitude": 20.4489,
-    "countryCode": "RS"
+    "countryCode": "RS",
+    "countryPhone": "+381",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -547,7 +645,9 @@
     "slug": "kyiv",
     "latitude": 50.4501,
     "longitude": 30.5234,
-    "countryCode": "UA"
+    "countryCode": "UA",
+    "countryPhone": "+380",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -558,7 +658,9 @@
     "slug": "moscow",
     "latitude": 55.7558,
     "longitude": 37.6173,
-    "countryCode": "RU"
+    "countryCode": "RU",
+    "countryPhone": "+7",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -569,7 +671,9 @@
     "slug": "dublin",
     "latitude": 53.3498,
     "longitude": -6.2603,
-    "countryCode": "IE"
+    "countryCode": "IE",
+    "countryPhone": "+353",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -580,7 +684,9 @@
     "slug": "tirana",
     "latitude": 41.3275,
     "longitude": 19.8187,
-    "countryCode": "AL"
+    "countryCode": "AL",
+    "countryPhone": "+355",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -591,7 +697,9 @@
     "slug": "sarajevo",
     "latitude": 43.8563,
     "longitude": 18.4131,
-    "countryCode": "BA"
+    "countryCode": "BA",
+    "countryPhone": "+387",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -602,7 +710,9 @@
     "slug": "bratislava",
     "latitude": 48.1486,
     "longitude": 17.1077,
-    "countryCode": "SK"
+    "countryCode": "SK",
+    "countryPhone": "+421",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -613,7 +723,9 @@
     "slug": "ljubljana",
     "latitude": 46.0569,
     "longitude": 14.5058,
-    "countryCode": "SI"
+    "countryCode": "SI",
+    "countryPhone": "+386",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -624,7 +736,9 @@
     "slug": "vilnius",
     "latitude": 54.6872,
     "longitude": 25.2797,
-    "countryCode": "LT"
+    "countryCode": "LT",
+    "countryPhone": "+370",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -635,7 +749,9 @@
     "slug": "riga",
     "latitude": 56.9496,
     "longitude": 24.1052,
-    "countryCode": "LV"
+    "countryCode": "LV",
+    "countryPhone": "+371",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -646,7 +762,9 @@
     "slug": "tallinn",
     "latitude": 59.437,
     "longitude": 24.7536,
-    "countryCode": "EE"
+    "countryCode": "EE",
+    "countryPhone": "+372",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -657,7 +775,9 @@
     "slug": "nicosia",
     "latitude": 35.1856,
     "longitude": 33.3823,
-    "countryCode": "CY"
+    "countryCode": "CY",
+    "countryPhone": "+357",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -668,7 +788,9 @@
     "slug": "luxembourg",
     "latitude": 49.6116,
     "longitude": 6.1319,
-    "countryCode": "LU"
+    "countryCode": "LU",
+    "countryPhone": "+352",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -679,7 +801,9 @@
     "slug": "valletta",
     "latitude": 35.8992,
     "longitude": 14.5141,
-    "countryCode": "MT"
+    "countryCode": "MT",
+    "countryPhone": "+356",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -690,7 +814,9 @@
     "slug": "chisinau",
     "latitude": 47.0105,
     "longitude": 28.8638,
-    "countryCode": "MD"
+    "countryCode": "MD",
+    "countryPhone": "+373",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -701,7 +827,9 @@
     "slug": "podgorica",
     "latitude": 42.4304,
     "longitude": 19.2594,
-    "countryCode": "ME"
+    "countryCode": "ME",
+    "countryPhone": "+382",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -712,7 +840,9 @@
     "slug": "skopje",
     "latitude": 41.9981,
     "longitude": 21.4254,
-    "countryCode": "MK"
+    "countryCode": "MK",
+    "countryPhone": "+389",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -723,7 +853,9 @@
     "slug": "tehran",
     "latitude": 35.6892,
     "longitude": 51.389,
-    "countryCode": "IR"
+    "countryCode": "IR",
+    "countryPhone": "+98",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -734,7 +866,9 @@
     "slug": "ankara",
     "latitude": 39.9334,
     "longitude": 32.8597,
-    "countryCode": "TR"
+    "countryCode": "TR",
+    "countryPhone": "+90",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -745,7 +879,9 @@
     "slug": "kabul",
     "latitude": 34.5553,
     "longitude": 69.2075,
-    "countryCode": "AF"
+    "countryCode": "AF",
+    "countryPhone": "+93",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -756,7 +892,9 @@
     "slug": "islamabad",
     "latitude": 33.6844,
     "longitude": 73.0479,
-    "countryCode": "PK"
+    "countryCode": "PK",
+    "countryPhone": "+92",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -767,7 +905,9 @@
     "slug": "new-delhi",
     "latitude": 28.6139,
     "longitude": 77.209,
-    "countryCode": "IN"
+    "countryCode": "IN",
+    "countryPhone": "+91",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -778,7 +918,9 @@
     "slug": "dhaka",
     "latitude": 23.8103,
     "longitude": 90.4125,
-    "countryCode": "BD"
+    "countryCode": "BD",
+    "countryPhone": "+880",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -789,7 +931,9 @@
     "slug": "kathmandu",
     "latitude": 27.7172,
     "longitude": 85.324,
-    "countryCode": "NP"
+    "countryCode": "NP",
+    "countryPhone": "+977",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -800,7 +944,9 @@
     "slug": "thimphu",
     "latitude": 27.4728,
     "longitude": 89.639,
-    "countryCode": "BT"
+    "countryCode": "BT",
+    "countryPhone": "+975",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -811,7 +957,9 @@
     "slug": "beijing",
     "latitude": 39.9042,
     "longitude": 116.4074,
-    "countryCode": "CN"
+    "countryCode": "CN",
+    "countryPhone": "+86",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -822,7 +970,9 @@
     "slug": "tokyo",
     "latitude": 35.6762,
     "longitude": 139.6503,
-    "countryCode": "JP"
+    "countryCode": "JP",
+    "countryPhone": "+81",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -833,7 +983,9 @@
     "slug": "seoul",
     "latitude": 37.5665,
     "longitude": 126.978,
-    "countryCode": "KR"
+    "countryCode": "KR",
+    "countryPhone": "+82",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -844,7 +996,9 @@
     "slug": "pyongyang",
     "latitude": 39.0392,
     "longitude": 125.7625,
-    "countryCode": "KP"
+    "countryCode": "KP",
+    "countryPhone": "+850",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -855,7 +1009,9 @@
     "slug": "ulaanbaatar",
     "latitude": 47.8864,
     "longitude": 106.9057,
-    "countryCode": "MN"
+    "countryCode": "MN",
+    "countryPhone": "+976",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -866,7 +1022,9 @@
     "slug": "bangkok",
     "latitude": 13.7563,
     "longitude": 100.5018,
-    "countryCode": "TH"
+    "countryCode": "TH",
+    "countryPhone": "+66",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -877,7 +1035,9 @@
     "slug": "hanoi",
     "latitude": 21.0278,
     "longitude": 105.8342,
-    "countryCode": "VN"
+    "countryCode": "VN",
+    "countryPhone": "+84",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -888,7 +1048,9 @@
     "slug": "phnom-penh",
     "latitude": 11.5564,
     "longitude": 104.9282,
-    "countryCode": "KH"
+    "countryCode": "KH",
+    "countryPhone": "+855",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -899,7 +1061,9 @@
     "slug": "vientiane",
     "latitude": 17.9757,
     "longitude": 102.6331,
-    "countryCode": "LA"
+    "countryCode": "LA",
+    "countryPhone": "+856",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -910,7 +1074,9 @@
     "slug": "kuala-lumpur",
     "latitude": 3.139,
     "longitude": 101.6869,
-    "countryCode": "MY"
+    "countryCode": "MY",
+    "countryPhone": "+60",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -921,7 +1087,9 @@
     "slug": "singapore",
     "latitude": 1.3521,
     "longitude": 103.8198,
-    "countryCode": "SG"
+    "countryCode": "SG",
+    "countryPhone": "+65",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -932,7 +1100,9 @@
     "slug": "jakarta",
     "latitude": -6.2088,
     "longitude": 106.8456,
-    "countryCode": "ID"
+    "countryCode": "ID",
+    "countryPhone": "+62",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -943,7 +1113,9 @@
     "slug": "manila",
     "latitude": 14.5995,
     "longitude": 120.9842,
-    "countryCode": "PH"
+    "countryCode": "PH",
+    "countryPhone": "+63",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -954,7 +1126,9 @@
     "slug": "bandar-seri-begawan",
     "latitude": 4.9031,
     "longitude": 114.9398,
-    "countryCode": "BN"
+    "countryCode": "BN",
+    "countryPhone": "+673",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -965,7 +1139,9 @@
     "slug": "astana",
     "latitude": 51.1694,
     "longitude": 71.4491,
-    "countryCode": "KZ"
+    "countryCode": "KZ",
+    "countryPhone": "+7",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -976,7 +1152,9 @@
     "slug": "tashkent",
     "latitude": 41.2995,
     "longitude": 69.2401,
-    "countryCode": "UZ"
+    "countryCode": "UZ",
+    "countryPhone": "+998",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -987,7 +1165,9 @@
     "slug": "bishkek",
     "latitude": 42.8746,
     "longitude": 74.5698,
-    "countryCode": "KG"
+    "countryCode": "KG",
+    "countryPhone": "+996",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -998,7 +1178,9 @@
     "slug": "dushanbe",
     "latitude": 38.5598,
     "longitude": 68.787,
-    "countryCode": "TJ"
+    "countryCode": "TJ",
+    "countryPhone": "+992",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1009,7 +1191,9 @@
     "slug": "ashgabat",
     "latitude": 37.9601,
     "longitude": 58.3261,
-    "countryCode": "TM"
+    "countryCode": "TM",
+    "countryPhone": "+993",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1020,7 +1204,9 @@
     "slug": "baku",
     "latitude": 40.4093,
     "longitude": 49.8671,
-    "countryCode": "AZ"
+    "countryCode": "AZ",
+    "countryPhone": "+994",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1031,7 +1217,9 @@
     "slug": "yerevan",
     "latitude": 40.1792,
     "longitude": 44.4991,
-    "countryCode": "AM"
+    "countryCode": "AM",
+    "countryPhone": "+374",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1042,7 +1230,9 @@
     "slug": "tbilisi",
     "latitude": 41.7151,
     "longitude": 44.8271,
-    "countryCode": "GE"
+    "countryCode": "GE",
+    "countryPhone": "+995",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1053,7 +1243,9 @@
     "slug": "washington-dc",
     "latitude": 38.9072,
     "longitude": -77.0369,
-    "countryCode": "US"
+    "countryCode": "US",
+    "countryPhone": "+1",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1064,7 +1256,9 @@
     "slug": "ottawa",
     "latitude": 45.4215,
     "longitude": -75.6972,
-    "countryCode": "CA"
+    "countryCode": "CA",
+    "countryPhone": "+1",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1075,7 +1269,9 @@
     "slug": "mexico-city",
     "latitude": 19.4326,
     "longitude": -99.1332,
-    "countryCode": "MX"
+    "countryCode": "MX",
+    "countryPhone": "+52",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1086,7 +1282,9 @@
     "slug": "guatemala-city",
     "latitude": 14.6349,
     "longitude": -90.5069,
-    "countryCode": "GT"
+    "countryCode": "GT",
+    "countryPhone": "+502",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1097,7 +1295,9 @@
     "slug": "belmopan",
     "latitude": 17.251,
     "longitude": -88.759,
-    "countryCode": "BZ"
+    "countryCode": "BZ",
+    "countryPhone": "+501",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1108,7 +1308,9 @@
     "slug": "tegucigalpa",
     "latitude": 14.0723,
     "longitude": -87.1921,
-    "countryCode": "HN"
+    "countryCode": "HN",
+    "countryPhone": "+504",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1119,7 +1321,9 @@
     "slug": "san-salvador",
     "latitude": 13.6929,
     "longitude": -89.2182,
-    "countryCode": "SV"
+    "countryCode": "SV",
+    "countryPhone": "+503",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1130,7 +1334,9 @@
     "slug": "managua",
     "latitude": 12.114,
     "longitude": -86.2362,
-    "countryCode": "NI"
+    "countryCode": "NI",
+    "countryPhone": "+505",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1141,7 +1347,9 @@
     "slug": "san-jose",
     "latitude": 9.9281,
     "longitude": -84.0907,
-    "countryCode": "CR"
+    "countryCode": "CR",
+    "countryPhone": "+506",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1152,7 +1360,9 @@
     "slug": "panama-city",
     "latitude": 8.9824,
     "longitude": -79.5199,
-    "countryCode": "PA"
+    "countryCode": "PA",
+    "countryPhone": "+507",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1163,7 +1373,9 @@
     "slug": "havana",
     "latitude": 23.1136,
     "longitude": -82.3666,
-    "countryCode": "CU"
+    "countryCode": "CU",
+    "countryPhone": "+53",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1174,7 +1386,9 @@
     "slug": "kingston",
     "latitude": 17.9712,
     "longitude": -76.7936,
-    "countryCode": "JM"
+    "countryCode": "JM",
+    "countryPhone": "+1-876",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1185,7 +1399,9 @@
     "slug": "port-au-prince",
     "latitude": 18.5944,
     "longitude": -72.3074,
-    "countryCode": "HT"
+    "countryCode": "HT",
+    "countryPhone": "+509",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1196,7 +1412,9 @@
     "slug": "santo-domingo",
     "latitude": 18.4861,
     "longitude": -69.9312,
-    "countryCode": "DO"
+    "countryCode": "DO",
+    "countryPhone": "+1-809",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1207,7 +1425,9 @@
     "slug": "nassau",
     "latitude": 25.0443,
     "longitude": -77.3504,
-    "countryCode": "BS"
+    "countryCode": "BS",
+    "countryPhone": "+1-242",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1218,7 +1438,9 @@
     "slug": "bridgetown",
     "latitude": 13.0975,
     "longitude": -59.6167,
-    "countryCode": "BB"
+    "countryCode": "BB",
+    "countryPhone": "+1-246",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1229,7 +1451,9 @@
     "slug": "port-of-spain",
     "latitude": 10.6549,
     "longitude": -61.5019,
-    "countryCode": "TT"
+    "countryCode": "TT",
+    "countryPhone": "+1-868",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1240,7 +1464,9 @@
     "slug": "bogota",
     "latitude": 4.711,
     "longitude": -74.0721,
-    "countryCode": "CO"
+    "countryCode": "CO",
+    "countryPhone": "+57",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1251,7 +1477,9 @@
     "slug": "caracas",
     "latitude": 10.4806,
     "longitude": -66.9036,
-    "countryCode": "VE"
+    "countryCode": "VE",
+    "countryPhone": "+58",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1262,7 +1490,9 @@
     "slug": "quito",
     "latitude": -0.1807,
     "longitude": -78.4678,
-    "countryCode": "EC"
+    "countryCode": "EC",
+    "countryPhone": "+593",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1273,7 +1503,9 @@
     "slug": "lima",
     "latitude": -12.0464,
     "longitude": -77.0428,
-    "countryCode": "PE"
+    "countryCode": "PE",
+    "countryPhone": "+51",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1284,7 +1516,9 @@
     "slug": "sucre",
     "latitude": -19.0196,
     "longitude": -65.2619,
-    "countryCode": "BO"
+    "countryCode": "BO",
+    "countryPhone": "+591",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1295,7 +1529,9 @@
     "slug": "santiago",
     "latitude": -33.4489,
     "longitude": -70.6693,
-    "countryCode": "CL"
+    "countryCode": "CL",
+    "countryPhone": "+56",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1306,7 +1542,9 @@
     "slug": "buenos-aires",
     "latitude": -34.6037,
     "longitude": -58.3816,
-    "countryCode": "AR"
+    "countryCode": "AR",
+    "countryPhone": "+54",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1317,7 +1555,9 @@
     "slug": "montevideo",
     "latitude": -34.9011,
     "longitude": -56.1645,
-    "countryCode": "UY"
+    "countryCode": "UY",
+    "countryPhone": "+598",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1328,7 +1568,9 @@
     "slug": "asuncion",
     "latitude": -25.2637,
     "longitude": -57.5759,
-    "countryCode": "PY"
+    "countryCode": "PY",
+    "countryPhone": "+595",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1339,7 +1581,9 @@
     "slug": "brasilia",
     "latitude": -15.7939,
     "longitude": -47.8828,
-    "countryCode": "BR"
+    "countryCode": "BR",
+    "countryPhone": "+55",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1350,7 +1594,9 @@
     "slug": "georgetown",
     "latitude": 6.8013,
     "longitude": -58.1551,
-    "countryCode": "GY"
+    "countryCode": "GY",
+    "countryPhone": "+592",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1361,7 +1607,9 @@
     "slug": "paramaribo",
     "latitude": 5.852,
     "longitude": -55.2038,
-    "countryCode": "SR"
+    "countryCode": "SR",
+    "countryPhone": "+597",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1372,7 +1620,9 @@
     "slug": "porto-novo",
     "latitude": 6.4969,
     "longitude": 2.6289,
-    "countryCode": "BJ"
+    "countryCode": "BJ",
+    "countryPhone": "+229",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1383,7 +1633,9 @@
     "slug": "lome",
     "latitude": 6.1256,
     "longitude": 1.2254,
-    "countryCode": "TG"
+    "countryCode": "TG",
+    "countryPhone": "+228",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1394,7 +1646,9 @@
     "slug": "conakry",
     "latitude": 9.6412,
     "longitude": -13.5784,
-    "countryCode": "GN"
+    "countryCode": "GN",
+    "countryPhone": "+224",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1405,7 +1659,9 @@
     "slug": "bissau",
     "latitude": 11.8817,
     "longitude": -15.617,
-    "countryCode": "GW"
+    "countryCode": "GW",
+    "countryPhone": "+245",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1416,7 +1672,9 @@
     "slug": "freetown",
     "latitude": 8.4657,
     "longitude": -13.2317,
-    "countryCode": "SL"
+    "countryCode": "SL",
+    "countryPhone": "+232",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1427,7 +1685,9 @@
     "slug": "monrovia",
     "latitude": 6.3004,
     "longitude": -10.7969,
-    "countryCode": "LR"
+    "countryCode": "LR",
+    "countryPhone": "+231",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1438,7 +1698,9 @@
     "slug": "banjul",
     "latitude": 13.4549,
     "longitude": -16.579,
-    "countryCode": "GM"
+    "countryCode": "GM",
+    "countryPhone": "+220",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1449,7 +1711,9 @@
     "slug": "praia",
     "latitude": 14.9331,
     "longitude": -23.5133,
-    "countryCode": "CV"
+    "countryCode": "CV",
+    "countryPhone": "+238",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1460,7 +1724,9 @@
     "slug": "sao-tome",
     "latitude": 0.3365,
     "longitude": 6.7273,
-    "countryCode": "ST"
+    "countryCode": "ST",
+    "countryPhone": "+239",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1471,7 +1737,9 @@
     "slug": "malabo",
     "latitude": 3.7523,
     "longitude": 8.7741,
-    "countryCode": "GQ"
+    "countryCode": "GQ",
+    "countryPhone": "+240",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1482,7 +1750,9 @@
     "slug": "bangui",
     "latitude": 4.3947,
     "longitude": 18.5582,
-    "countryCode": "CF"
+    "countryCode": "CF",
+    "countryPhone": "+236",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1493,7 +1763,9 @@
     "slug": "yaounde",
     "latitude": 3.848,
     "longitude": 11.5021,
-    "countryCode": "CM"
+    "countryCode": "CM",
+    "countryPhone": "+237",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1504,7 +1776,9 @@
     "slug": "gitega",
     "latitude": -3.4264,
     "longitude": 29.9308,
-    "countryCode": "BI"
+    "countryCode": "BI",
+    "countryPhone": "+257",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1515,7 +1789,9 @@
     "slug": "lilongwe",
     "latitude": -13.9626,
     "longitude": 33.7741,
-    "countryCode": "MW"
+    "countryCode": "MW",
+    "countryPhone": "+265",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1526,7 +1802,9 @@
     "slug": "maseru",
     "latitude": -29.3151,
     "longitude": 27.4869,
-    "countryCode": "LS"
+    "countryCode": "LS",
+    "countryPhone": "+266",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1537,7 +1815,9 @@
     "slug": "mbabane",
     "latitude": -26.3054,
     "longitude": 31.1367,
-    "countryCode": "SZ"
+    "countryCode": "SZ",
+    "countryPhone": "+268",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1548,7 +1828,9 @@
     "slug": "pretoria",
     "latitude": -25.7479,
     "longitude": 28.2293,
-    "countryCode": "ZA"
+    "countryCode": "ZA",
+    "countryPhone": "+27",
+    "countryImages": ""
   },
   {
     "continent": "africa",
@@ -1559,7 +1841,9 @@
     "slug": "asmara",
     "latitude": 15.3229,
     "longitude": 38.9251,
-    "countryCode": "ER"
+    "countryCode": "ER",
+    "countryPhone": "+291",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -1570,7 +1854,9 @@
     "slug": "andorra-la-vella",
     "latitude": 42.5063,
     "longitude": 1.5218,
-    "countryCode": "AD"
+    "countryCode": "AD",
+    "countryPhone": "+376",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -1581,7 +1867,9 @@
     "slug": "minsk",
     "latitude": 53.9006,
     "longitude": 27.559,
-    "countryCode": "BY"
+    "countryCode": "BY",
+    "countryPhone": "+375",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -1592,7 +1880,9 @@
     "slug": "vaduz",
     "latitude": 47.141,
     "longitude": 9.5209,
-    "countryCode": "LI"
+    "countryCode": "LI",
+    "countryPhone": "+423",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -1603,7 +1893,9 @@
     "slug": "monaco",
     "latitude": 43.7384,
     "longitude": 7.4246,
-    "countryCode": "MC"
+    "countryCode": "MC",
+    "countryPhone": "+377",
+    "countryImages": ""
   },
   {
     "continent": "europe",
@@ -1614,7 +1906,9 @@
     "slug": "san-marino",
     "latitude": 43.9424,
     "longitude": 12.4578,
-    "countryCode": "SM"
+    "countryCode": "SM",
+    "countryPhone": "+378",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1625,7 +1919,9 @@
     "slug": "naypyidaw",
     "latitude": 19.7633,
     "longitude": 96.0785,
-    "countryCode": "MM"
+    "countryCode": "MM",
+    "countryPhone": "+95",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1636,7 +1932,9 @@
     "slug": "sri-jayawardenepura-kotte",
     "latitude": 6.8941,
     "longitude": 79.9025,
-    "countryCode": "LK"
+    "countryCode": "LK",
+    "countryPhone": "+94",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1647,7 +1945,9 @@
     "slug": "male",
     "latitude": 4.1755,
     "longitude": 73.5093,
-    "countryCode": "MV"
+    "countryCode": "MV",
+    "countryPhone": "+960",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1658,7 +1958,9 @@
     "slug": "dili",
     "latitude": -8.5569,
     "longitude": 125.5603,
-    "countryCode": "TL"
+    "countryCode": "TL",
+    "countryPhone": "+670",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1669,7 +1971,9 @@
     "slug": "jerusalem",
     "latitude": 31.7683,
     "longitude": 35.2137,
-    "countryCode": "IL"
+    "countryCode": "IL",
+    "countryPhone": "+972",
+    "countryImages": ""
   },
   {
     "continent": "asia",
@@ -1680,7 +1984,9 @@
     "slug": "taipei",
     "latitude": 25.033,
     "longitude": 121.5654,
-    "countryCode": "TW"
+    "countryCode": "TW",
+    "countryPhone": "+886",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1691,7 +1997,9 @@
     "slug": "saint-johns",
     "latitude": 17.1274,
     "longitude": -61.8468,
-    "countryCode": "AG"
+    "countryCode": "AG",
+    "countryPhone": "+1-268",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1702,7 +2010,9 @@
     "slug": "basseterre",
     "latitude": 17.3026,
     "longitude": -62.7177,
-    "countryCode": "KN"
+    "countryCode": "KN",
+    "countryPhone": "+1-869",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1713,7 +2023,9 @@
     "slug": "roseau",
     "latitude": 15.301,
     "longitude": -61.3881,
-    "countryCode": "DM"
+    "countryCode": "DM",
+    "countryPhone": "+1-767",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1724,7 +2036,9 @@
     "slug": "st-georges",
     "latitude": 12.0561,
     "longitude": -61.7488,
-    "countryCode": "GD"
+    "countryCode": "GD",
+    "countryPhone": "+1-473",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1735,7 +2049,9 @@
     "slug": "castries",
     "latitude": 14.0101,
     "longitude": -60.9875,
-    "countryCode": "LC"
+    "countryCode": "LC",
+    "countryPhone": "+1-758",
+    "countryImages": ""
   },
   {
     "continent": "america",
@@ -1746,6 +2062,8 @@
     "slug": "kingstown",
     "latitude": 13.16,
     "longitude": -61.2248,
-    "countryCode": "VC"
+    "countryCode": "VC",
+    "countryPhone": "+1-784",
+    "countryImages": ""
   }
 ]
