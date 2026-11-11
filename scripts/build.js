@@ -39,20 +39,20 @@ function getHeader(depth = 0, activeKey = '') {
       <span><strong data-i18n="brand_title">Weather Today</strong><small data-i18n="brand_sub">الطقس اليوم</small></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة">
-      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
     <nav class="primary-navigation" id="primary-navigation" aria-label="التنقل الرئيسي">
-      <a href="${rel}" ${activeKey === 'home' ? 'aria-current="page"' : ''} data-i18n="nav_home">الرئيسية</a>
-      <a href="${rel}wilayas/" ${activeKey === 'wilayas' ? 'aria-current="page"' : ''} data-i18n="nav_wilayas">الولايات</a>
-      <a href="${rel}arab-capitals/" ${activeKey === 'capitals' ? 'aria-current="page"' : ''} data-i18n="nav_capitals">العواصم العربية</a>
-      <a href="${rel}world-capitals/" ${activeKey === 'world-capitals' ? 'aria-current="page"' : ''}>عواصم العالم</a>
-      <a href="${rel}world-search/" ${activeKey === 'search' ? 'aria-current="page"' : ''} data-i18n="nav_world_search">بحث عالمي</a>
-      <a href="${rel}map/" ${activeKey === 'map' ? 'aria-current="page"' : ''} data-i18n="nav_map">خريطة الطقس</a>
-      <a href="${rel}climate-observatory/" ${activeKey === 'climate' ? 'aria-current="page"' : ''} data-i18n="nav_climate">المرصد المناخي</a>
-      <a href="${rel}agriculture-weather/" ${activeKey === 'agri' ? 'aria-current="page"' : ''} data-i18n="nav_agri">الطقس الزراعي</a>
-      <a href="${rel}marine/" ${activeKey === 'marine' ? 'aria-current="page"' : ''} data-i18n="nav_marine">الطقس البحري</a>
-      <a href="${rel}alerts/" ${activeKey === 'alerts' ? 'aria-current="page"' : ''} data-i18n="nav_alerts">الإنذارات</a>
-      <a href="${rel}favorites/" ${activeKey === 'favorites' ? 'aria-current="page"' : ''} data-i18n="nav_favorites">المفضلة</a>
+      <a href="${rel}" ${activeKey === 'home' ? 'aria-current="page"' : ''} <i class="fa-solid fa-house" aria-hidden="true"></i><span data-i18n="nav_home">الرئيسية</span></a>
+      <a href="${rel}wilayas/" ${activeKey === 'wilayas' ? 'aria-current="page"' : ''} <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span data-i18n="nav_wilayas">الولايات</span></a>
+      <a href="${rel}arab-capitals/" ${activeKey === 'capitals' ? 'aria-current="page"' : ''} <i class="fa-solid fa-earth-africa" aria-hidden="true"></i><span data-i18n="nav_capitals">العواصم العربية</span></a>
+      <a href="${rel}world-capitals/" ${activeKey === 'world-capitals' ? 'aria-current="page"' : ''}><i class="fa-solid fa-globe" aria-hidden="true"></i><span>عواصم العالم</span></a>
+      <a href="${rel}world-search/" ${activeKey === 'search' ? 'aria-current="page"' : ''} <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span data-i18n="nav_world_search">بحث عالمي</span></a>
+      <a href="${rel}map/" ${activeKey === 'map' ? 'aria-current="page"' : ''} <i class="fa-solid fa-map" aria-hidden="true"></i><span data-i18n="nav_map">خريطة الطقس</span></a>
+      <a href="${rel}climate-observatory/" ${activeKey === 'climate' ? 'aria-current="page"' : ''} <i class="fa-solid fa-chart-line" aria-hidden="true"></i><span data-i18n="nav_climate">المرصد المناخي</span></a>
+      <a href="${rel}agriculture-weather/" ${activeKey === 'agri' ? 'aria-current="page"' : ''} <i class="fa-solid fa-seedling" aria-hidden="true"></i><span data-i18n="nav_agri">الطقس الزراعي</span></a>
+      <a href="${rel}marine/" ${activeKey === 'marine' ? 'aria-current="page"' : ''} <i class="fa-solid fa-water" aria-hidden="true"></i><span data-i18n="nav_marine">الطقس البحري</span></a>
+      <a href="${rel}alerts/" ${activeKey === 'alerts' ? 'aria-current="page"' : ''} <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span data-i18n="nav_alerts">الإنذارات</span></a>
+      <a href="${rel}favorites/" ${activeKey === 'favorites' ? 'aria-current="page"' : ''} <i class="fa-solid fa-star" aria-hidden="true"></i><span data-i18n="nav_favorites">المفضلة</span></a>
     </nav>
     <div class="header-actions">
       <!-- Language Switcher -->
@@ -64,8 +64,8 @@ function getHeader(depth = 0, activeKey = '') {
       <button class="icon-button" type="button" data-action="theme" aria-label="تبديل الوضع الليلي" title="تبديل المظهر">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z" fill="currentColor"/></svg>
       </button>
-      <button class="action-button" type="button" data-action="share" data-i18n="share">مشاركة</button>
-      <button class="action-button install-btn" type="button" data-action="install" data-i18n="install" style="display:none;">تثبيت</button>
+      <button class="action-button" type="button" data-action="share"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span data-i18n="share">مشاركة</span></button>
+      <button class="action-button install-btn" type="button" data-action="install" style="display:none;"><i class="fa-solid fa-download" aria-hidden="true"></i><span data-i18n="install">تثبيت</span></button>
     </div>
   </header>`;
 }
@@ -83,13 +83,13 @@ function getFooter(depth = 0) {
         <p>منصتك لمتابعة الطقس والتوقعات الجوية في الجزائر والوطن العربي والعالم.</p>
       </div>
       <nav class="footer-links" aria-label="روابط الموقع">
-        <a href="${rel}"><span class="footer-link-icon" data-icon="nav_home" aria-hidden="true"></span> الرئيسية</a>
-        <a href="${rel}wilayas/"><span class="footer-link-icon" data-icon="nav_wilayas" aria-hidden="true"></span> الولايات</a>
-        <a href="${rel}world-capitals/">عواصم العالم</a>
-        <a href="${rel}world-search/"><span class="footer-link-icon" data-icon="nav_world_search" aria-hidden="true"></span> البحث العالمي</a>
-        <a href="${rel}map/"><span class="footer-link-icon" data-icon="nav_map" aria-hidden="true"></span> خريطة الطقس</a>
-        <a href="${rel}alerts/"><span class="footer-link-icon" data-icon="nav_alerts" aria-hidden="true"></span> الإنذارات</a>
-        <a href="${rel}favorites/"><span class="footer-link-icon" data-icon="nav_favorites" aria-hidden="true"></span> المفضلة</a>
+        <a href="${rel}"><i class="fa-solid fa-house" aria-hidden="true"></i> الرئيسية</a>
+        <a href="${rel}wilayas/"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> الولايات</a>
+        <a href="${rel}world-capitals/"><i class="fa-solid fa-globe" aria-hidden="true"></i><span>عواصم العالم</span></a>
+        <a href="${rel}world-search/"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> البحث العالمي</a>
+        <a href="${rel}map/"><i class="fa-solid fa-map" aria-hidden="true"></i> خريطة الطقس</a>
+        <a href="${rel}alerts/"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> الإنذارات</a>
+        <a href="${rel}favorites/"><i class="fa-solid fa-star" aria-hidden="true"></i> المفضلة</a>
       </nav>
       <div class="footer-bottom">
         <span>بيانات الطقس: Open-Meteo · خرائط الأساس: OpenStreetMap</span>
@@ -156,8 +156,8 @@ cities.forEach((city) => {
         <h1>طقس <em>${city.name}</em></h1>
         <p>الاسم الفرنسي: ${city.name_fr || ''} · الاسم الإنجليزي: ${city.name_en || ''}</p>
         <div class="hero-actions">
-          <a class="button button-secondary" href="../../wilayas/">دليل الولايات</a>
-          <button class="button button-primary" id="favorite-toggle" type="button" aria-pressed="false" data-i18n="add_favorite">☆ أضف للمفضلة</button>
+          <a class="button button-secondary" href="../../wilayas/"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span>دليل الولايات</span></a>
+          <button class="button button-primary" id="favorite-toggle" type="button" aria-pressed="false"><i class="fa-solid fa-star" aria-hidden="true"></i><span data-i18n="add_favorite">أضف للمفضلة</span></button>
         </div>
       </div>
       <aside class="hero-note">
@@ -177,7 +177,7 @@ cities.forEach((city) => {
       <div id="weather-status" class="weather-status" role="status" aria-live="polite">جارٍ جلب بيانات الطقس المحدثة…</div>
       <div id="weather-current" class="weather-current" hidden></div>
       <div class="weather-actions">
-        <button id="weather-refresh" class="button button-secondary" type="button" data-i18n="refresh">تحديث القراءة</button>
+        <button id="weather-refresh" class="button button-secondary" type="button"><i class="fa-solid fa-rotate" aria-hidden="true"></i><span data-i18n="refresh">تحديث القراءة</span></button>
         <span id="weather-source" class="weather-source">المصدر: Open-Meteo Global API</span>
       </div>
     </section>
@@ -685,7 +685,7 @@ directoryConfig.forEach((cfg) => {
         <p>تابع حالة الطقس الحالية والتوقعات الساعية والأسبوعية لمدينتك حول العالم، مع تحديد موقعك عبر GPS وتغطية 69 ولاية جزائرية و22 عاصمة عربية و145 عاصمة عالمية.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="./wilayas/" data-i18n="explore_wilayas">استكشف الولايات الـ 69 <span aria-hidden="true">←</span></a>
-          <a class="button button-secondary" href="./world-search/" data-i18n="nav_world_search">بحث عالمي</a>
+          <a class="button button-secondary" href="./world-search/" <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span data-i18n="nav_world_search">بحث عالمي</span></a>
           <button class="button button-secondary" type="button" data-action="install" data-i18n="install">تثبيت التطبيق</button>
         </div>
       </div>
@@ -695,7 +695,7 @@ directoryConfig.forEach((cfg) => {
         <input id="hero-global-city-search" type="search" placeholder="مثال: وهران، الجزائر، القاهرة، Paris..." autocomplete="off" class="directory-search-input">
         <div id="city-search-results" class="city-search-panel" hidden></div>
         <div class="note-divider"></div>
-        <button id="location-quick" class="button button-secondary" type="button" style="width:100%;">استخدم موقعي الحالي</button>
+        <button id="location-quick" class="button button-secondary" type="button" style="width:100%;"><i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i><span>استخدم موقعي الحالي</span></button>
         <div id="location-prompt" class="location-prompt" hidden><span class="location-prompt__icon" aria-hidden="true">⌖</span><div><strong>طقس منطقتك بدقة</strong><p>اسمح باستخدام موقعك لعرض حالة الطقس وفق إحداثياتك الحالية.</p></div></div>
         <p id="location-feedback" class="location-feedback" role="status" aria-live="polite"></p>
         <p id="location-error" class="location-error" hidden></p>
