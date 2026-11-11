@@ -156,8 +156,8 @@ cities.forEach((city) => {
         <h1>طقس <em>${city.name}</em></h1>
         <p>الاسم الفرنسي: ${city.name_fr || ''} · الاسم الإنجليزي: ${city.name_en || ''}</p>
         <div class="hero-actions">
-          <a class="button button-secondary" href="../../wilayas/">دليل الولايات</a>
-          <button class="button button-primary" id="favorite-toggle" type="button" aria-pressed="false" data-i18n="add_favorite">☆ أضف للمفضلة</button>
+          <a class="button button-secondary" href="../../wilayas/"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span>دليل الولايات</span></a>
+          <button class="button button-primary" id="favorite-toggle" type="button" aria-pressed="false"><i class="fa-solid fa-star" aria-hidden="true"></i><span data-i18n="add_favorite">أضف للمفضلة</span></button>
         </div>
       </div>
       <aside class="hero-note">
@@ -177,7 +177,7 @@ cities.forEach((city) => {
       <div id="weather-status" class="weather-status" role="status" aria-live="polite">جارٍ جلب بيانات الطقس المحدثة…</div>
       <div id="weather-current" class="weather-current" hidden></div>
       <div class="weather-actions">
-        <button id="weather-refresh" class="button button-secondary" type="button" data-i18n="refresh">تحديث القراءة</button>
+        <button id="weather-refresh" class="button button-secondary" type="button"><i class="fa-solid fa-rotate" aria-hidden="true"></i><span data-i18n="refresh">تحديث القراءة</span></button>
         <span id="weather-source" class="weather-source">المصدر: Open-Meteo Global API</span>
       </div>
     </section>
@@ -695,7 +695,7 @@ directoryConfig.forEach((cfg) => {
         <input id="hero-global-city-search" type="search" placeholder="مثال: وهران، الجزائر، القاهرة، Paris..." autocomplete="off" class="directory-search-input">
         <div id="city-search-results" class="city-search-panel" hidden></div>
         <div class="note-divider"></div>
-        <button id="location-quick" class="button button-secondary" type="button" style="width:100%;">استخدم موقعي الحالي</button>
+        <button id="location-quick" class="button button-secondary" type="button" style="width:100%;"><i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i><span>استخدم موقعي الحالي</span></button>
         <div id="location-prompt" class="location-prompt" hidden><span class="location-prompt__icon" aria-hidden="true">⌖</span><div><strong>طقس منطقتك بدقة</strong><p>اسمح باستخدام موقعك لعرض حالة الطقس وفق إحداثياتك الحالية.</p></div></div>
         <p id="location-feedback" class="location-feedback" role="status" aria-live="polite"></p>
         <p id="location-error" class="location-error" hidden></p>
