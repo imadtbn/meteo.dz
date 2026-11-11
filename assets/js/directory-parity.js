@@ -1,4 +1,4 @@
-import { createPlaceIllustration, wilayaScene, capitalScene, countryFlag } from "./place-illustration.js";
+import { countryFlag } from "./place-illustration.js";
 
 const kind = document.body.dataset.page;
 const root = document.querySelector("#page-content");
@@ -11,25 +11,49 @@ const normalize = value => String(value ?? "").normalize("NFKD").toLocaleLowerCa
   .replace(/ة/g,"ه").replace(/[\u0300-\u036f]/g,"").trim().replace(/\s+/g," ");
 const setStatus = message => { status.hidden = !message; status.textContent = message || ""; };
 const setCount = message => { count.textContent = message || ""; };
-const makeCard = ({ href, label, scene, badge, meta, title }) => {
+const makeCard = ({ href, label, meta, title, image, imageAlt, phone }) => {
   const link = document.createElement("a");
-  link.className = "directory-card directory-card--visual";
+  link.className = "directory-card directory-card--unified";
   link.href = href;
   link.setAttribute("aria-label", label);
-  link.append(createPlaceIllustration(scene, title, badge));
+  const media = document.createElement("span");
+  media.className = "directory-card__media";
+  if (typeof image === "string" && /^https?:\/\//i.test(image.trim())) {
+    const photo = document.createElement("img");
+    photo.className = "directory-card__photo";
+    photo.src = image.trim();
+    photo.alt = imageAlt || title;
+    photo.loading = "lazy";
+    photo.decoding = "async";
+    photo.referrerPolicy = "no-referrer";
+    photo.addEventListener("error", () => { photo.remove(); media.classList.add("is-photo-missing"); }, { once: true });
+    media.append(photo);
+  } else {
+    media.classList.add("is-photo-missing");
+    const placeholder = document.createElement("span");
+    placeholder.className = "directory-card__photo-placeholder";
+    placeholder.textContent = "تُضاف صورة المدينة لاحقاً";
+    media.append(placeholder);
+  }
   const body = document.createElement("span");
   body.className = "directory-card__body";
   const metadata = document.createElement("span");
   metadata.className = "directory-card__meta";
-  metadata.textContent = meta;
+  metadata.textContent = meta || "";
   const heading = document.createElement("strong");
   heading.className = "directory-card__title";
   heading.textContent = title;
+  const phoneLine = document.createElement("span");
+  phoneLine.className = "directory-card__phone";
+  phoneLine.dir = "ltr";
+  phoneLine.textContent = phone ? " " + phone : "";
   const action = document.createElement("span");
   action.className = "directory-card__action";
-  action.textContent = "عرض نشرة الطقس ←";
-  body.append(metadata, heading, action);
-  link.append(body);
+  action.textContent = "عرض الطقس";
+  body.append(metadata, heading);
+  if (phone) body.append(phoneLine);
+  body.append(action);
+  link.append(media, body);
   return link;
 };
 
@@ -54,28 +78,30 @@ if (kind === "wilayas" || kind === "arab-capitals") {
       grid.replaceChildren(...rows.map(city => makeCard({
         href:"../weather/"+encodeURIComponent(city.slug)+"/",
         label:"عرض نشرة الطقس في "+city.name,
-        scene:wilayaScene(city.region,city.coastal),
-        badge:"ولاية "+city.code,
-        meta:city.code+" · "+city.region,
-        title:city.name
+        meta:"ولاية "+city.code+" · "+city.region,
+        title:city.name,
+        image:city.countryImages,
+        imageAlt:"صورة فوتوغرافية لمدينة "+city.name,
+        phone:city.countryPhone
       })));
       setCount(rows.length+" ولاية مطابقة من أصل "+cities.length);
-      setStatus(rows.length ? "الرسومات رمزية مستوحاة من طبيعة المنطقة وليست صوراً فوتوغرافية." : "لا توجد ولاية مطابقة لهذا البحث.");
+      setStatus(rows.length ? "صور المدن الفوتوغرافية تُضاف يدوياً عبر بيانات countryImages." : "لا توجد ولاية مطابقة لهذا البحث.");
     } else {
       const rows = capitals.filter(city => normalize([city.country,city.capital,city.englishName].join(" ")).includes(query));
       grid.replaceChildren(...rows.map(city => {
         const card = makeCard({
           href:"../global-weather/?lat="+encodeURIComponent(city.latitude)+"&lon="+encodeURIComponent(city.longitude)+"&name="+encodeURIComponent(city.capital),
           label:"عرض الطقس في "+city.capital,
-          scene:capitalScene(city.slug),
-          badge:city.englishName,
-          meta:countryFlag(city.country)+" · "+city.country,
-          title:city.capital
+            meta:countryFlag(city.countryCode)+" · "+city.country,
+          title:city.capital,
+          image:city.countryImages,
+          imageAlt:"صورة فوتوغرافية لمدينة "+city.capital,
+          phone:city.countryPhone
         });
         return card;
       }));
       setCount(rows.length+" عاصمة مطابقة من أصل "+capitals.length);
-      setStatus(rows.length ? "الأعلام والرسومات رمزية؛ بيانات الموقع مرتبطة بإحداثيات العاصمة." : "لا توجد عاصمة مطابقة لهذا البحث.");
+      setStatus(rows.length ? "صور العواصم الفوتوغرافية تُضاف يدوياً عبر بيانات countryImages." : "لا توجد عاصمة مطابقة لهذا البحث.");
     }
   };
   input.addEventListener("input",render);
@@ -152,10 +178,11 @@ if (kind === "world-capitals") {
         href: "../global-weather/?lat=" + encodeURIComponent(city.latitude) +
           "&lon=" + encodeURIComponent(city.longitude) + "&name=" + encodeURIComponent(city.capital),
         label: "عرض الطقس في " + city.capital + "، " + city.country,
-        scene: sceneFor(city.continent),
-        badge: city.englishName,
-        meta: flagFromCode(city.countryCode) + " · الدولة: " + city.country,
-        title: "العاصمة: " + city.capital
+        meta: flagFromCode(city.countryCode) + " · " + city.country,
+        title: city.capital,
+        image: city.countryImages,
+        imageAlt: "صورة فوتوغرافية لعاصمة " + city.country + "، " + city.capital,
+        phone: city.countryPhone
       });
       return card;
     }));
@@ -163,7 +190,7 @@ if (kind === "world-capitals") {
       (continents.find(item => item[0] === activeContinent)?.[1] || "القارة المختارة");
     setCount(rows.length + " عاصمة · " + label + " · من أصل " + worldCapitals.length);
     setStatus(rows.length
-      ? "اختر العاصمة لعرض الطقس الحالي والتوقعات الساعية والأسبوعية."
+      ? "صور العواصم الفوتوغرافية تُضاف يدوياً عبر بيانات countryImages. اختر العاصمة لعرض الطقس الحالي والتوقعات."
       : "لا توجد عاصمة مطابقة. جرّب البحث باسم الدولة أو بالاسم الإنجليزي.");
   };
 
