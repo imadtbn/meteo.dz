@@ -5,7 +5,7 @@
  * their local modules/styles/data remain available offline.
  */
 const CACHE_PREFIX = "weather-today-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v18";
+const CACHE_NAME = CACHE_PREFIX + "v19";
 
 const STATIC_ASSETS = [
   "./",
