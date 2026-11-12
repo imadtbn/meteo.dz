@@ -913,15 +913,15 @@ console.log('Build completed successfully!');
     if (headAtForTracking >= 0) {
       let trackingMarkup = '';
       if (!html.includes('google-site-verification')) {
-        trackingMarkup += '  <meta name="google-site-verification" content="f5Xi4oFx0v5dN6iPZd9qCw-7vnc3vIbAeYF9jr4vwVM">\\n';
+        trackingMarkup += '  <meta name="google-site-verification" content="f5Xi4oFx0v5dN6iPZd9qCw-7vnc3vIbAeYF9jr4vwVM">\n';
       }
       if (!html.includes('GTM-NR5JGQ36')) {
-        trackingMarkup += '  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NR5JGQ36"></script>\\n' +
-          '  <script>\\n' +
-          '    window.dataLayer = window.dataLayer || [];\\n' +
-          '    function gtag(){dataLayer.push(arguments); }\\n' +
-          "    gtag('js', new Date());\\n" +
-          '  </script>\\n';
+        trackingMarkup += '  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NR5JGQ36"></script>\n' +
+          '  <script>\n' +
+          '    window.dataLayer = window.dataLayer || [];\n' +
+          '    function gtag(){dataLayer.push(arguments); }\n' +
+          "    gtag('js', new Date());\n" +
+          '  </script>\n';
       }
       if (trackingMarkup) {
         html = html.slice(0, headAtForTracking) + trackingMarkup + html.slice(headAtForTracking);
