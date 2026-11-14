@@ -4,7 +4,18 @@ const kind = document.body.dataset.page;
 const root = document.querySelector("#page-content");
 const count = document.querySelector("#page-count");
 const status = document.querySelector("#page-status");
-const cities = JSON.parse(document.querySelector("#city-data")?.textContent || "[]");
+let cities = JSON.parse(document.querySelector("#city-data")?.textContent || "[]");
+if (kind === "wilayas") {
+  try {
+    const response = await fetch(new URL("../../data/cities.json", import.meta.url), { cache: "no-cache" });
+    if (response.ok) {
+      const latestCities = await response.json();
+      if (Array.isArray(latestCities)) cities = latestCities;
+    }
+  } catch (error) {
+    console.warn("تعذر تحميل بيانات الولايات المحدثة، سيتم استخدام البيانات المضمنة.", error);
+  }
+}
 if (["wilayas","arab-capitals","world-capitals"].includes(kind) && root) {
   root.classList.remove("feature-grid");
   root.classList.add("directory-page-content");
@@ -24,10 +35,21 @@ const makeCard = ({ href, label, meta, title, image, imageAlt, phone }) => {
   link.setAttribute("aria-label", label);
   const media = document.createElement("span");
   media.className = "directory-card__media";
-  if (typeof image === "string" && /^https?:\/\//i.test(image.trim())) {
+  if (typeof image === "string" && image.trim()) {
     const photo = document.createElement("img");
     photo.className = "directory-card__photo";
-    photo.src = image.trim();
+    try {
+      const imageUrl = new URL(image.trim(), document.baseURI);
+      if (!["http:", "https:"].includes(imageUrl.protocol)) throw new Error("Unsupported image URL");
+      photo.src = imageUrl.href;
+    } catch {
+      media.classList.add("is-photo-missing");
+      const placeholder = document.createElement("span");
+      placeholder.className = "directory-card__photo-placeholder";
+      placeholder.textContent = "تعذر تحميل صورة المدينة";
+      media.append(placeholder);
+      return link;
+    }
     photo.alt = imageAlt || title;
     photo.loading = "lazy";
     photo.decoding = "async";
