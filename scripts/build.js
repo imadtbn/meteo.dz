@@ -871,15 +871,68 @@ directoryConfig.forEach((cfg) => {
 
 console.log('Build completed successfully!');
 
-// Generate crawlable sitemap and robots.txt for the GitHub Pages project URL.
+// Generate a canonical sitemap and an unrestricted robots.txt for GitHub Pages.
 {
   const siteBase = 'https://imadtbn.github.io/weather-today';
-  const routes = ['/', '/wilayas/', '/arab-capitals/', '/world-capitals/', '/world-search/', '/map/', '/climate-observatory/', '/agriculture-weather/', '/alerts/', '/favorites/', '/marine/', '/global-weather/'];
-  const urls = [...routes, ...cities.map(city => '/weather/' + city.slug + '/')];
+  const staticRoutes = [
+    '/',
+    '/wilayas/',
+    '/arab-capitals/',
+    '/world-capitals/',
+    '/world-search/',
+    '/map/',
+    '/climate-observatory/',
+    '/agriculture-weather/',
+    '/alerts/',
+    '/favorites/',
+    '/marine/',
+    '/global-weather/'
+  ];
+
+  // Individual Algerian wilaya pages are statically generated at /weather/{slug}/.
+  // Arab and world capitals are exposed through their dedicated, crawlable directory
+  // pages; their weather cards use query-driven global-weather URLs that share one
+  // canonical page, so those duplicate query variants are intentionally excluded.
+  if (cities.length !== 69) {
+    throw new Error('Sitemap expects 69 Algerian wilayas; found ' + cities.length);
+  }
+  if (capitals.length !== 22) {
+    throw new Error('Sitemap expects 22 Arab capitals; found ' + capitals.length);
+  }
+
+  const routes = [...new Set([
+    ...staticRoutes,
+    ...cities.map(city => '/weather/' + city.slug + '/')
+  ])];
   const today = new Date().toISOString().slice(0, 10);
-  const entries = urls.map(route => '  <url><loc>' + siteBase + route + '</loc><lastmod>' + today + '</lastmod></url>').join('\n');
-  fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + entries + '\n</urlset>\n', 'utf8');
-  fs.writeFileSync(path.join(rootDir, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: ' + siteBase + '/sitemap.xml\n', 'utf8');
+  const escapeXml = value => String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+
+  const entries = routes.map(route =>
+    '  <url>\n    <loc>' + escapeXml(siteBase + route) + '</loc>\n' +
+    '    <lastmod>' + today + '</lastmod>\n  </url>'
+  ).join('\n');
+
+  const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    entries + '\n</urlset>\n';
+
+  fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), sitemap, 'utf8');
+  fs.writeFileSync(
+    path.join(rootDir, 'robots.txt'),
+    '# Allow all compliant search-engine crawlers to access the public site.\n' +
+    'User-agent: *\n' +
+    'Allow: /\n\n' +
+    'Sitemap: ' + siteBase + '/sitemap.xml\n',
+    'utf8'
+  );
+  console.log('Generated sitemap with ' + routes.length +
+    ' canonical URLs: ' + cities.length + ' wilaya pages, 22 Arab capitals ' +
+    'and the Arab/world directory pages.');
 }
 
 
